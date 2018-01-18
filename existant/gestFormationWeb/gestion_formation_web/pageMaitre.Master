@@ -1,0 +1,34 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="pageMaitre.master.cs" Inherits="gestion_formation_web.pageMaitre" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+       <link href="Style.css" rel="stylesheet" type="text/css" />
+       <link href="css/jquery-ui.css" rel="stylesheet" type="text/css" />
+       <link href="css/style-jquery.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+ 
+
+</head>
+<body>
+    <form id="form1" runat="server" >
+    <div class="FramePrincipal ">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+    <script type="text/javascript" src="js/scriptFin.js">
+
+    </script>
+
+</body>
+</html>

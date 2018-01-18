@@ -1,0 +1,52 @@
+﻿body {
+margin:0;
+    
+}
+
+        .auto-style1 {
+            width: 100%;
+        }
+
+.titre1 {
+    font-size:16pt;
+    color:blue;
+    font-weight:bold;
+    text-align:center;
+    float:left;
+    clear:left;
+    padding-left:30%;
+}
+
+.titre2 {
+    font-size: 13pt;
+    color: brown;
+    font-weight: bolder;
+    float:left;
+    clear:left;
+}
+
+.PetitBloc {
+    width:35%;
+    float:left;
+}
+
+.FramePrincipal {
+  margin-left: auto;
+  margin-right: auto;
+      width:80%;
+      left: 7%; 
+      position:absolute;
+}
+
+.datepicker{
+    width:80px;
+}
+
+        #Button1 {
+            z-index: 1;
+            left: 63px;
+            top: 470px;
+            position: absolute;
+        }
+        #btnAjoutFormation {
+}

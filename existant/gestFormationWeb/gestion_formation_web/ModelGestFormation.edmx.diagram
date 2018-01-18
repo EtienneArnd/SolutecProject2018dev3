@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6f8325c45b5e47e2baed4951d6a905d5" Name="Diagram1" ZoomLevel="77">
+        <EntityTypeShape EntityType="gest_formationModel.bilan_formation" Width="1.5" PointX="10.5" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="gest_formationModel.categorie" Width="1.5" PointX="1.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gest_formationModel.cursus" Width="1.5" PointX="0.75" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="gest_formationModel.equipement" Width="1.5" PointX="5.25" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="gest_formationModel.formateur" Width="1.5" PointX="5.25" PointY="21.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="gest_formationModel.formateur_session_formation" Width="1.5" PointX="7.5" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="gest_formationModel.formation" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="gest_formationModel.formation_cursus" Width="1.5" PointX="3" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="gest_formationModel.identificateur" Width="1.5" PointX="3" PointY="20.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="gest_formationModel.salle" Width="1.5" PointX="3" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="gest_formationModel.session_cursus" Width="1.5" PointX="3" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="gest_formationModel.session_formation" Width="1.5" PointX="5.25" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="gest_formationModel.societe" Width="1.5" PointX="3" PointY="23.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="gest_formationModel.stagiaire" Width="1.5" PointX="8.25" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="gest_formationModel.stagiaire_session_formation" Width="1.5" PointX="13.5" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="gest_formationModel.theme" Width="1.5" PointX="1.5" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="gest_formationModel.theme_formateur" Width="1.5" PointX="10.5" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="gest_formationModel.ville" Width="1.5" PointX="0.75" PointY="23.75" IsExpanded="true" />
+        <AssociationConnector Association="gest_formationModel.FK_bilan_formation_id_formateur" ManuallyRouted="false" />
+        <AssociationConnector Association="gest_formationModel.FK_bilan_formation_id_session_formation" ManuallyRouted="false" />
+        <AssociationConnector Association="gest_formationModel.FK_bilan_formation_id_stagiaire" ManuallyRouted="false" />
+        <AssociationConnector Association="gest_formationModel.FK_theme_id_categorie" ManuallyRouted="false" />
+        <AssociationConnector Association="gest_formationModel.FK_formation_cursus_id_cursus" ManuallyRouted="false" />
+        <AssociationConnector Association="gest_formationModel.FK_session_cursus_id_cursus" ManuallyRouted="false" />
+        <AssociationConnector Association="gest_formationModel.FK_equipement_id_salle" ManuallyRouted="false" />
+        <AssociationConnector Association="gest_formationModel.FK_formateur_id_identificateur" ManuallyRouted="false" />
+        <AssociationConnector Association="gest_formationModel.FK_formateur_id_societe" ManuallyRouted="false" />
+        <AssociationConnector Association="gest_formationModel.FK_formateur_id_ville" ManuallyRouted="false" />
+        <AssociationConnector Association="gest_formationModel.FK_formateur_session_formation_id_formateur" ManuallyRouted="false" />
+        <AssociationConnector Association="gest_formationModel.FK_theme_formateur_id_formateur" ManuallyRouted="false" />
+        <AssociationConnector Association="gest_formationModel.FK_formateur_session_formation_id_session_formation" ManuallyRouted="false" />
+        <AssociationConnector Association="gest_formationModel.FK_formation_cursus_id_formation" ManuallyRouted="false" />
+        <AssociationConnector Association="gest_formationModel.FK_formation_id_theme" ManuallyRouted="false" />
+        <AssociationConnector Association="gest_formationModel.FK_session_formation_id_formation" ManuallyRouted="false" />
+        <AssociationConnector Association="gest_formationModel.FK_stagiaire_id_identificateur" ManuallyRouted="false" />
+        <AssociationConnector Association="gest_formationModel.FK_session_formation_id_salle" ManuallyRouted="false" />
+        <AssociationConnector Association="gest_formationModel.FK_session_formation_id_session_cursus" ManuallyRouted="false" />
+        <AssociationConnector Association="gest_formationModel.FK_stagiaire_session_formation_id_session_formation" ManuallyRouted="false" />
+        <AssociationConnector Association="gest_formationModel.FK_societe_id_ville" ManuallyRouted="false" />
+        <AssociationConnector Association="gest_formationModel.FK_stagiaire_id_societe" ManuallyRouted="false" />
+        <AssociationConnector Association="gest_formationModel.FK_stagiaire_session_formation_id_stagiaire" ManuallyRouted="false" />
+        <AssociationConnector Association="gest_formationModel.FK_theme_formateur_id_theme" ManuallyRouted="false" />
+        <AssociationConnector Association="gest_formationModel.stagiaire_session_cursus" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
