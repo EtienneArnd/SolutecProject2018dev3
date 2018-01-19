@@ -4,7 +4,7 @@
 	$cfg['Servers'][$i]['verbose'] = 'MySQL-GestionFormation';
 	$cfg['Servers'][$i]['connect_type'] = 'tcp';
 	$cfg['Servers'][$i]['host'] = '192.168.1.45';
-	$cfg['Servers'][$i]['port'] = $wampConf['mysqlPortUsed'];
+	$cfg['Servers'][$i]['port'] = '3306';
 	$cfg['Servers'][$i]['extension'] = 'mysqli';
 	$cfg['Servers'][$i]['auth_type'] = 'cookie';
 	$cfg['Servers'][$i]['user'] = '';
