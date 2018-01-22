@@ -11,9 +11,11 @@ namespace gestion_formation_web
     public partial class DetailsSessionFormation : System.Web.UI.Page
     {
         protected int idSessionFormation;
+        private string previous;
         protected void Page_Load(object sender, EventArgs e)
         {
             String id = Request["idSessionFormation"];
+            previous = Request[""];
             if (String.IsNullOrEmpty(id))
             {
                 Response.Write("Page mal appelée : id session formation requis");

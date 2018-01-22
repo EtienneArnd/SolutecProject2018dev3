@@ -42,6 +42,10 @@ namespace gestion_formation_web.dto
             dao.Dao.Update();
         }
 
+        public String GetIdCursus(){
+            return null;
+        }
+
         internal static void Add(session_cursus sessionCursus)
         {
             dao.DaoSessionCursus.Add(sessionCursus);
