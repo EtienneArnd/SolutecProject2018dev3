@@ -33,24 +33,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <PublishDatabaseSettings>
-      <Objects>
-        <ObjectGroup Name="gest_formationEntities-Déploiement" Order="1">
-          <Destination Path="" />
-          <Object Type="DbFullSql">
-            <PreSource Path="server=192.168.1.45%3buser id=esic%3bpassword=esic%3bdatabase=gest_form%3bpersistsecurityinfo=True" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
-            <Source Path="obj\Debug\AutoScripts\gest_formationEntities-Déploiement_SchemaOnly.sql" Transacted="True" />
-          </Object>
-        </ObjectGroup>
-        <ObjectGroup Name="gest_formationEntities1-Déploiement" Order="2">
-          <Destination Path="" />
-          <Object Type="DbFullSql">
-            <PreSource Path="server=192.168.1.45%3buser id=esic%3bpassword=esic%3bdatabase=gest_form%3bpersistsecurityinfo=True" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
-            <Source Path="obj\Debug\AutoScripts\gest_formationEntities1-Déploiement_SchemaOnly.sql" Transacted="True" />
-          </Object>
-        </ObjectGroup>
-      </Objects>
-    </PublishDatabaseSettings>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -74,15 +56,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="MySql.Data, Version=6.9.10.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.Data.6.9.10\lib\net45\MySql.Data.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.10.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="MySql.Data.Entity, Version=6.9.10.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
-    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.10.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.Data.Entity.6.9.10\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -145,20 +120,59 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="Style.css" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="bilan_eval_environnement.cs">
+      <DependentUpon>ModelGestFormation.tt</DependentUpon>
+    </Compile>
+    <Compile Include="bilan_eval_formateur.cs">
+      <DependentUpon>ModelGestFormation.tt</DependentUpon>
+    </Compile>
+    <Compile Include="bilan_eval_formation.cs">
+      <DependentUpon>ModelGestFormation.tt</DependentUpon>
+    </Compile>
     <Compile Include="bilan_formation.cs">
       <DependentUpon>ModelGestFormation.tt</DependentUpon>
     </Compile>
+    <Compile Include="bilan_pointvue_formateur.cs">
+      <DependentUpon>ModelGestFormation.tt</DependentUpon>
+    </Compile>
     <Compile Include="categorie.cs">
+      <DependentUpon>ModelGestFormation.tt</DependentUpon>
+    </Compile>
+    <Compile Include="contact.cs">
       <DependentUpon>ModelGestFormation.tt</DependentUpon>
     </Compile>
     <Compile Include="cursus.cs">
       <DependentUpon>ModelGestFormation.tt</DependentUpon>
     </Compile>
     <Compile Include="dao\Dao.cs" />
+    <Compile Include="dao\DaoBilanEvalEnvironnement.cs" />
+    <Compile Include="dao\DaoBilanEvalFormateur.cs" />
+    <Compile Include="dao\DaoBilanEvalFormation.cs" />
+    <Compile Include="dao\DaoBilanFormation.cs" />
+    <Compile Include="dao\DaoBilanPointVueFormateur.cs" />
+    <Compile Include="dao\DaoCategorie.cs" />
+    <Compile Include="dao\DaoContact.cs" />
+    <Compile Include="dao\DaoEquipement.cs" />
     <Compile Include="dao\DaoFormateur.cs" />
+    <Compile Include="dao\DaoFormateurSessionFormation.cs" />
+    <Compile Include="dao\DaoFormationCursus.cs" />
+    <Compile Include="dao\DaoIdentificateur.cs" />
+    <Compile Include="dao\DaoPersonnel.cs" />
+    <Compile Include="dao\DaoSalle.cs" />
+    <Compile Include="dao\DaoSite.cs" />
+    <Compile Include="dao\DaoSociete.cs" />
+    <Compile Include="dao\DaoStagiaire.cs" />
+    <Compile Include="dao\DaoStagiaireSessionCursus.cs" />
+    <Compile Include="dao\DaoStagiaireSessionFormation.cs" />
+    <Compile Include="dao\DaoSuivi.cs" />
+    <Compile Include="dao\DaoTheme.cs" />
+    <Compile Include="dao\DaoThemeFormateur.cs" />
+    <Compile Include="dao\DaoVille.cs" />
     <Compile Include="DetailsCursus.aspx.cs">
       <DependentUpon>DetailsCursus.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -173,8 +187,16 @@
     <Compile Include="DetailsSessionFormation.aspx.designer.cs">
       <DependentUpon>DetailsSessionFormation.aspx</DependentUpon>
     </Compile>
-    <Compile Include="dto\CoupletNomValeur.cs" />
+    <Compile Include="dto\DtoBilanPointVueFormateur.cs" />
+    <Compile Include="dto\DtoBilanEvalEnvironnement.cs" />
+    <Compile Include="dto\DtoBilanEvalFormateur.cs" />
+    <Compile Include="dto\DtoBilanEvalFormation.cs" />
+    <Compile Include="dto\DtoBilanFormation.cs" />
+    <Compile Include="dto\DtoCategories.cs" />
+    <Compile Include="dto\DtoContact.cs" />
+    <Compile Include="dto\DtoEquipement.cs" />
     <Compile Include="dto\DtoFormateur.cs" />
+    <Compile Include="dto\DtoIdentificateur.cs" />
     <Compile Include="dto\DtoFormation.cs" />
     <Compile Include="dao\DaoFormation.cs" />
     <Compile Include="dao\DaoCursus.cs" />
@@ -188,8 +210,15 @@
       <DependentUpon>DetailsSessionCursus.aspx</DependentUpon>
     </Compile>
     <Compile Include="dto\DtoCursus.cs" />
+    <Compile Include="dto\DtoPersonnel.cs" />
+    <Compile Include="dto\DtoSalle.cs" />
     <Compile Include="dto\DtoSessionFormation.cs" />
     <Compile Include="dto\DtoSessionCursus.cs" />
+    <Compile Include="dto\DtoSite.cs" />
+    <Compile Include="dto\DtoSociete.cs" />
+    <Compile Include="dto\DtoStagiaire.cs" />
+    <Compile Include="dto\DtoTheme.cs" />
+    <Compile Include="dto\DtoVille.cs" />
     <Compile Include="dto\Publipostage.cs" />
     <Compile Include="equipement.cs">
       <DependentUpon>ModelGestFormation.tt</DependentUpon>
@@ -249,6 +278,9 @@
     <Compile Include="pageMaitre.Master.designer.cs">
       <DependentUpon>pageMaitre.Master</DependentUpon>
     </Compile>
+    <Compile Include="personnel.cs">
+      <DependentUpon>ModelGestFormation.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="salle.cs">
       <DependentUpon>ModelGestFormation.tt</DependentUpon>
@@ -257,6 +289,9 @@
       <DependentUpon>ModelGestFormation.tt</DependentUpon>
     </Compile>
     <Compile Include="session_formation.cs">
+      <DependentUpon>ModelGestFormation.tt</DependentUpon>
+    </Compile>
+    <Compile Include="site.cs">
       <DependentUpon>ModelGestFormation.tt</DependentUpon>
     </Compile>
     <Compile Include="societe.cs">
@@ -303,7 +338,7 @@
     <COMReference Include="Microsoft.Office.Interop.Word">
       <Guid>{00020905-0000-0000-C000-000000000046}</Guid>
       <VersionMajor>8</VersionMajor>
-      <VersionMinor>5</VersionMinor>
+      <VersionMinor>4</VersionMinor>
       <Lcid>0</Lcid>
       <WrapperTool>primary</WrapperTool>
       <Isolated>False</Isolated>

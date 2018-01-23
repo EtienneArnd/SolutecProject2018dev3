@@ -17,6 +17,7 @@ namespace gestion_formation_web
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public societe()
         {
+            this.contact = new HashSet<contact>();
             this.formateur = new HashSet<formateur>();
             this.stagiaire = new HashSet<stagiaire>();
         }
@@ -28,6 +29,8 @@ namespace gestion_formation_web
         public string adresse { get; set; }
         public string mail { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<contact> contact { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<formateur> formateur { get; set; }
         public virtual ville ville { get; set; }

@@ -5,7 +5,6 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Web;
 using Microsoft.Office.Interop.Word;
-
 namespace gestion_formation_web.dto
 {
     public class Publipostage

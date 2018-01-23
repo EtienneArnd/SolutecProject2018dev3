@@ -18,6 +18,7 @@ namespace gestion_formation_web
         public ville()
         {
             this.formateur = new HashSet<formateur>();
+            this.site = new HashSet<site>();
             this.societe = new HashSet<societe>();
         }
     
@@ -27,6 +28,8 @@ namespace gestion_formation_web
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<formateur> formateur { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<site> site { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<societe> societe { get; set; }
     }

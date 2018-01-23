@@ -28,36 +28,36 @@ D:\workspace\outil_formation\gestFormationWeb\gestion_formation_web\obj\Debug\ge
 D:\workspace\outil_formation\gestFormationWeb\gestion_formation_web\obj\Debug\gestion_formation_web.dll
 D:\workspace\outil_formation\gestFormationWeb\gestion_formation_web\obj\Debug\gestion_formation_web.pdb
 D:\workspace\outil_formation\gestFormationWeb\gestion_formation_web\obj\Debug\gestion_formation_web.csprojResolveAssemblyReference.cache
-C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\existant\gestFormationWeb\gestion_formation_web\obj\Debug\gestion_formation_web.csprojResolveAssemblyReference.cache
-C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\existant\gestFormationWeb\gestion_formation_web\obj\Debug\gestion_formation_web.dll
-C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\existant\gestFormationWeb\gestion_formation_web\obj\Debug\gestion_formation_web.pdb
-C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\existant\gestFormationWeb\gestion_formation_web\obj\Debug\gestion_formation_web.csproj.ResolveComReference.cache
-C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\existant\gestFormationWeb\gestion_formation_web\bin\roslyn\csc.exe
-C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\existant\gestFormationWeb\gestion_formation_web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\existant\gestFormationWeb\gestion_formation_web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\existant\gestFormationWeb\gestion_formation_web\bin\roslyn\Microsoft.CodeAnalysis.dll
-C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\existant\gestFormationWeb\gestion_formation_web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\existant\gestFormationWeb\gestion_formation_web\bin\roslyn\Microsoft.CSharp.Core.targets
-C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\existant\gestFormationWeb\gestion_formation_web\bin\roslyn\Microsoft.VisualBasic.Core.targets
-C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\existant\gestFormationWeb\gestion_formation_web\bin\roslyn\System.Collections.Immutable.dll
-C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\existant\gestFormationWeb\gestion_formation_web\bin\roslyn\System.Reflection.Metadata.dll
-C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\existant\gestFormationWeb\gestion_formation_web\bin\roslyn\vbc.exe
-C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\existant\gestFormationWeb\gestion_formation_web\bin\roslyn\VBCSCompiler.exe
-C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\existant\gestFormationWeb\gestion_formation_web\bin\roslyn\VBCSCompiler.exe.config
-C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\existant\gestFormationWeb\gestion_formation_web\bin\gestion_formation_web.dll.config
-C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\existant\gestFormationWeb\gestion_formation_web\bin\gestion_formation_web.dll
-C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\existant\gestFormationWeb\gestion_formation_web\bin\gestion_formation_web.pdb
-C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\existant\gestFormationWeb\gestion_formation_web\bin\EntityFramework.dll
-C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\existant\gestFormationWeb\gestion_formation_web\bin\EntityFramework.SqlServer.dll
-C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\existant\gestFormationWeb\gestion_formation_web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\existant\gestFormationWeb\gestion_formation_web\bin\MySql.Data.dll
-C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\existant\gestFormationWeb\gestion_formation_web\bin\MySql.Data.Entity.dll
-C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\existant\gestFormationWeb\gestion_formation_web\bin\MySql.Data.Entity.EF6.dll
-C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\existant\gestFormationWeb\gestion_formation_web\bin\EntityFramework.xml
-C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\existant\gestFormationWeb\gestion_formation_web\bin\EntityFramework.SqlServer.xml
-C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\existant\gestFormationWeb\gestion_formation_web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\existant\gestFormationWeb\gestion_formation_web\bin\fr\EntityFramework.resources.dll
-C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\existant\gestFormationWeb\gestion_formation_web\bin\fr\EntityFramework.SqlServer.resources.dll
+\\ESIC-HP103\Partage\Projet SOLUTEC janv 2018\existant\gestFormationWeb\gestion_formation_web\bin\roslyn\csc.exe
+\\ESIC-HP103\Partage\Projet SOLUTEC janv 2018\existant\gestFormationWeb\gestion_formation_web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+\\ESIC-HP103\Partage\Projet SOLUTEC janv 2018\existant\gestFormationWeb\gestion_formation_web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+\\ESIC-HP103\Partage\Projet SOLUTEC janv 2018\existant\gestFormationWeb\gestion_formation_web\bin\roslyn\Microsoft.CodeAnalysis.dll
+\\ESIC-HP103\Partage\Projet SOLUTEC janv 2018\existant\gestFormationWeb\gestion_formation_web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+\\ESIC-HP103\Partage\Projet SOLUTEC janv 2018\existant\gestFormationWeb\gestion_formation_web\bin\roslyn\Microsoft.CSharp.Core.targets
+\\ESIC-HP103\Partage\Projet SOLUTEC janv 2018\existant\gestFormationWeb\gestion_formation_web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+\\ESIC-HP103\Partage\Projet SOLUTEC janv 2018\existant\gestFormationWeb\gestion_formation_web\bin\roslyn\System.Collections.Immutable.dll
+\\ESIC-HP103\Partage\Projet SOLUTEC janv 2018\existant\gestFormationWeb\gestion_formation_web\bin\roslyn\System.Reflection.Metadata.dll
+\\ESIC-HP103\Partage\Projet SOLUTEC janv 2018\existant\gestFormationWeb\gestion_formation_web\bin\roslyn\vbc.exe
+\\ESIC-HP103\Partage\Projet SOLUTEC janv 2018\existant\gestFormationWeb\gestion_formation_web\bin\roslyn\VBCSCompiler.exe
+\\ESIC-HP103\Partage\Projet SOLUTEC janv 2018\existant\gestFormationWeb\gestion_formation_web\bin\roslyn\VBCSCompiler.exe.config
+\\ESIC-HP103\Partage\Projet SOLUTEC janv 2018\existant\gestFormationWeb\gestion_formation_web\bin\gestion_formation_web.dll.config
+\\ESIC-HP103\Partage\Projet SOLUTEC janv 2018\existant\gestFormationWeb\gestion_formation_web\bin\gestion_formation_web.dll
+\\ESIC-HP103\Partage\Projet SOLUTEC janv 2018\existant\gestFormationWeb\gestion_formation_web\bin\gestion_formation_web.pdb
+\\ESIC-HP103\Partage\Projet SOLUTEC janv 2018\existant\gestFormationWeb\gestion_formation_web\bin\EntityFramework.dll
+\\ESIC-HP103\Partage\Projet SOLUTEC janv 2018\existant\gestFormationWeb\gestion_formation_web\bin\EntityFramework.SqlServer.dll
+\\ESIC-HP103\Partage\Projet SOLUTEC janv 2018\existant\gestFormationWeb\gestion_formation_web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+\\ESIC-HP103\Partage\Projet SOLUTEC janv 2018\existant\gestFormationWeb\gestion_formation_web\bin\MySql.Data.dll
+\\ESIC-HP103\Partage\Projet SOLUTEC janv 2018\existant\gestFormationWeb\gestion_formation_web\bin\MySql.Data.Entity.dll
+\\ESIC-HP103\Partage\Projet SOLUTEC janv 2018\existant\gestFormationWeb\gestion_formation_web\bin\EntityFramework.xml
+\\ESIC-HP103\Partage\Projet SOLUTEC janv 2018\existant\gestFormationWeb\gestion_formation_web\bin\EntityFramework.SqlServer.xml
+\\ESIC-HP103\Partage\Projet SOLUTEC janv 2018\existant\gestFormationWeb\gestion_formation_web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+\\ESIC-HP103\Partage\Projet SOLUTEC janv 2018\existant\gestFormationWeb\gestion_formation_web\bin\MySql.Data.xml
+\\ESIC-HP103\Partage\Projet SOLUTEC janv 2018\existant\gestFormationWeb\gestion_formation_web\bin\fr\EntityFramework.resources.dll
+\\ESIC-HP103\Partage\Projet SOLUTEC janv 2018\existant\gestFormationWeb\gestion_formation_web\bin\fr\EntityFramework.SqlServer.resources.dll
+\\ESIC-HP103\Partage\Projet SOLUTEC janv 2018\existant\gestFormationWeb\gestion_formation_web\obj\Debug\gestion_formation_web.csproj.ResolveComReference.cache
+\\ESIC-HP103\Partage\Projet SOLUTEC janv 2018\existant\gestFormationWeb\gestion_formation_web\obj\Debug\gestion_formation_web.dll
+\\ESIC-HP103\Partage\Projet SOLUTEC janv 2018\existant\gestFormationWeb\gestion_formation_web\obj\Debug\gestion_formation_web.pdb
+\\ESIC-HP103\Partage\Projet SOLUTEC janv 2018\existant\gestFormationWeb\gestion_formation_web\obj\Debug\gestion_formation_web.csprojResolveAssemblyReference.cache
 C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\SolutecProject2018dev3\existant\gestFormationWeb\gestion_formation_web\bin\roslyn\csc.exe
 C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\SolutecProject2018dev3\existant\gestFormationWeb\gestion_formation_web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
 C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\SolutecProject2018dev3\existant\gestFormationWeb\gestion_formation_web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
@@ -78,10 +78,10 @@ C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\SolutecProject2018dev3\exista
 C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\SolutecProject2018dev3\existant\gestFormationWeb\gestion_formation_web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\SolutecProject2018dev3\existant\gestFormationWeb\gestion_formation_web\bin\MySql.Data.dll
 C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\SolutecProject2018dev3\existant\gestFormationWeb\gestion_formation_web\bin\MySql.Data.Entity.dll
-C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\SolutecProject2018dev3\existant\gestFormationWeb\gestion_formation_web\bin\MySql.Data.Entity.EF6.dll
 C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\SolutecProject2018dev3\existant\gestFormationWeb\gestion_formation_web\bin\EntityFramework.xml
 C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\SolutecProject2018dev3\existant\gestFormationWeb\gestion_formation_web\bin\EntityFramework.SqlServer.xml
 C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\SolutecProject2018dev3\existant\gestFormationWeb\gestion_formation_web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\SolutecProject2018dev3\existant\gestFormationWeb\gestion_formation_web\bin\MySql.Data.xml
 C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\SolutecProject2018dev3\existant\gestFormationWeb\gestion_formation_web\bin\fr\EntityFramework.resources.dll
 C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\SolutecProject2018dev3\existant\gestFormationWeb\gestion_formation_web\bin\fr\EntityFramework.SqlServer.resources.dll
 C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\SolutecProject2018dev3\existant\gestFormationWeb\gestion_formation_web\obj\Debug\gestion_formation_web.csprojResolveAssemblyReference.cache

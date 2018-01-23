@@ -14,32 +14,32 @@ namespace gestion_formation_web
     
     public partial class bilan_formation
     {
-        public int id_bilan { get; set; }
-        public Nullable<int> formateur_maitrise_sujet { get; set; }
-        public Nullable<int> formateur_qualites_pedagogiques { get; set; }
-        public Nullable<int> formateur_comprehension_problemes { get; set; }
-        public Nullable<int> environnement_accueil { get; set; }
-        public Nullable<int> environnement_salle_formation { get; set; }
-        public Nullable<int> environnement_materiel_informatique { get; set; }
-        public Nullable<int> environnement_support_cours { get; set; }
-        public Nullable<int> formation_info_contenu { get; set; }
-        public Nullable<int> formation_contenu_adapte { get; set; }
-        public Nullable<int> formation_frequence_exercices { get; set; }
-        public Nullable<int> formation_adaptation_exercices_profession { get; set; }
-        public Nullable<int> formation_niveau_groupe_homogene { get; set; }
-        public Nullable<int> formation_stage_correspondant_besoin { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public bilan_formation()
+        {
+            this.bilan_eval_environnement = new HashSet<bilan_eval_environnement>();
+            this.bilan_eval_formateur = new HashSet<bilan_eval_formateur>();
+            this.bilan_eval_formation = new HashSet<bilan_eval_formation>();
+            this.bilan_pointvue_formateur = new HashSet<bilan_pointvue_formateur>();
+        }
+    
+        public int id_bilan_formation { get; set; }
         public Nullable<int> satisfaction_globale { get; set; }
         public string points_forts_du_stage { get; set; }
         public string points_faibles_du_stage { get; set; }
         public string observations_diverses { get; set; }
         public string besoin_formation_complementaire { get; set; }
-        public Nullable<int> pointvueformateur_prerequis { get; set; }
-        public Nullable<int> pointvueformateur_qualite_ecoute { get; set; }
-        public Nullable<int> pointvueformateur_integration_notions { get; set; }
-        public Nullable<int> pointvueformateur_stage_correspond_besoin { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<bilan_eval_environnement> bilan_eval_environnement { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<bilan_eval_formateur> bilan_eval_formateur { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<bilan_eval_formation> bilan_eval_formation { get; set; }
         public virtual formateur formateur { get; set; }
         public virtual session_formation session_formation { get; set; }
         public virtual stagiaire stagiaire { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<bilan_pointvue_formateur> bilan_pointvue_formateur { get; set; }
     }
 }

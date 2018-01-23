@@ -25,6 +25,7 @@ namespace gestion_formation_web
         public string nom { get; set; }
         public Nullable<System.DateTime> date_debut { get; set; }
     
+        public virtual contact contact { get; set; }
         public virtual cursus cursus { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<session_formation> session_formation { get; set; }

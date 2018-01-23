@@ -18,16 +18,20 @@ namespace gestion_formation_web
         public identificateur()
         {
             this.formateur = new HashSet<formateur>();
+            this.personnel = new HashSet<personnel>();
             this.stagiaire = new HashSet<stagiaire>();
         }
     
         public int id_identificateur { get; set; }
-        public string logger { get; set; }
-        public string mdp { get; set; }
-        public string droit { get; set; }
+        public string login { get; set; }
+        public string password { get; set; }
+        public string profil { get; set; }
+        public bool actif { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<formateur> formateur { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<personnel> personnel { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<stagiaire> stagiaire { get; set; }
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using gestion_formation_web.dao;
 
 namespace gestion_formation_web.dto
 {
@@ -40,10 +41,6 @@ namespace gestion_formation_web.dto
                 dateDebut = Globale.NextDate(dateFin);
             }
             dao.Dao.Update();
-        }
-
-        public String GetIdCursus(){
-            return null;
         }
 
         internal static void Add(session_cursus sessionCursus)

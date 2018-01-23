@@ -20,6 +20,7 @@ namespace gestion_formation_web
             this.bilan_formation = new HashSet<bilan_formation>();
             this.formateur_session_formation = new HashSet<formateur_session_formation>();
             this.stagiaire_session_formation = new HashSet<stagiaire_session_formation>();
+            this.contact = new HashSet<contact>();
         }
     
         public int id_session_formation { get; set; }
@@ -38,5 +39,7 @@ namespace gestion_formation_web
         public virtual session_cursus session_cursus { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<stagiaire_session_formation> stagiaire_session_formation { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<contact> contact { get; set; }
     }
 }

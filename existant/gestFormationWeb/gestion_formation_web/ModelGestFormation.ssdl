@@ -1,0 +1,658 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="gest_formationModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="bilan_formation">
+    <Key>
+      <PropertyRef Name="id_bilan" />
+    </Key>
+    <Property Name="id_bilan" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="formateur_maitrise_sujet" Type="int" />
+    <Property Name="formateur_qualites_pedagogiques" Type="int" />
+    <Property Name="formateur_comprehension_problemes" Type="int" />
+    <Property Name="environnement_accueil" Type="int" />
+    <Property Name="environnement_salle_formation" Type="int" />
+    <Property Name="environnement_materiel_informatique" Type="int" />
+    <Property Name="environnement_support_cours" Type="int" />
+    <Property Name="formation_info_contenu" Type="int" />
+    <Property Name="formation_contenu_adapte" Type="int" />
+    <Property Name="formation_frequence_exercices" Type="int" />
+    <Property Name="formation_adaptation_exercices_profession" Type="int" />
+    <Property Name="formation_niveau_groupe_homogene" Type="int" />
+    <Property Name="formation_stage_correspondant_besoin" Type="int" />
+    <Property Name="satisfaction_globale" Type="int" />
+    <Property Name="points_forts_du_stage" Type="varchar" MaxLength="2000" />
+    <Property Name="points_faibles_du_stage" Type="varchar" MaxLength="2000" />
+    <Property Name="observations_diverses" Type="varchar" MaxLength="2000" />
+    <Property Name="besoin_formation_complementaire" Type="varchar" MaxLength="2000" />
+    <Property Name="pointvueformateur_prerequis" Type="int" />
+    <Property Name="pointvueformateur_qualite_ecoute" Type="int" />
+    <Property Name="pointvueformateur_integration_notions" Type="int" />
+    <Property Name="pointvueformateur_stage_correspond_besoin" Type="int" />
+    <Property Name="id_stagiaire" Type="int" />
+    <Property Name="id_formateur" Type="int" />
+    <Property Name="id_session_formation" Type="int" />
+  </EntityType>
+  <EntityType Name="categorie">
+    <Key>
+      <PropertyRef Name="id_categorie" />
+    </Key>
+    <Property Name="id_categorie" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nom" Type="varchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="cursus">
+    <Key>
+      <PropertyRef Name="id_cursus" />
+    </Key>
+    <Property Name="id_cursus" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nom" Type="varchar" MaxLength="150" />
+    <Property Name="tarif" Type="decimal" Precision="15" Scale="3" />
+  </EntityType>
+  <EntityType Name="equipement">
+    <Key>
+      <PropertyRef Name="id_equipement" />
+    </Key>
+    <Property Name="id_equipement" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="numero_serie" Type="varchar" MaxLength="25" />
+    <Property Name="type" Type="varchar" MaxLength="25" />
+    <Property Name="id_salle" Type="int" />
+  </EntityType>
+  <EntityType Name="formateur">
+    <Key>
+      <PropertyRef Name="id_formateur" />
+    </Key>
+    <Property Name="id_formateur" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nom" Type="varchar" MaxLength="150" />
+    <Property Name="prenom" Type="varchar" MaxLength="150" />
+    <Property Name="date_naissance" Type="date" />
+    <Property Name="statut" Type="enum" />
+    <Property Name="telephone" Type="varchar" MaxLength="10" />
+    <Property Name="adresse" Type="varchar" MaxLength="70" />
+    <Property Name="cout" Type="decimal" Precision="15" Scale="3" />
+    <Property Name="civilite" Type="enum" />
+    <Property Name="mail" Type="varchar" MaxLength="150" />
+    <Property Name="id_societe" Type="int" />
+    <Property Name="id_ville" Type="int" />
+    <Property Name="id_identificateur" Type="int" />
+  </EntityType>
+  <EntityType Name="formateur_session_formation">
+    <Key>
+      <PropertyRef Name="id_formateur" />
+      <PropertyRef Name="id_session_formation" />
+    </Key>
+    <Property Name="date_debut" Type="date" />
+    <Property Name="duree" Type="int" />
+    <Property Name="tarif" Type="decimal" Precision="15" Scale="3" />
+    <Property Name="frais" Type="decimal" Precision="15" Scale="3" />
+    <Property Name="id_formateur" Type="int" Nullable="false" />
+    <Property Name="id_session_formation" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="formation">
+    <Key>
+      <PropertyRef Name="id_formation" />
+    </Key>
+    <Property Name="id_formation" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="duree" Type="int" />
+    <Property Name="tarif_intra" Type="decimal" Precision="15" Scale="3" />
+    <Property Name="tarif_inter" Type="decimal" Precision="15" Scale="3" />
+    <Property Name="intitule" Type="varchar" MaxLength="255" />
+    <Property Name="niveau" Type="enum" />
+    <Property Name="id_theme" Type="int" />
+  </EntityType>
+  <EntityType Name="formation_cursus">
+    <Key>
+      <PropertyRef Name="id_cursus" />
+      <PropertyRef Name="id_formation" />
+    </Key>
+    <Property Name="ordre" Type="int" />
+    <Property Name="id_cursus" Type="int" Nullable="false" />
+    <Property Name="id_formation" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="identificateur">
+    <Key>
+      <PropertyRef Name="id_identificateur" />
+    </Key>
+    <Property Name="id_identificateur" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="logger" Type="varchar" MaxLength="25" />
+    <Property Name="mdp" Type="varchar" MaxLength="25" />
+    <Property Name="droit" Type="enum" />
+  </EntityType>
+  <EntityType Name="salle">
+    <Key>
+      <PropertyRef Name="id_salle" />
+    </Key>
+    <Property Name="id_salle" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nom" Type="varchar" MaxLength="250" />
+    <Property Name="capacite" Type="int" />
+  </EntityType>
+  <EntityType Name="session_cursus">
+    <Key>
+      <PropertyRef Name="id_session_cursus" />
+    </Key>
+    <Property Name="id_session_cursus" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nom" Type="varchar" MaxLength="25" />
+    <Property Name="id_cursus" Type="int" />
+    <Property Name="date_debut" Type="date" />
+  </EntityType>
+  <EntityType Name="session_formation">
+    <Key>
+      <PropertyRef Name="id_session_formation" />
+    </Key>
+    <Property Name="id_session_formation" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="date_debut" Type="date" />
+    <Property Name="date_fin" Type="date" />
+    <Property Name="ordre" Type="int" />
+    <Property Name="tarif_intra" Type="decimal" Precision="15" Scale="0" />
+    <Property Name="type" Type="enum" />
+    <Property Name="id_formation" Type="int" />
+    <Property Name="id_session_cursus" Type="int" />
+    <Property Name="id_salle" Type="int" />
+  </EntityType>
+  <EntityType Name="societe">
+    <Key>
+      <PropertyRef Name="id_societe" />
+    </Key>
+    <Property Name="id_societe" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nom" Type="varchar" MaxLength="250" />
+    <Property Name="complement_nom" Type="varchar" MaxLength="250" />
+    <Property Name="telephone" Type="char" MaxLength="10" />
+    <Property Name="adresse" Type="varchar" MaxLength="250" />
+    <Property Name="mail" Type="varchar" MaxLength="150" />
+    <Property Name="id_ville" Type="int" />
+  </EntityType>
+  <EntityType Name="stagiaire">
+    <Key>
+      <PropertyRef Name="id_stagiaire" />
+    </Key>
+    <Property Name="id_stagiaire" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nom" Type="varchar" MaxLength="150" />
+    <Property Name="prenom" Type="varchar" MaxLength="150" />
+    <Property Name="date_naissance" Type="date" />
+    <Property Name="civilite" Type="enum" />
+    <Property Name="mail" Type="varchar" MaxLength="150" />
+    <Property Name="telephone" Type="varchar" MaxLength="10" />
+    <Property Name="id_societe" Type="int" />
+    <Property Name="id_identificateur" Type="int" />
+  </EntityType>
+  <EntityType Name="stagiaire_session_cursus">
+    <Key>
+      <PropertyRef Name="id_stagiaire" />
+      <PropertyRef Name="id_session_cursus" />
+    </Key>
+    <Property Name="id_stagiaire" Type="int" Nullable="false" />
+    <Property Name="id_session_cursus" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="stagiaire_session_formation">
+    <Key>
+      <PropertyRef Name="id_stagiaire" />
+      <PropertyRef Name="id_session_formation" />
+    </Key>
+    <Property Name="id_stagiaire" Type="int" Nullable="false" />
+    <Property Name="id_session_formation" Type="int" Nullable="false" />
+    <Property Name="tarif" Type="decimal" Precision="15" Scale="3" />
+  </EntityType>
+  <EntityType Name="theme">
+    <Key>
+      <PropertyRef Name="id_theme" />
+    </Key>
+    <Property Name="id_theme" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nom" Type="varchar" MaxLength="25" />
+    <Property Name="id_categorie" Type="int" />
+  </EntityType>
+  <EntityType Name="theme_formateur">
+    <Key>
+      <PropertyRef Name="id_formateur" />
+      <PropertyRef Name="id_theme" />
+    </Key>
+    <Property Name="niveau" Type="enum" />
+    <Property Name="id_formateur" Type="int" Nullable="false" />
+    <Property Name="id_theme" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ville">
+    <Key>
+      <PropertyRef Name="id_ville" />
+    </Key>
+    <Property Name="id_ville" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nom" Type="varchar" MaxLength="150" />
+    <Property Name="code_postal" Type="int" />
+  </EntityType>
+  <Association Name="FK_bilan_formation_id_formateur">
+    <End Role="formateur" Type="Self.formateur" Multiplicity="0..1" />
+    <End Role="bilan_formation" Type="Self.bilan_formation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="formateur">
+        <PropertyRef Name="id_formateur" />
+      </Principal>
+      <Dependent Role="bilan_formation">
+        <PropertyRef Name="id_formateur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_bilan_formation_id_session_formation">
+    <End Role="session_formation" Type="Self.session_formation" Multiplicity="0..1" />
+    <End Role="bilan_formation" Type="Self.bilan_formation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="session_formation">
+        <PropertyRef Name="id_session_formation" />
+      </Principal>
+      <Dependent Role="bilan_formation">
+        <PropertyRef Name="id_session_formation" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_bilan_formation_id_stagiaire">
+    <End Role="stagiaire" Type="Self.stagiaire" Multiplicity="0..1" />
+    <End Role="bilan_formation" Type="Self.bilan_formation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="stagiaire">
+        <PropertyRef Name="id_stagiaire" />
+      </Principal>
+      <Dependent Role="bilan_formation">
+        <PropertyRef Name="id_stagiaire" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_equipement_id_salle">
+    <End Role="salle" Type="Self.salle" Multiplicity="0..1" />
+    <End Role="equipement" Type="Self.equipement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="salle">
+        <PropertyRef Name="id_salle" />
+      </Principal>
+      <Dependent Role="equipement">
+        <PropertyRef Name="id_salle" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_formateur_id_identificateur">
+    <End Role="identificateur" Type="Self.identificateur" Multiplicity="0..1" />
+    <End Role="formateur" Type="Self.formateur" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="identificateur">
+        <PropertyRef Name="id_identificateur" />
+      </Principal>
+      <Dependent Role="formateur">
+        <PropertyRef Name="id_identificateur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_formateur_id_societe">
+    <End Role="societe" Type="Self.societe" Multiplicity="0..1" />
+    <End Role="formateur" Type="Self.formateur" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="societe">
+        <PropertyRef Name="id_societe" />
+      </Principal>
+      <Dependent Role="formateur">
+        <PropertyRef Name="id_societe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_formateur_id_ville">
+    <End Role="ville" Type="Self.ville" Multiplicity="0..1" />
+    <End Role="formateur" Type="Self.formateur" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ville">
+        <PropertyRef Name="id_ville" />
+      </Principal>
+      <Dependent Role="formateur">
+        <PropertyRef Name="id_ville" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_formateur_session_formation_id_formateur">
+    <End Role="formateur" Type="Self.formateur" Multiplicity="1" />
+    <End Role="formateur_session_formation" Type="Self.formateur_session_formation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="formateur">
+        <PropertyRef Name="id_formateur" />
+      </Principal>
+      <Dependent Role="formateur_session_formation">
+        <PropertyRef Name="id_formateur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_formateur_session_formation_id_session_formation">
+    <End Role="session_formation" Type="Self.session_formation" Multiplicity="1" />
+    <End Role="formateur_session_formation" Type="Self.formateur_session_formation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="session_formation">
+        <PropertyRef Name="id_session_formation" />
+      </Principal>
+      <Dependent Role="formateur_session_formation">
+        <PropertyRef Name="id_session_formation" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_formation_cursus_id_cursus">
+    <End Role="cursus" Type="Self.cursus" Multiplicity="1" />
+    <End Role="formation_cursus" Type="Self.formation_cursus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cursus">
+        <PropertyRef Name="id_cursus" />
+      </Principal>
+      <Dependent Role="formation_cursus">
+        <PropertyRef Name="id_cursus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_formation_cursus_id_formation">
+    <End Role="formation" Type="Self.formation" Multiplicity="1" />
+    <End Role="formation_cursus" Type="Self.formation_cursus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="formation">
+        <PropertyRef Name="id_formation" />
+      </Principal>
+      <Dependent Role="formation_cursus">
+        <PropertyRef Name="id_formation" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_formation_id_theme">
+    <End Role="theme" Type="Self.theme" Multiplicity="0..1" />
+    <End Role="formation" Type="Self.formation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="theme">
+        <PropertyRef Name="id_theme" />
+      </Principal>
+      <Dependent Role="formation">
+        <PropertyRef Name="id_theme" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_session_cursus_id_cursus">
+    <End Role="cursus" Type="Self.cursus" Multiplicity="0..1" />
+    <End Role="session_cursus" Type="Self.session_cursus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cursus">
+        <PropertyRef Name="id_cursus" />
+      </Principal>
+      <Dependent Role="session_cursus">
+        <PropertyRef Name="id_cursus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_session_formation_id_formation">
+    <End Role="formation" Type="Self.formation" Multiplicity="0..1" />
+    <End Role="session_formation" Type="Self.session_formation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="formation">
+        <PropertyRef Name="id_formation" />
+      </Principal>
+      <Dependent Role="session_formation">
+        <PropertyRef Name="id_formation" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_session_formation_id_salle">
+    <End Role="salle" Type="Self.salle" Multiplicity="0..1" />
+    <End Role="session_formation" Type="Self.session_formation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="salle">
+        <PropertyRef Name="id_salle" />
+      </Principal>
+      <Dependent Role="session_formation">
+        <PropertyRef Name="id_salle" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_session_formation_id_session_cursus">
+    <End Role="session_cursus" Type="Self.session_cursus" Multiplicity="0..1" />
+    <End Role="session_formation" Type="Self.session_formation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="session_cursus">
+        <PropertyRef Name="id_session_cursus" />
+      </Principal>
+      <Dependent Role="session_formation">
+        <PropertyRef Name="id_session_cursus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_societe_id_ville">
+    <End Role="ville" Type="Self.ville" Multiplicity="0..1" />
+    <End Role="societe" Type="Self.societe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ville">
+        <PropertyRef Name="id_ville" />
+      </Principal>
+      <Dependent Role="societe">
+        <PropertyRef Name="id_ville" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_stagiaire_id_identificateur">
+    <End Role="identificateur" Type="Self.identificateur" Multiplicity="0..1" />
+    <End Role="stagiaire" Type="Self.stagiaire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="identificateur">
+        <PropertyRef Name="id_identificateur" />
+      </Principal>
+      <Dependent Role="stagiaire">
+        <PropertyRef Name="id_identificateur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_stagiaire_id_societe">
+    <End Role="societe" Type="Self.societe" Multiplicity="0..1" />
+    <End Role="stagiaire" Type="Self.stagiaire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="societe">
+        <PropertyRef Name="id_societe" />
+      </Principal>
+      <Dependent Role="stagiaire">
+        <PropertyRef Name="id_societe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_stagiaire_session_cursus_id_session_cursus">
+    <End Role="session_cursus" Type="Self.session_cursus" Multiplicity="1" />
+    <End Role="stagiaire_session_cursus" Type="Self.stagiaire_session_cursus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="session_cursus">
+        <PropertyRef Name="id_session_cursus" />
+      </Principal>
+      <Dependent Role="stagiaire_session_cursus">
+        <PropertyRef Name="id_session_cursus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_stagiaire_session_cursus_id_stagiaire">
+    <End Role="stagiaire" Type="Self.stagiaire" Multiplicity="1" />
+    <End Role="stagiaire_session_cursus" Type="Self.stagiaire_session_cursus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="stagiaire">
+        <PropertyRef Name="id_stagiaire" />
+      </Principal>
+      <Dependent Role="stagiaire_session_cursus">
+        <PropertyRef Name="id_stagiaire" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_stagiaire_session_formation_id_session_formation">
+    <End Role="session_formation" Type="Self.session_formation" Multiplicity="1" />
+    <End Role="stagiaire_session_formation" Type="Self.stagiaire_session_formation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="session_formation">
+        <PropertyRef Name="id_session_formation" />
+      </Principal>
+      <Dependent Role="stagiaire_session_formation">
+        <PropertyRef Name="id_session_formation" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_stagiaire_session_formation_id_stagiaire">
+    <End Role="stagiaire" Type="Self.stagiaire" Multiplicity="1" />
+    <End Role="stagiaire_session_formation" Type="Self.stagiaire_session_formation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="stagiaire">
+        <PropertyRef Name="id_stagiaire" />
+      </Principal>
+      <Dependent Role="stagiaire_session_formation">
+        <PropertyRef Name="id_stagiaire" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_theme_formateur_id_formateur">
+    <End Role="formateur" Type="Self.formateur" Multiplicity="1" />
+    <End Role="theme_formateur" Type="Self.theme_formateur" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="formateur">
+        <PropertyRef Name="id_formateur" />
+      </Principal>
+      <Dependent Role="theme_formateur">
+        <PropertyRef Name="id_formateur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_theme_formateur_id_theme">
+    <End Role="theme" Type="Self.theme" Multiplicity="1" />
+    <End Role="theme_formateur" Type="Self.theme_formateur" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="theme">
+        <PropertyRef Name="id_theme" />
+      </Principal>
+      <Dependent Role="theme_formateur">
+        <PropertyRef Name="id_theme" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_theme_id_categorie">
+    <End Role="categorie" Type="Self.categorie" Multiplicity="0..1" />
+    <End Role="theme" Type="Self.theme" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categorie">
+        <PropertyRef Name="id_categorie" />
+      </Principal>
+      <Dependent Role="theme">
+        <PropertyRef Name="id_categorie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="inscrire_session_formation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="gest_formation">
+    <Parameter Name="idStagiaire" Type="int" Mode="In" />
+    <Parameter Name="idSessionCursus" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="gest_formationModelStoreContainer">
+    <EntitySet Name="bilan_formation" EntityType="Self.bilan_formation" Schema="gest_formation" store:Type="Tables" />
+    <EntitySet Name="categorie" EntityType="Self.categorie" Schema="gest_formation" store:Type="Tables" />
+    <EntitySet Name="cursus" EntityType="Self.cursus" Schema="gest_formation" store:Type="Tables" />
+    <EntitySet Name="equipement" EntityType="Self.equipement" Schema="gest_formation" store:Type="Tables" />
+    <EntitySet Name="formateur" EntityType="Self.formateur" Schema="gest_formation" store:Type="Tables" />
+    <EntitySet Name="formateur_session_formation" EntityType="Self.formateur_session_formation" Schema="gest_formation" store:Type="Tables" />
+    <EntitySet Name="formation" EntityType="Self.formation" Schema="gest_formation" store:Type="Tables" />
+    <EntitySet Name="formation_cursus" EntityType="Self.formation_cursus" Schema="gest_formation" store:Type="Tables" />
+    <EntitySet Name="identificateur" EntityType="Self.identificateur" Schema="gest_formation" store:Type="Tables" />
+    <EntitySet Name="salle" EntityType="Self.salle" Schema="gest_formation" store:Type="Tables" />
+    <EntitySet Name="session_cursus" EntityType="Self.session_cursus" Schema="gest_formation" store:Type="Tables" />
+    <EntitySet Name="session_formation" EntityType="Self.session_formation" Schema="gest_formation" store:Type="Tables" />
+    <EntitySet Name="societe" EntityType="Self.societe" Schema="gest_formation" store:Type="Tables" />
+    <EntitySet Name="stagiaire" EntityType="Self.stagiaire" Schema="gest_formation" store:Type="Tables" />
+    <EntitySet Name="stagiaire_session_cursus" EntityType="Self.stagiaire_session_cursus" Schema="gest_formation" store:Type="Tables" />
+    <EntitySet Name="stagiaire_session_formation" EntityType="Self.stagiaire_session_formation" Schema="gest_formation" store:Type="Tables" />
+    <EntitySet Name="theme" EntityType="Self.theme" Schema="gest_formation" store:Type="Tables" />
+    <EntitySet Name="theme_formateur" EntityType="Self.theme_formateur" Schema="gest_formation" store:Type="Tables" />
+    <EntitySet Name="ville" EntityType="Self.ville" Schema="gest_formation" store:Type="Tables" />
+    <AssociationSet Name="FK_bilan_formation_id_formateur" Association="Self.FK_bilan_formation_id_formateur">
+      <End Role="formateur" EntitySet="formateur" />
+      <End Role="bilan_formation" EntitySet="bilan_formation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_bilan_formation_id_session_formation" Association="Self.FK_bilan_formation_id_session_formation">
+      <End Role="session_formation" EntitySet="session_formation" />
+      <End Role="bilan_formation" EntitySet="bilan_formation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_bilan_formation_id_stagiaire" Association="Self.FK_bilan_formation_id_stagiaire">
+      <End Role="stagiaire" EntitySet="stagiaire" />
+      <End Role="bilan_formation" EntitySet="bilan_formation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_equipement_id_salle" Association="Self.FK_equipement_id_salle">
+      <End Role="salle" EntitySet="salle" />
+      <End Role="equipement" EntitySet="equipement" />
+    </AssociationSet>
+    <AssociationSet Name="FK_formateur_id_identificateur" Association="Self.FK_formateur_id_identificateur">
+      <End Role="identificateur" EntitySet="identificateur" />
+      <End Role="formateur" EntitySet="formateur" />
+    </AssociationSet>
+    <AssociationSet Name="FK_formateur_id_societe" Association="Self.FK_formateur_id_societe">
+      <End Role="societe" EntitySet="societe" />
+      <End Role="formateur" EntitySet="formateur" />
+    </AssociationSet>
+    <AssociationSet Name="FK_formateur_id_ville" Association="Self.FK_formateur_id_ville">
+      <End Role="ville" EntitySet="ville" />
+      <End Role="formateur" EntitySet="formateur" />
+    </AssociationSet>
+    <AssociationSet Name="FK_formateur_session_formation_id_formateur" Association="Self.FK_formateur_session_formation_id_formateur">
+      <End Role="formateur" EntitySet="formateur" />
+      <End Role="formateur_session_formation" EntitySet="formateur_session_formation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_formateur_session_formation_id_session_formation" Association="Self.FK_formateur_session_formation_id_session_formation">
+      <End Role="session_formation" EntitySet="session_formation" />
+      <End Role="formateur_session_formation" EntitySet="formateur_session_formation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_formation_cursus_id_cursus" Association="Self.FK_formation_cursus_id_cursus">
+      <End Role="cursus" EntitySet="cursus" />
+      <End Role="formation_cursus" EntitySet="formation_cursus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_formation_cursus_id_formation" Association="Self.FK_formation_cursus_id_formation">
+      <End Role="formation" EntitySet="formation" />
+      <End Role="formation_cursus" EntitySet="formation_cursus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_formation_id_theme" Association="Self.FK_formation_id_theme">
+      <End Role="theme" EntitySet="theme" />
+      <End Role="formation" EntitySet="formation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_session_cursus_id_cursus" Association="Self.FK_session_cursus_id_cursus">
+      <End Role="cursus" EntitySet="cursus" />
+      <End Role="session_cursus" EntitySet="session_cursus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_session_formation_id_formation" Association="Self.FK_session_formation_id_formation">
+      <End Role="formation" EntitySet="formation" />
+      <End Role="session_formation" EntitySet="session_formation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_session_formation_id_salle" Association="Self.FK_session_formation_id_salle">
+      <End Role="salle" EntitySet="salle" />
+      <End Role="session_formation" EntitySet="session_formation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_session_formation_id_session_cursus" Association="Self.FK_session_formation_id_session_cursus">
+      <End Role="session_cursus" EntitySet="session_cursus" />
+      <End Role="session_formation" EntitySet="session_formation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_societe_id_ville" Association="Self.FK_societe_id_ville">
+      <End Role="ville" EntitySet="ville" />
+      <End Role="societe" EntitySet="societe" />
+    </AssociationSet>
+    <AssociationSet Name="FK_stagiaire_id_identificateur" Association="Self.FK_stagiaire_id_identificateur">
+      <End Role="identificateur" EntitySet="identificateur" />
+      <End Role="stagiaire" EntitySet="stagiaire" />
+    </AssociationSet>
+    <AssociationSet Name="FK_stagiaire_id_societe" Association="Self.FK_stagiaire_id_societe">
+      <End Role="societe" EntitySet="societe" />
+      <End Role="stagiaire" EntitySet="stagiaire" />
+    </AssociationSet>
+    <AssociationSet Name="FK_stagiaire_session_cursus_id_session_cursus" Association="Self.FK_stagiaire_session_cursus_id_session_cursus">
+      <End Role="session_cursus" EntitySet="session_cursus" />
+      <End Role="stagiaire_session_cursus" EntitySet="stagiaire_session_cursus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_stagiaire_session_cursus_id_stagiaire" Association="Self.FK_stagiaire_session_cursus_id_stagiaire">
+      <End Role="stagiaire" EntitySet="stagiaire" />
+      <End Role="stagiaire_session_cursus" EntitySet="stagiaire_session_cursus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_stagiaire_session_formation_id_session_formation" Association="Self.FK_stagiaire_session_formation_id_session_formation">
+      <End Role="session_formation" EntitySet="session_formation" />
+      <End Role="stagiaire_session_formation" EntitySet="stagiaire_session_formation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_stagiaire_session_formation_id_stagiaire" Association="Self.FK_stagiaire_session_formation_id_stagiaire">
+      <End Role="stagiaire" EntitySet="stagiaire" />
+      <End Role="stagiaire_session_formation" EntitySet="stagiaire_session_formation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_theme_formateur_id_formateur" Association="Self.FK_theme_formateur_id_formateur">
+      <End Role="formateur" EntitySet="formateur" />
+      <End Role="theme_formateur" EntitySet="theme_formateur" />
+    </AssociationSet>
+    <AssociationSet Name="FK_theme_formateur_id_theme" Association="Self.FK_theme_formateur_id_theme">
+      <End Role="theme" EntitySet="theme" />
+      <End Role="theme_formateur" EntitySet="theme_formateur" />
+    </AssociationSet>
+    <AssociationSet Name="FK_theme_id_categorie" Association="Self.FK_theme_id_categorie">
+      <End Role="categorie" EntitySet="categorie" />
+      <End Role="theme" EntitySet="theme" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

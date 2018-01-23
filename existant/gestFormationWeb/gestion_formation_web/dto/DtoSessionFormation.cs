@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using gestion_formation_web.dao;
 
 namespace gestion_formation_web.dto
 {
@@ -39,7 +40,7 @@ namespace gestion_formation_web.dto
         }
        
 
-        public static IEnumerable<CoupletNomValeur> getTypesFormation()
+        /*public static IEnumerable<CoupletNomValeur> getTypesFormation()
         {
             string []valeurs = dao.Dao.getEnumValues("session_formation", "type");
             List<CoupletNomValeur> listeValeurs = new List<CoupletNomValeur>();
@@ -49,7 +50,7 @@ namespace gestion_formation_web.dto
                 listeValeurs.Add(new CoupletNomValeur { nom = "type", valeur = val });
             }
             return listeValeurs;
-        }
+        }*/
 
         public static void Add(session_formation sessionFormation,formateur leFormateur, DateTime date)
         {

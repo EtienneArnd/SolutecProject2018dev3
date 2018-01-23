@@ -1,0 +1,362 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="gest_formationModelStoreContainer" CdmEntityContainer="gest_formationEntities1">
+    <EntitySetMapping Name="bilan_formation">
+      <EntityTypeMapping TypeName="gest_formationModel.bilan_formation">
+        <MappingFragment StoreEntitySet="bilan_formation">
+          <ScalarProperty Name="id_bilan" ColumnName="id_bilan" />
+          <ScalarProperty Name="formateur_maitrise_sujet" ColumnName="formateur_maitrise_sujet" />
+          <ScalarProperty Name="formateur_qualites_pedagogiques" ColumnName="formateur_qualites_pedagogiques" />
+          <ScalarProperty Name="formateur_comprehension_problemes" ColumnName="formateur_comprehension_problemes" />
+          <ScalarProperty Name="environnement_accueil" ColumnName="environnement_accueil" />
+          <ScalarProperty Name="environnement_salle_formation" ColumnName="environnement_salle_formation" />
+          <ScalarProperty Name="environnement_materiel_informatique" ColumnName="environnement_materiel_informatique" />
+          <ScalarProperty Name="environnement_support_cours" ColumnName="environnement_support_cours" />
+          <ScalarProperty Name="formation_info_contenu" ColumnName="formation_info_contenu" />
+          <ScalarProperty Name="formation_contenu_adapte" ColumnName="formation_contenu_adapte" />
+          <ScalarProperty Name="formation_frequence_exercices" ColumnName="formation_frequence_exercices" />
+          <ScalarProperty Name="formation_adaptation_exercices_profession" ColumnName="formation_adaptation_exercices_profession" />
+          <ScalarProperty Name="formation_niveau_groupe_homogene" ColumnName="formation_niveau_groupe_homogene" />
+          <ScalarProperty Name="formation_stage_correspondant_besoin" ColumnName="formation_stage_correspondant_besoin" />
+          <ScalarProperty Name="satisfaction_globale" ColumnName="satisfaction_globale" />
+          <ScalarProperty Name="points_forts_du_stage" ColumnName="points_forts_du_stage" />
+          <ScalarProperty Name="points_faibles_du_stage" ColumnName="points_faibles_du_stage" />
+          <ScalarProperty Name="observations_diverses" ColumnName="observations_diverses" />
+          <ScalarProperty Name="besoin_formation_complementaire" ColumnName="besoin_formation_complementaire" />
+          <ScalarProperty Name="pointvueformateur_prerequis" ColumnName="pointvueformateur_prerequis" />
+          <ScalarProperty Name="pointvueformateur_qualite_ecoute" ColumnName="pointvueformateur_qualite_ecoute" />
+          <ScalarProperty Name="pointvueformateur_integration_notions" ColumnName="pointvueformateur_integration_notions" />
+          <ScalarProperty Name="pointvueformateur_stage_correspond_besoin" ColumnName="pointvueformateur_stage_correspond_besoin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="categorie">
+      <EntityTypeMapping TypeName="gest_formationModel.categorie">
+        <MappingFragment StoreEntitySet="categorie">
+          <ScalarProperty Name="id_categorie" ColumnName="id_categorie" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cursus">
+      <EntityTypeMapping TypeName="gest_formationModel.cursus">
+        <MappingFragment StoreEntitySet="cursus">
+          <ScalarProperty Name="id_cursus" ColumnName="id_cursus" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="tarif" ColumnName="tarif" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="equipement">
+      <EntityTypeMapping TypeName="gest_formationModel.equipement">
+        <MappingFragment StoreEntitySet="equipement">
+          <ScalarProperty Name="id_equipement" ColumnName="id_equipement" />
+          <ScalarProperty Name="numero_serie" ColumnName="numero_serie" />
+          <ScalarProperty Name="type" ColumnName="type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="formateur">
+      <EntityTypeMapping TypeName="gest_formationModel.formateur">
+        <MappingFragment StoreEntitySet="formateur">
+          <ScalarProperty Name="id_formateur" ColumnName="id_formateur" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="prenom" ColumnName="prenom" />
+          <ScalarProperty Name="date_naissance" ColumnName="date_naissance" />
+          <ScalarProperty Name="statut" ColumnName="statut" />
+          <ScalarProperty Name="telephone" ColumnName="telephone" />
+          <ScalarProperty Name="adresse" ColumnName="adresse" />
+          <ScalarProperty Name="cout" ColumnName="cout" />
+          <ScalarProperty Name="civilite" ColumnName="civilite" />
+          <ScalarProperty Name="mail" ColumnName="mail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="formateur_session_formation">
+      <EntityTypeMapping TypeName="gest_formationModel.formateur_session_formation">
+        <MappingFragment StoreEntitySet="formateur_session_formation">
+          <ScalarProperty Name="date_debut" ColumnName="date_debut" />
+          <ScalarProperty Name="duree" ColumnName="duree" />
+          <ScalarProperty Name="tarif" ColumnName="tarif" />
+          <ScalarProperty Name="frais" ColumnName="frais" />
+          <ScalarProperty Name="id_formateur" ColumnName="id_formateur" />
+          <ScalarProperty Name="id_session_formation" ColumnName="id_session_formation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="formation">
+      <EntityTypeMapping TypeName="gest_formationModel.formation">
+        <MappingFragment StoreEntitySet="formation">
+          <ScalarProperty Name="id_formation" ColumnName="id_formation" />
+          <ScalarProperty Name="duree" ColumnName="duree" />
+          <ScalarProperty Name="tarif_intra" ColumnName="tarif_intra" />
+          <ScalarProperty Name="tarif_inter" ColumnName="tarif_inter" />
+          <ScalarProperty Name="intitule" ColumnName="intitule" />
+          <ScalarProperty Name="niveau" ColumnName="niveau" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="formation_cursus">
+      <EntityTypeMapping TypeName="gest_formationModel.formation_cursus">
+        <MappingFragment StoreEntitySet="formation_cursus">
+          <ScalarProperty Name="ordre" ColumnName="ordre" />
+          <ScalarProperty Name="id_cursus" ColumnName="id_cursus" />
+          <ScalarProperty Name="id_formation" ColumnName="id_formation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="identificateur">
+      <EntityTypeMapping TypeName="gest_formationModel.identificateur">
+        <MappingFragment StoreEntitySet="identificateur">
+          <ScalarProperty Name="id_identificateur" ColumnName="id_identificateur" />
+          <ScalarProperty Name="logger" ColumnName="logger" />
+          <ScalarProperty Name="mdp" ColumnName="mdp" />
+          <ScalarProperty Name="droit" ColumnName="droit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="salle">
+      <EntityTypeMapping TypeName="gest_formationModel.salle">
+        <MappingFragment StoreEntitySet="salle">
+          <ScalarProperty Name="id_salle" ColumnName="id_salle" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="capacite" ColumnName="capacite" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="session_cursus">
+      <EntityTypeMapping TypeName="gest_formationModel.session_cursus">
+        <MappingFragment StoreEntitySet="session_cursus">
+          <ScalarProperty Name="id_session_cursus" ColumnName="id_session_cursus" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="date_debut" ColumnName="date_debut" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="session_formation">
+      <EntityTypeMapping TypeName="gest_formationModel.session_formation">
+        <MappingFragment StoreEntitySet="session_formation">
+          <ScalarProperty Name="id_session_formation" ColumnName="id_session_formation" />
+          <ScalarProperty Name="date_debut" ColumnName="date_debut" />
+          <ScalarProperty Name="date_fin" ColumnName="date_fin" />
+          <ScalarProperty Name="ordre" ColumnName="ordre" />
+          <ScalarProperty Name="tarif_intra" ColumnName="tarif_intra" />
+          <ScalarProperty Name="type" ColumnName="type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="societe">
+      <EntityTypeMapping TypeName="gest_formationModel.societe">
+        <MappingFragment StoreEntitySet="societe">
+          <ScalarProperty Name="id_societe" ColumnName="id_societe" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="complement_nom" ColumnName="complement_nom" />
+          <ScalarProperty Name="telephone" ColumnName="telephone" />
+          <ScalarProperty Name="adresse" ColumnName="adresse" />
+          <ScalarProperty Name="mail" ColumnName="mail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="stagiaire">
+      <EntityTypeMapping TypeName="gest_formationModel.stagiaire">
+        <MappingFragment StoreEntitySet="stagiaire">
+          <ScalarProperty Name="id_stagiaire" ColumnName="id_stagiaire" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="prenom" ColumnName="prenom" />
+          <ScalarProperty Name="date_naissance" ColumnName="date_naissance" />
+          <ScalarProperty Name="civilite" ColumnName="civilite" />
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="telephone" ColumnName="telephone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="stagiaire_session_formation">
+      <EntityTypeMapping TypeName="gest_formationModel.stagiaire_session_formation">
+        <MappingFragment StoreEntitySet="stagiaire_session_formation">
+          <ScalarProperty Name="id_stagiaire" ColumnName="id_stagiaire" />
+          <ScalarProperty Name="id_session_formation" ColumnName="id_session_formation" />
+          <ScalarProperty Name="tarif" ColumnName="tarif" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="theme">
+      <EntityTypeMapping TypeName="gest_formationModel.theme">
+        <MappingFragment StoreEntitySet="theme">
+          <ScalarProperty Name="id_theme" ColumnName="id_theme" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="theme_formateur">
+      <EntityTypeMapping TypeName="gest_formationModel.theme_formateur">
+        <MappingFragment StoreEntitySet="theme_formateur">
+          <ScalarProperty Name="niveau" ColumnName="niveau" />
+          <ScalarProperty Name="id_formateur" ColumnName="id_formateur" />
+          <ScalarProperty Name="id_theme" ColumnName="id_theme" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ville">
+      <EntityTypeMapping TypeName="gest_formationModel.ville">
+        <MappingFragment StoreEntitySet="ville">
+          <ScalarProperty Name="id_ville" ColumnName="id_ville" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="code_postal" ColumnName="code_postal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="FK_bilan_formation_id_formateur" TypeName="gest_formationModel.FK_bilan_formation_id_formateur" StoreEntitySet="bilan_formation">
+      <EndProperty Name="formateur">
+        <ScalarProperty Name="id_formateur" ColumnName="id_formateur" />
+      </EndProperty>
+      <EndProperty Name="bilan_formation">
+        <ScalarProperty Name="id_bilan" ColumnName="id_bilan" />
+      </EndProperty>
+      <Condition IsNull="false" ColumnName="id_formateur" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_bilan_formation_id_session_formation" TypeName="gest_formationModel.FK_bilan_formation_id_session_formation" StoreEntitySet="bilan_formation">
+      <EndProperty Name="session_formation">
+        <ScalarProperty Name="id_session_formation" ColumnName="id_session_formation" />
+      </EndProperty>
+      <EndProperty Name="bilan_formation">
+        <ScalarProperty Name="id_bilan" ColumnName="id_bilan" />
+      </EndProperty>
+      <Condition IsNull="false" ColumnName="id_session_formation" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_bilan_formation_id_stagiaire" TypeName="gest_formationModel.FK_bilan_formation_id_stagiaire" StoreEntitySet="bilan_formation">
+      <EndProperty Name="stagiaire">
+        <ScalarProperty Name="id_stagiaire" ColumnName="id_stagiaire" />
+      </EndProperty>
+      <EndProperty Name="bilan_formation">
+        <ScalarProperty Name="id_bilan" ColumnName="id_bilan" />
+      </EndProperty>
+      <Condition IsNull="false" ColumnName="id_stagiaire" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_theme_id_categorie" TypeName="gest_formationModel.FK_theme_id_categorie" StoreEntitySet="theme">
+      <EndProperty Name="categorie">
+        <ScalarProperty Name="id_categorie" ColumnName="id_categorie" />
+      </EndProperty>
+      <EndProperty Name="theme">
+        <ScalarProperty Name="id_theme" ColumnName="id_theme" />
+      </EndProperty>
+      <Condition IsNull="false" ColumnName="id_categorie" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_session_cursus_id_cursus" TypeName="gest_formationModel.FK_session_cursus_id_cursus" StoreEntitySet="session_cursus">
+      <EndProperty Name="cursus">
+        <ScalarProperty Name="id_cursus" ColumnName="id_cursus" />
+      </EndProperty>
+      <EndProperty Name="session_cursus">
+        <ScalarProperty Name="id_session_cursus" ColumnName="id_session_cursus" />
+      </EndProperty>
+      <Condition IsNull="false" ColumnName="id_cursus" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_equipement_id_salle" TypeName="gest_formationModel.FK_equipement_id_salle" StoreEntitySet="equipement">
+      <EndProperty Name="salle">
+        <ScalarProperty Name="id_salle" ColumnName="id_salle" />
+      </EndProperty>
+      <EndProperty Name="equipement">
+        <ScalarProperty Name="id_equipement" ColumnName="id_equipement" />
+      </EndProperty>
+      <Condition IsNull="false" ColumnName="id_salle" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_formateur_id_identificateur" TypeName="gest_formationModel.FK_formateur_id_identificateur" StoreEntitySet="formateur">
+      <EndProperty Name="identificateur">
+        <ScalarProperty Name="id_identificateur" ColumnName="id_identificateur" />
+      </EndProperty>
+      <EndProperty Name="formateur">
+        <ScalarProperty Name="id_formateur" ColumnName="id_formateur" />
+      </EndProperty>
+      <Condition IsNull="false" ColumnName="id_identificateur" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_formateur_id_societe" TypeName="gest_formationModel.FK_formateur_id_societe" StoreEntitySet="formateur">
+      <EndProperty Name="societe">
+        <ScalarProperty Name="id_societe" ColumnName="id_societe" />
+      </EndProperty>
+      <EndProperty Name="formateur">
+        <ScalarProperty Name="id_formateur" ColumnName="id_formateur" />
+      </EndProperty>
+      <Condition IsNull="false" ColumnName="id_societe" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_formateur_id_ville" TypeName="gest_formationModel.FK_formateur_id_ville" StoreEntitySet="formateur">
+      <EndProperty Name="ville">
+        <ScalarProperty Name="id_ville" ColumnName="id_ville" />
+      </EndProperty>
+      <EndProperty Name="formateur">
+        <ScalarProperty Name="id_formateur" ColumnName="id_formateur" />
+      </EndProperty>
+      <Condition IsNull="false" ColumnName="id_ville" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_formation_id_theme" TypeName="gest_formationModel.FK_formation_id_theme" StoreEntitySet="formation">
+      <EndProperty Name="theme">
+        <ScalarProperty Name="id_theme" ColumnName="id_theme" />
+      </EndProperty>
+      <EndProperty Name="formation">
+        <ScalarProperty Name="id_formation" ColumnName="id_formation" />
+      </EndProperty>
+      <Condition IsNull="false" ColumnName="id_theme" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_session_formation_id_formation" TypeName="gest_formationModel.FK_session_formation_id_formation" StoreEntitySet="session_formation">
+      <EndProperty Name="formation">
+        <ScalarProperty Name="id_formation" ColumnName="id_formation" />
+      </EndProperty>
+      <EndProperty Name="session_formation">
+        <ScalarProperty Name="id_session_formation" ColumnName="id_session_formation" />
+      </EndProperty>
+      <Condition IsNull="false" ColumnName="id_formation" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_stagiaire_id_identificateur" TypeName="gest_formationModel.FK_stagiaire_id_identificateur" StoreEntitySet="stagiaire">
+      <EndProperty Name="identificateur">
+        <ScalarProperty Name="id_identificateur" ColumnName="id_identificateur" />
+      </EndProperty>
+      <EndProperty Name="stagiaire">
+        <ScalarProperty Name="id_stagiaire" ColumnName="id_stagiaire" />
+      </EndProperty>
+      <Condition IsNull="false" ColumnName="id_identificateur" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_session_formation_id_salle" TypeName="gest_formationModel.FK_session_formation_id_salle" StoreEntitySet="session_formation">
+      <EndProperty Name="salle">
+        <ScalarProperty Name="id_salle" ColumnName="id_salle" />
+      </EndProperty>
+      <EndProperty Name="session_formation">
+        <ScalarProperty Name="id_session_formation" ColumnName="id_session_formation" />
+      </EndProperty>
+      <Condition IsNull="false" ColumnName="id_salle" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_session_formation_id_session_cursus" TypeName="gest_formationModel.FK_session_formation_id_session_cursus" StoreEntitySet="session_formation">
+      <EndProperty Name="session_cursus">
+        <ScalarProperty Name="id_session_cursus" ColumnName="id_session_cursus" />
+      </EndProperty>
+      <EndProperty Name="session_formation">
+        <ScalarProperty Name="id_session_formation" ColumnName="id_session_formation" />
+      </EndProperty>
+      <Condition IsNull="false" ColumnName="id_session_cursus" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_societe_id_ville" TypeName="gest_formationModel.FK_societe_id_ville" StoreEntitySet="societe">
+      <EndProperty Name="ville">
+        <ScalarProperty Name="id_ville" ColumnName="id_ville" />
+      </EndProperty>
+      <EndProperty Name="societe">
+        <ScalarProperty Name="id_societe" ColumnName="id_societe" />
+      </EndProperty>
+      <Condition IsNull="false" ColumnName="id_ville" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_stagiaire_id_societe" TypeName="gest_formationModel.FK_stagiaire_id_societe" StoreEntitySet="stagiaire">
+      <EndProperty Name="societe">
+        <ScalarProperty Name="id_societe" ColumnName="id_societe" />
+      </EndProperty>
+      <EndProperty Name="stagiaire">
+        <ScalarProperty Name="id_stagiaire" ColumnName="id_stagiaire" />
+      </EndProperty>
+      <Condition IsNull="false" ColumnName="id_societe" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="stagiaire_session_cursus" TypeName="gest_formationModel.stagiaire_session_cursus" StoreEntitySet="stagiaire_session_cursus">
+      <EndProperty Name="session_cursus">
+        <ScalarProperty Name="id_session_cursus" ColumnName="id_session_cursus" />
+      </EndProperty>
+      <EndProperty Name="stagiaire">
+        <ScalarProperty Name="id_stagiaire" ColumnName="id_stagiaire" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="inscrire_session_formation" FunctionName="gest_formationModel.Store.inscrire_session_formation" />
+  </EntityContainerMapping>
+</Mapping>

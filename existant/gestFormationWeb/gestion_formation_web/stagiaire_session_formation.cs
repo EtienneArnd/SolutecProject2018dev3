@@ -14,9 +14,9 @@ namespace gestion_formation_web
     
     public partial class stagiaire_session_formation
     {
+        public Nullable<decimal> tarif { get; set; }
         public int id_stagiaire { get; set; }
         public int id_session_formation { get; set; }
-        public Nullable<decimal> tarif { get; set; }
     
         public virtual session_formation session_formation { get; set; }
         public virtual stagiaire stagiaire { get; set; }
