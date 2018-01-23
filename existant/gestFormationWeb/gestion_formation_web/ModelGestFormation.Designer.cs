@@ -1,4 +1,4 @@
-﻿// La génération de code T4 est activée pour le modèle 'D:\workspace\outil_formation\gestFormationWeb\gestion_formation_web\ModelGestFormation.edmx'. 
+﻿// La génération de code T4 est activée pour le modèle 'C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\SolutecProject2018dev3\existant\gestFormationWeb\gestion_formation_web\ModelGestFormation.edmx'. 
 // Pour activer la génération de code héritée, définissez la valeur de la propriété
 // du concepteur 'Stratégie de génération de code' sur 'ObjectContext hérité'. Cette propriété est disponible dans la fenêtre Propriétés lorsque le modèle
 //  est ouvert dans le concepteur.
