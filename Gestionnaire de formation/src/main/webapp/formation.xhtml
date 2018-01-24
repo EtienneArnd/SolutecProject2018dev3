@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<h:outputStylesheet library="css" name="MonStyle.css" />
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+</h:head>
+<body>
+	<h:panelGrid columns="3" cellpadding="5">
+		<p:commandButton value="Ajouter formation"
+			styleClass="w3-btn w3-teal w3-center " type="button"
+			onclick="PF('dlg1').show();" />
+		<p:commandButton value="Modifier formation"
+			styleClass="w3-btn w3-teal w3-center " type="button"
+			onclick="PF('dlg1').show();" />
+		<p:commandButton value="Supprimer formation"
+			styleClass="w3-btn w3-teal w3-center " type="button"
+			onclick="PF('dlg1').show();" />
+	</h:panelGrid>
+
+
+
+	<p:dialog header="Menu ajouter une formation" resizable="false"
+		widgetVar="dlg1" modal="true" height="100" width="600">
+		<h:form>
+			<h:panelGrid columns="2" cellpadding="10" cellspacing="10">
+				<h:panelGrid columns="2" cellpadding="5" cellspacing="2">
+					<h6>
+						Intitulé : <h:inputText 
+							value="#{beanFormation.formation.intitule}" />
+					</h6>
+				</h:panelGrid>
+				<h:panelGrid columns="2" cellpadding="5" cellspacing="2">
+					<h6>
+						Niveau :
+						<h:selectOneMenu value="#{beanFormation.formation.niveau}" >
+							<f:selectItems value="#{beanFormation.listNiveaux}" />
+						</h:selectOneMenu>
+					</h6>
+				</h:panelGrid>
+				<h:panelGrid columns="2" cellpadding="5" cellspacing="2">
+					<h6>
+						Durée : <h:inputText 
+							value="#{beanFormation.formation.duree}" />
+					</h6>
+				</h:panelGrid>
+
+				<h:panelGrid columns="2" cellpadding="5" cellspacing="2">
+					<h6>
+						Tarif inter : <h:inputText 
+							value="#{beanFormation.formation.tarifInter}" />
+					</h6>
+				</h:panelGrid>
+
+				<h:panelGrid columns="2" cellpadding="5" cellspacing="2">
+					<h6>
+						Tarif intra : <h:inputText 
+							value="#{beanFormation.formation.tarifIntra}" />
+					</h6>
+				</h:panelGrid>
+
+				<h:panelGrid columns="2" cellpadding="5" cellspacing="2">
+					<h6>
+						Thème :
+						<h:selectOneMenu value="#{beanFormation.formation.theme}" converter="themeConverter">
+							<f:selectItems value="#{beanTheme.listTheme}" var="theme" itemValue="#{theme}" itemLabel="#{theme.nom}" />
+						</h:selectOneMenu>
+					</h6>
+				</h:panelGrid>
+
+				<h:commandButton value="Valider"
+					styleClass="w3-btn w3-teal w3-center " type="submit" action="#{beanFormation.ValiderInfos()}"/>
+				<h:commandButton value="Annuler"
+					styleClass="w3-btn w3-teal w3-center " type="submit" />
+
+
+			</h:panelGrid>
+		</h:form>
+	</p:dialog>
+
+	<h:dataTable value="#{beanFormation.listFormation}" var="Formation"
+		styleClass="skill" rowClasses="row1,row2" columnClasses=",level">
+		<f:facet name="header">
+			<h:outputText value=" List of Formations" />
+		</f:facet>
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="Formation id" />
+			</f:facet>
+			<h:outputText value="#{Formation.idFormation}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="Formation name" />
+			</f:facet>
+			<h:outputText value="#{Formation.intitule}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="Formation level" />
+			</f:facet>
+			<h:outputText value="#{Formation.niveau}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="Formation tarif inter" />
+			</f:facet>
+			<h:outputText value="#{Formation.tarifInter}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="Formation theme" />
+			</f:facet>
+			<h:outputText value="#{Formation.theme.nom}" />
+		</h:column>
+	</h:dataTable>
+
+
+
+
+
+
+</body>
+</html>

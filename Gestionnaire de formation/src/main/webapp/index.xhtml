@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+	<h:outputStylesheet library="css" name="MonStyle.css" />
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+</h:head>
+<body>
+	<div class="w3-card-4 formulaireLogin">
+		<h:form>
+			<h1 class="w3-center">Bienvenue au gestionnaire de formations</h1>
+			<div class="w3-center">
+				<h:commandLink styleClass="w3-btn w3-teal w3-center"
+					action="#{beanFormation.toPageFormations()}" value="Gérer les formations" />
+				<h:commandLink styleClass="w3-btn w3-teal w3-center"
+					action="#{beanFormation.toPageFormations()}" value="Gérer sessions de formations" />
+				<h:commandLink styleClass="w3-btn w3-teal w3-center"
+					action="#{beanFormation.toPageFormations()}" value="Gérer les cursus" />
+				<h:commandLink styleClass="w3-btn w3-teal w3-center"
+					action="#{beanFormation.toPageFormations()}" value="Gérer sessions de cursus" />
+			</div>
+		</h:form>
+	</div>
+
+
+
+</body>
+</html>

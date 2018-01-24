@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="gestionnaire-de-formation" transaction-type="RESOURCE_LOCAL">
+		<class>fr.esic.solutec.entities.BilanEvalEnvironnement</class>
+		<class>fr.esic.solutec.entities.BilanEvalFormateur</class>
+		<class>fr.esic.solutec.entities.BilanEvalFormation</class>
+		<class>fr.esic.solutec.entities.BilanFormation</class>
+		<class>fr.esic.solutec.entities.BilanPointvueFormateur</class>
+		<class>fr.esic.solutec.entities.Categorie</class>
+		<class>fr.esic.solutec.entities.Contact</class>
+		<class>fr.esic.solutec.entities.Cursus</class>
+		<class>fr.esic.solutec.entities.Equipement</class>
+		<class>fr.esic.solutec.entities.Formateur</class>
+		<class>fr.esic.solutec.entities.FormateurSessionFormation</class>
+		<class>fr.esic.solutec.entities.FormateurSessionFormationPK</class>
+		<class>fr.esic.solutec.entities.Formation</class>
+		<class>fr.esic.solutec.entities.FormationCursus</class>
+		<class>fr.esic.solutec.entities.FormationCursusPK</class>
+		<class>fr.esic.solutec.entities.Identificateur</class>
+		<class>fr.esic.solutec.entities.Personnel</class>
+		<class>fr.esic.solutec.entities.Salle</class>
+		<class>fr.esic.solutec.entities.SessionCursus</class>
+		<class>fr.esic.solutec.entities.SessionFormation</class>
+		<class>fr.esic.solutec.entities.Site</class>
+		<class>fr.esic.solutec.entities.Societe</class>
+		<class>fr.esic.solutec.entities.Stagiaire</class>
+		<class>fr.esic.solutec.entities.StagiaireSessionFormation</class>
+		<class>fr.esic.solutec.entities.StagiaireSessionFormationPK</class>
+		<class>fr.esic.solutec.entities.Theme</class>
+		<class>fr.esic.solutec.entities.ThemeFormateur</class>
+		<class>fr.esic.solutec.entities.ThemeFormateurPK</class>
+		<class>fr.esic.solutec.entities.Ville</class>
+		<properties>
+			<property name="javax.persistence.jdbc.driver" value="org.gjt.mm.mysql.Driver"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://192.168.1.45:3306/gest_form"/>
+			<property name="javax.persistence.jdbc.user" value="esic"/>
+			<property name="javax.persistence.jdbc.password" value="esic"/>
+		</properties>
+	</persistence-unit>
+</persistence>
