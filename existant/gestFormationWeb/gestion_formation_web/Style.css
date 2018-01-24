@@ -30,13 +30,6 @@ margin:0;
     float:left;
 }
 
-.FramePrincipal {
-  margin-left: auto;
-  margin-right: auto;
-      width:80%;
-      left: 7%; 
-      position:absolute;
-}
 
 .datepicker{
     width:80px;

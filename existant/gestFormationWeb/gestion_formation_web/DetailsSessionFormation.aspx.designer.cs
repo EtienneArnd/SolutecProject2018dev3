@@ -49,15 +49,6 @@ namespace gestion_formation_web {
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
-        /// Contrôle tbxIntitule.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbxIntitule;
-        
-        /// <summary>
         /// Contrôle tbxDateDebut.
         /// </summary>
         /// <remarks>
@@ -92,6 +83,15 @@ namespace gestion_formation_web {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbxType;
+        
+        /// <summary>
+        /// Contrôle tbxIntitule.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbxIntitule;
         
         /// <summary>
         /// Contrôle btnModifier.

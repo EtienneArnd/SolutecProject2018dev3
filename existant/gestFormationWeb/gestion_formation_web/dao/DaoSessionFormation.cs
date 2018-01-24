@@ -40,6 +40,7 @@ namespace gestion_formation_web.dao
         }
 
 
+
         public static void Add(session_formation sessionFormation, formateur leFormateur, DateTime date)
         {
             formateur_session_formation fsf = new formateur_session_formation {
@@ -54,7 +55,7 @@ namespace gestion_formation_web.dao
             Dao.Update();
         }
 
-        internal static void Remove(int idFormateur, int idSessionFormation)
+        internal static void RemoveFormateurFromSession(int idFormateur, int idSessionFormation)
         {
             formateur_session_formation formateurSessionFormation = ctxt.formateur_session_formation.First(fsf => fsf.id_formateur == idFormateur && fsf.id_session_formation == idSessionFormation);
             if (formateurSessionFormation != null)
@@ -62,6 +63,25 @@ namespace gestion_formation_web.dao
                 ctxt.formateur_session_formation.Remove(formateurSessionFormation);
                 ctxt.SaveChanges();
             }
+        }
+        public static void Update(int idSessionFormation, string dateDebut, string dateFin, string ordre, string Type, string tarifIntra)
+        {
+            session_formation sessionformation = dao.DaoSessionFormation.Get(idSessionFormation);
+            try
+            {
+                sessionformation.date_debut = (dateDebut == null || dateDebut == "") ? sessionformation.date_debut : DateTime.Parse(dateDebut);
+                sessionformation.date_fin = (dateFin == null || dateFin == "") ? sessionformation.date_fin : DateTime.Parse(dateFin);
+                sessionformation.ordre = (ordre == null || ordre == "") ? sessionformation.ordre : int.Parse(ordre);
+                sessionformation.type = (ordre == null || ordre == "") ? sessionformation.type : ordre;
+                sessionformation.tarif_intra = (ordre == null || ordre == "") ? sessionformation.tarif_intra : decimal.Parse(ordre);
+                ctxt.SaveChanges();
+            }
+            catch
+            {
+                //Nothing to do
+                Console.WriteLine("Echec de la mise à jour de la SessionFormation #"+idSessionFormation);
+            }
+            
         }
 
     }

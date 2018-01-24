@@ -40,26 +40,18 @@ namespace gestion_formation_web.dto
         }
        
 
-        /*public static IEnumerable<CoupletNomValeur> getTypesFormation()
-        {
-            string []valeurs = dao.Dao.getEnumValues("session_formation", "type");
-            List<CoupletNomValeur> listeValeurs = new List<CoupletNomValeur>();
-
-            foreach (string val in valeurs)
-            {
-                listeValeurs.Add(new CoupletNomValeur { nom = "type", valeur = val });
-            }
-            return listeValeurs;
-        }*/
-
         public static void Add(session_formation sessionFormation,formateur leFormateur, DateTime date)
         {
             dao.DaoSessionFormation.Add(sessionFormation, leFormateur, date);
         }
 
-        public static void Remove(int idFormateur, int idSessionFormation)
+        public static void RemoveFormateurFromSession(int idFormateur, int idSessionFormation)
         {
-            dao.DaoSessionFormation.Remove(idFormateur, idSessionFormation);
+            dao.DaoSessionFormation.RemoveFormateurFromSession(idFormateur, idSessionFormation);
+        }
+        public static void UpdateSessionFormation(int idSessionFormation, string dateDebut = "", string dateFin = "", string ordre = "", string Type = "", string tarifIntra = "")
+        {
+            dao.DaoSessionFormation.Update(idSessionFormation,dateDebut, dateFin, ordre, Type, tarifIntra);
         }
     }
 }

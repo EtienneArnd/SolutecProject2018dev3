@@ -1,4 +1,5 @@
-﻿using System;
+﻿using gestion_formation_web.dto;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -95,11 +96,27 @@ namespace gestion_formation_web
             upFormateurs.Update();
         }
 
+
+        protected void onClick_btnModifier(object sender, EventArgs e)
+        {
+            DtoSessionFormation.UpdateSessionFormation(idSessionFormation, tbxDateDebut.Text,
+            tbxDateFin.Text, tbxOrdre.Text, tbxType.Text, tbxIntitule.Text);
+        }
+
+        protected void onClick_btnannuler(object sender, EventArgs e)
+        {
+            tbxDateDebut.Text = "";
+            tbxDateFin.Text = "";
+            tbxOrdre.Text = "";
+            tbxType.Text = "";
+            tbxIntitule.Text = "";
+        }
+
         protected void gvFormateurs_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             System.Collections.Specialized.IOrderedDictionary valeurs = e.Values;
             int idFormateur = Convert.ToInt32(valeurs["id_formateur"]);
-            dto.DtoSessionFormation.Remove(idFormateur, idSessionFormation);
+            dto.DtoSessionFormation.RemoveFormateurFromSession(idFormateur, idSessionFormation);
             gvFormateurs.DeleteRow(e.RowIndex);
 
         }

@@ -1,21 +1,9 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CreationModificationFormation.aspx.cs" Inherits="gestion_formation_web.WebForm1" %>
+﻿<%@ Page Title="Creation Modification Formation" Language="C#"  MasterPageFile="~/pageMaitre.Master" AutoEventWireup="true" CodeBehind="CreationModificationFormation.aspx.cs" Inherits="gestion_formation_web.WebForm1" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
-    <style type="text/css">
-        #form1 {
-            height: 215px;
-        }
-    </style>
-</head>
-<body>
-    <form id="form1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
        
         <asp:Label ID="lblTitre" runat="server" Text="Créer une formation"></asp:Label><br />
+
         <asp:Label ID="lblNom" runat="server" Text="Nom de la formation"></asp:Label>
         <asp:TextBox ID="tbxNom" runat="server"></asp:TextBox>
         <asp:Label ID="lblNomObligatoire" runat="server" Text="Champ obligatoire" Visible="False"></asp:Label><br />
@@ -54,6 +42,4 @@
         <asp:Button ID="btnValider" runat="server" Text="Valider" OnClick="btnValider_Click" />
         <asp:Button ID="btnAnnuler" runat="server" Text="Annuler" />
         
-    </form>
-</body>
-</html>
+</asp:Content>

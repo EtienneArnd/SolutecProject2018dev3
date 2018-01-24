@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#"   MasterPageFile="~/pageMaitre.Master" AutoEventWireup="true" CodeBehind="DetailsSessionCursus.aspx.cs" Inherits="gestion_formation_web.DetailsSessionCursus" %>
+﻿<%@ Page Title="Detail Session cursus" Language="C#"   MasterPageFile="~/pageMaitre.Master" AutoEventWireup="true" CodeBehind="DetailsSessionCursus.aspx.cs" Inherits="gestion_formation_web.DetailsSessionCursus" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <%--    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>--%>
     
@@ -6,79 +6,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <%-- <asp:ScriptManager runat="server" EnablePageMethods="true"  />--%>
 <%--    <script type="text/javascript">
-       //function  genererFeuillesEvaluation(idSessionFormation) {
-       //    if (idSessionFormation == null && idSessionFormation.trim().length()==0){
-       //        alert("id de session de formation requis");
-       //        return;
-       //    }
-       //    var rep = PageMethods.GenererFeuillesEvaluation(idSessionFormation);
-       //    alert(rep);
-       
-       //}
-
-       // function genererFeuillesEvaluationtmp(idSessionFormation) {
-       //     var uri = window.location.href.split('?')[0];
-       //     uri += "/GenererFeuillesEvaluation2?idSessionFormation="+idSessionFormation;
-       //     var iframe = document.createElement("iframe");
-       //     iframe.src = encodeURI(uri);
-       //     document.body.appendChild(iframe);
-       // }
-       // function genererFeuillesEvaluation(idSessionFormation) {
-       //     var uri = window.location.href.split('?')[0];
-       //     uri += "/GenererFeuillesEvaluation";
-            
-       //    $.ajax({
-       //        type: "POST",
-       //        async: false,
-       //        url: uri,
-       //        data: "{'idSessionFormation':'" + idSessionFormation + "'}",
-       //        contentType: "application/json; charset=utf-8",
-       //        dataType: "json",
-       //        success: function(data) {
-       //            alert(data.size);
-       //            // alert(JSON.stringify(data));
-       //            var blob = new Blob([data]);
-       //            var link = document.createElement('a');
-       //            link.href = window.URL.createObjectURL(blob);
-       //            link.download = "Sample.docx";
-       //            link.click();
-       //        },  
-       //        error: function (response) {  
-       //            var r = jQuery.parseJSON(response.responseText);
-       //            alert("Message: " + r.Message);
-       //            alert("StackTrace: " + r.StackTrace);
-       //            alert("ExceptionType: " + r.ExceptionType);
-       //        } ,
-       //        failure: function (response) {
-       //            var r = jQuery.parseJSON(response.responseText);
-       //            alert("Message: " + r.Message);
-       //            alert("StackTrace: " + r.StackTrace);
-       //            alert("ExceptionType: " + r.ExceptionType);
-       //        }
-       //    });
-       //}
-/*       downloadFile(window.location+"&idSessionFormation="+idSessionFormation);
-       function downloadFile(uri) 
-       {
-           alert(uri);
-           var req = new XMLHttpRequest();
-           req.open("GET", uri, true);
-           req.responseType = "blob";
-           req.onload = function (event) {
-               var blob = req.response;
-               alert(blob);
-               //var fileName = req.getResponseHeader("fileName") //if you have the fileName header available
-               //var link=document.createElement('a');
-               //link.href=window.URL.createObjectURL(blob);
-               //link.download=fileName;
-               link.click();
-           };
-
-           req.send();
-           }
-*/
-
-       
     </script>--%>
            
     <asp:Label ID="lblTitrePage" runat="server" Text="Cursus ...." CssClass="titre1 auto-style1"></asp:Label>
