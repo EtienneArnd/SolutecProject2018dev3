@@ -1,12 +1,17 @@
 package fr.esic.solutec.beans;
 
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.component.html.HtmlDataTable;
+import javax.faces.context.FacesContext;
 
-import fr.esic.solutec.dao.DaoFormation;
+import org.primefaces.context.RequestContext;
+
 import fr.esic.solutec.dto.DtoFormation;
 import fr.esic.solutec.entities.Formation;
 
@@ -21,6 +26,7 @@ public class BeanFormation implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private List<Formation> listFormation;
 	private HtmlDataTable tableFormation;
+	private int[] listDuree;
 
 	
 	public HtmlDataTable getTableFormation() {
@@ -32,10 +38,22 @@ public class BeanFormation implements Serializable{
 	}
 
 	private Formation formation = new Formation();
+	private Formation formation_modif = new Formation();
 			
 
+	public int[] getListDuree(){
+		listDuree = new int[] {1,2,3,4,5,6,7,8,9,10};
+		return listDuree;
+	}
 	
-	
+	public Formation getFormation_modif() {
+		return formation_modif;
+	}
+
+	public void setFormation_modif(Formation formation_modif) {
+		this.formation_modif = formation_modif;
+	}
+
 	public Formation getFormation() {
 		return formation;
 	}
@@ -60,12 +78,13 @@ public class BeanFormation implements Serializable{
 	
 	private void init() {
 		formation = new Formation();
+		formation_modif = new Formation();
 	}
 
 	
 	public void ValiderInfos() {
 
-		DaoFormation.AddFormation(formation);
+		DtoFormation.AddFormation(formation);
 		init();
 	}
 	
@@ -73,4 +92,32 @@ public class BeanFormation implements Serializable{
 		this.listFormation = listFormation;
 	}
 
+	
+	public void fenetreModifierFormation() {
+		Map<String,String> par_map = new HashMap<String,String>();
+		par_map=FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+		String id=par_map.get("id");
+		init();
+		formation_modif = DtoFormation.getFormation(Integer.parseInt(id));
+		RequestContext context = RequestContext.getCurrentInstance();
+		context.execute("PF('dlg2').show();");
+	}
+	
+	public void modifierFormation() {
+		DtoFormation.EditFormation(formation_modif);
+	}
+	
+	public void supprimerFormation(){
+		
+	}
+	
+	public void annulerFenetreMofifier() {
+		RequestContext context = RequestContext.getCurrentInstance();
+		context.execute("PF('dlg2').hide();");
+	}
+	
+	public void annulerFenetreAjouter() {
+		RequestContext context = RequestContext.getCurrentInstance();
+		context.execute("PF('dlg1').hide();");
+	}
 }

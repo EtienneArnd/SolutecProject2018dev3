@@ -2,10 +2,8 @@ package fr.esic.solutec.dao;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-import com.mysql.jdbc.Connection;
 
 import fr.esic.solutec.entities.Formation;
 
@@ -42,12 +40,8 @@ public class DaoFormation extends Dao{
 	}
 	
 	public static void EditFormation(Formation formation)
-	{
+	{	
 		entityManager.getTransaction().begin();
-		
-		Query query = null;
-		
-		query = entityManager.createNamedQuery("SELECT a FROM Formation a");
 		
 		entityManager.getTransaction().commit();
 	}

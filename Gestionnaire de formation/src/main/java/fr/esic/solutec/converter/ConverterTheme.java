@@ -5,9 +5,6 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.ConverterException;
 import javax.faces.convert.FacesConverter;
-
-import fr.esic.solutec.beans.BeanTheme;
-import fr.esic.solutec.dto.DtoFormation;
 import fr.esic.solutec.dto.DtoTheme;
 import fr.esic.solutec.entities.Theme;
 

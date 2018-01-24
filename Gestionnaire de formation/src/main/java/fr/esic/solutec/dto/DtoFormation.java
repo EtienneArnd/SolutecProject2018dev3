@@ -24,5 +24,14 @@ public class DtoFormation {
 		return Dao.getEnumValues("formation", "niveau");
 	}
 	
+	public static void AddFormation(Formation formation) {
+
+		DaoFormation.AddFormation(formation);
+		
+	}
+	
+	public static void EditFormation(Formation formation) {
+		DaoFormation.EditFormation(formation);
+	}
 	
 }

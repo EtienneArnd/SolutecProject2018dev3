@@ -6,9 +6,7 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import fr.esic.solutec.dto.DtoFormation;
 import fr.esic.solutec.dto.DtoTheme;
-import fr.esic.solutec.entities.Formation;
 import fr.esic.solutec.entities.Theme;
 
 
@@ -22,8 +20,6 @@ public class BeanTheme implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	private List<Theme> listTheme;
-	private List<String> listThemeNom; 
-//	private String themeNom; 
 
 	
 	/*public String toPageTheme() {
@@ -61,11 +57,4 @@ public class BeanTheme implements Serializable{
 	public void setListTheme(List<Theme> listTheme) {
 		this.listTheme = listTheme;
 	}
-	
-//	public String getThemeNom() {
-//		return themeNom; 
-//	}
-
-	
-	
 }

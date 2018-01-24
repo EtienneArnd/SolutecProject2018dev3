@@ -1,0 +1,14 @@
+.site-footer {
+	height: 100px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+.row1 {
+	background: #87DD91;
+}
+
+.row2 {
+	background: #FFFFFF;
+}
