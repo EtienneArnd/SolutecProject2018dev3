@@ -18,10 +18,10 @@ namespace gestion_formation_web.dao
             {
                 return ctxt.formateur.ToList();
             }
-                return ctxt.theme_formateur.Where(tf => tf.id_theme == unTheme.id_theme).Select(f => f.formateur).ToList();
-            }
-
+            return ctxt.theme_formateur.Where(tf => tf.id_theme == unTheme.id_theme).Select(f => f.formateur).ToList();
         }
+
+    }
 }
 
 

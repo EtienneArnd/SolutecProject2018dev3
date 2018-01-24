@@ -27,7 +27,8 @@ namespace gestion_formation_web
         public Nullable<decimal> tarif_inter { get; set; }
         public string intitule { get; set; }
         public string niveau { get; set; }
-    
+        public int id_theme { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<formation_cursus> formation_cursus { get; set; }
         public virtual theme theme { get; set; }

@@ -11,5 +11,9 @@ namespace gestion_formation_web.dao
         {
             return ctxt.ville.SingleOrDefault(v => v.id_ville == id_Ville);
         }
+        public static IEnumerable<ville> Get()
+        {
+            return ctxt.ville.ToList();
+        }
     }
 }

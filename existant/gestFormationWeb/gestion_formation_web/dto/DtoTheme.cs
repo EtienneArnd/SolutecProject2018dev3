@@ -8,9 +8,9 @@ namespace gestion_formation_web.dto
 {
     public class DtoTheme
     {
-        public static theme Get(int idTheme)
-        {
-            return DaoTheme.Get(idTheme);
+        public static IEnumerable<theme> Get()
+        {   
+            return DaoTheme.Get();
         }
     }
 }

@@ -11,5 +11,9 @@ namespace gestion_formation_web.dao
         {
             return ctxt.societe.SingleOrDefault(e => e.id_societe == id_Societe);
         }
+        public static IEnumerable<societe> Get()
+        {
+            return ctxt.societe.ToList();
+        }
     }
 }

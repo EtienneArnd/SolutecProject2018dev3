@@ -12,6 +12,6 @@ namespace gestion_formation_web.dao
         {
             return ctxt.bilan_formation.SingleOrDefault(bf => bf.id_bilan_formation == id_BilanFromation);
         }
-
+        
     }
 }

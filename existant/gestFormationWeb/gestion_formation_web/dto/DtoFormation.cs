@@ -11,12 +11,20 @@ namespace gestion_formation_web.dto
     {
         public static formation Get(int idFormation)
         {
-            return DaoFormation.Get(idFormation) ;
+            return DaoFormation.Get(idFormation);
+        }
+        public static formation Get(string intitule)
+        {
+            return DaoFormation.Get(intitule);
+        }
+        public static IEnumerable<formation> Get()
+        {
+            return DaoFormation.Get();
         }
 
-        public static formation Add(formation uneformation)
+        public static void Add(formation uneformation)
         {
-            return DaoFormation.Add(uneformation);
+            DaoFormation.Add(uneformation);
         }
 
     }

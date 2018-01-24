@@ -11,5 +11,9 @@ namespace gestion_formation_web.dao
         {
             return ctxt.stagiaire.SingleOrDefault(s => s.id_stagiaire == id_Stagiaire);
         }
+        public static IEnumerable<stagiaire> Get()
+        {
+            return ctxt.stagiaire.ToList();
+        }
     }
 }

@@ -11,5 +11,9 @@ namespace gestion_formation_web.dao
         {
             return ctxt.salle.SingleOrDefault(s => s.id_salle == id_Salle);
         }
+        public static IEnumerable<salle> Get()
+        {
+            return ctxt.salle.ToList();
+        }
     }
 }

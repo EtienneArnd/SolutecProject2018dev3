@@ -11,5 +11,9 @@ namespace gestion_formation_web.dao
         {
             return ctxt.equipement.SingleOrDefault(e => e.id_equipement == id_Equîpement);
         }
+        public static IEnumerable<equipement> Get()
+        {
+            return ctxt.equipement.ToList();
+        }
     }
 }

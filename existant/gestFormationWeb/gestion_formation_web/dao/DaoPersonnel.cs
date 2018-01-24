@@ -11,6 +11,9 @@ namespace gestion_formation_web.dao
         {
             return ctxt.personnel.SingleOrDefault(p => p.id_personnel == id_Personnel);
         }
-    
+        public static IEnumerable<personnel> Get()
+        {
+            return ctxt.personnel.ToList();
+        }
     }
 }

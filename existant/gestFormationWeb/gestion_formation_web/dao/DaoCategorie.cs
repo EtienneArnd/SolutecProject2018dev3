@@ -11,5 +11,9 @@ namespace gestion_formation_web.dao
         {
             return ctxt.categorie.SingleOrDefault(c => c.id_categorie == id_Categorie);
         }
+        public static IEnumerable<categorie> Get()
+        {
+            return ctxt.categorie.ToList();
+        }
     }
 }
