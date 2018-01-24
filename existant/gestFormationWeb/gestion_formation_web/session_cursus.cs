@@ -24,6 +24,8 @@ namespace gestion_formation_web
         public int id_session_cursus { get; set; }
         public string nom { get; set; }
         public Nullable<System.DateTime> date_debut { get; set; }
+        public int id_cursus { get; set; }
+        public Nullable<int> id_contact { get; set; }
     
         public virtual contact contact { get; set; }
         public virtual cursus cursus { get; set; }

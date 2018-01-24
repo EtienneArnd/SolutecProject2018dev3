@@ -10,11 +10,27 @@ namespace gestion_formation_web
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
+        int idFormation;
+
         public object MessageBox { get; private set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+                String idFormationString = Request["idFormation"];
+                this.idFormation = int.Parse(idFormationString);
+           if (!Page.IsPostBack)
+           {
+                if (idFormation != 0)
+                {
+                    formation formation = DtoFormation.Get(idFormation);
+                    tbxNom.Text = formation.intitule;
+                    tbxDuree.Text = formation.duree.ToString();
+                    tbxTarif_intra.Text = formation.tarif_intra.ToString();
+                    tbxTarif_unitaire.Text = formation.tarif_inter.ToString();
+                    ddlNiveau.SelectedValue = formation.niveau;
+                    ddlTheme.SelectedValue = formation.id_theme.ToString();
+                }
+            }
         }
 
 
@@ -24,13 +40,22 @@ namespace gestion_formation_web
             formation formation = new formation();
             bool choixCorrect = true;
 
-            // Test sur la durée (s'agit-il bien d'un entier?)
+            // Test sur la durée (s'agit-il bien d'un entier? Compris entre 1 et 10 jours?) 
             if (!string.IsNullOrEmpty(tbxDuree.Text))
             {
                 try
                 {
-                    formation.duree = Convert.ToInt32(tbxDuree.Text);
-                    lblDureeEntiere.Visible = false;
+                    int duree = int.Parse(tbxDuree.Text);
+                    if (duree > 10)
+                    {
+                        lblDureeEntiere.Visible = true;
+                        choixCorrect = false;
+                    }
+                    else
+                    {
+                        formation.duree = int.Parse(tbxDuree.Text);
+                        lblDureeEntiere.Visible = false;
+                    }
                 }
                 catch
                 {
@@ -81,9 +106,25 @@ namespace gestion_formation_web
                 formation.intitule = tbxNom.Text;
                 formation.niveau = ddlNiveau.SelectedValue;
                 formation.id_theme = Convert.ToInt32(ddlTheme.SelectedValue);
-                DtoFormation.Add(formation);
+                if (idFormation == 0)
+                {
+                    DtoFormation.Add(formation);
+                    Response.Redirect("CreationModificationFormation.aspx?idFormation=" + 0);
+                }
+                else
+                {
+                    formation.id_formation = idFormation;
+                    DtoFormation.Modifier(formation);
+                    Response.Redirect("ListeFormation.aspx");
+                }
+
             }
             
+        }
+
+        protected void btnAnnuler_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ListeFormation.aspx");
         }
 
     }

@@ -22,7 +22,7 @@
 
         <asp:Label ID="lblDuree" runat="server" Text="Durée de la formation"></asp:Label>
         <asp:TextBox ID="tbxDuree" runat="server"></asp:TextBox>
-        <asp:Label ID="lblDureeEntiere" runat="server" Text="Veuillez entrez un nombre entier de journées" Visible="False"></asp:Label>
+        <asp:Label ID="lblDureeEntiere" runat="server" Text="Veuillez entrez un nombre entier de journées entre 1 et 10" Visible="False"></asp:Label>
         <br />
 
         <asp:Label ID="lblTarif_intra" runat="server" Text="Tarif intra de la formation"></asp:Label>
@@ -52,7 +52,7 @@
         <br />
     
         <asp:Button ID="btnValider" runat="server" Text="Valider" OnClick="btnValider_Click" />
-        <asp:Button ID="btnAnnuler" runat="server" Text="Annuler" />
+        <a href="ListeFormation.aspx"><input type="button" value="Retour à la liste des formations" /></a>
         
     </form>
 </body>

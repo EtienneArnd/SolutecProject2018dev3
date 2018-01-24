@@ -19,6 +19,7 @@ namespace gestion_formation_web
         public Nullable<int> environnement { get; set; }
         public Nullable<int> materiel_informatique { get; set; }
         public Nullable<int> support_cours { get; set; }
+        public int id_bilan_formation { get; set; }
     
         public virtual bilan_formation bilan_formation { get; set; }
     }

@@ -4,32 +4,32 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="1ad932aff85e4c96bb3154c4ae1dc9f7" Name="Diagram1">
-        <EntityTypeShape EntityType="gest_formModel.bilan_eval_environnement" Width="1.5" PointX="17.25" PointY="14.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="gest_formModel.bilan_eval_formateur" Width="1.5" PointX="17.25" PointY="21.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="gest_formModel.bilan_eval_formation" Width="1.5" PointX="17.25" PointY="24.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="gest_formModel.bilan_formation" Width="1.5" PointX="15" PointY="21.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="gest_formModel.bilan_pointvue_formateur" Width="1.5" PointX="17.25" PointY="27.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="gest_formModel.categorie" Width="1.5" PointX="3.75" PointY="15.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="gest_formModel.contact" Width="1.5" PointX="5.25" PointY="21.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="gest_formModel.cursus" Width="1.5" PointX="8.25" PointY="26.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="gest_formModel.equipement" Width="1.5" PointX="7.5" PointY="18.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="gest_formModel.formateur" Width="1.5" PointX="8.25" PointY="21.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="gest_formModel.formateur_session_formation" Width="1.5" PointX="15.75" PointY="17.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="gest_formModel.formation" Width="1.5" PointX="8.25" PointY="14.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="gest_formModel.formation_cursus" Width="1.5" PointX="10.5" PointY="16.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="gest_formModel.identificateur" Width="1.5" PointX="10.5" PointY="30.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="gest_formModel.personnel" Width="1.5" PointX="12.75" PointY="31" IsExpanded="true" />
-        <EntityTypeShape EntityType="gest_formModel.salle" Width="1.5" PointX="5.25" PointY="18.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="gest_formModel.session_cursus" Width="1.5" PointX="10.5" PointY="24.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="gest_formModel.session_formation" Width="1.5" PointX="10.5" PointY="19.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="gest_formModel.site" Width="1.5" PointX="3" PointY="18.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="gest_formModel.societe" Width="1.5" PointX="3" PointY="21.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="gest_formModel.stagiaire" Width="1.5" PointX="12.75" PointY="23.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="gest_formModel.stagiaire_session_formation" Width="1.5" PointX="12.75" PointY="20.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="gest_formModel.theme" Width="1.5" PointX="6" PointY="14.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="gest_formModel.theme_formateur" Width="1.5" PointX="10.5" PointY="27.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="gest_formModel.ville" Width="1.5" PointX="0.75" PointY="15.375" IsExpanded="true" />
+      <Diagram DiagramId="5b61eb5d601a4a27b43b04f914b1c185" Name="Diagram1">
+        <EntityTypeShape EntityType="gest_formModel.bilan_eval_environnement" Width="1.5" PointX="17.25" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="gest_formModel.bilan_eval_formateur" Width="1.5" PointX="17.25" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gest_formModel.bilan_eval_formation" Width="1.5" PointX="17.25" PointY="31.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="gest_formModel.bilan_formation" Width="1.5" PointX="15" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gest_formModel.bilan_pointvue_formateur" Width="1.5" PointX="17.25" PointY="35.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="gest_formModel.categorie" Width="1.5" PointX="3.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gest_formModel.contact" Width="1.5" PointX="5.25" PointY="23" IsExpanded="true" />
+        <EntityTypeShape EntityType="gest_formModel.cursus" Width="1.5" PointX="8.25" PointY="28.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="gest_formModel.equipement" Width="1.5" PointX="7.5" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="gest_formModel.formateur" Width="1.5" PointX="8.25" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="gest_formModel.formateur_session_formation" Width="1.5" PointX="15.75" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="gest_formModel.formation" Width="1.5" PointX="8.25" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="gest_formModel.formation_cursus" Width="1.5" PointX="13.5" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="gest_formModel.identificateur" Width="1.5" PointX="10.5" PointY="29.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="gest_formModel.personnel" Width="1.5" PointX="12.75" PointY="29.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="gest_formModel.salle" Width="1.5" PointX="5.25" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="gest_formModel.session_cursus" Width="1.5" PointX="10.5" PointY="26.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="gest_formModel.session_formation" Width="1.5" PointX="10.5" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="gest_formModel.site" Width="1.5" PointX="3" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="gest_formModel.societe" Width="1.5" PointX="3" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="gest_formModel.stagiaire" Width="1.5" PointX="12.75" PointY="25" IsExpanded="true" />
+        <EntityTypeShape EntityType="gest_formModel.stagiaire_session_formation" Width="1.5" PointX="12.75" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="gest_formModel.theme" Width="1.5" PointX="6" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="gest_formModel.theme_formateur" Width="1.5" PointX="15.5" PointY="28.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="gest_formModel.ville" Width="1.5" PointX="0.75" PointY="16.375" IsExpanded="true" />
         <AssociationConnector Association="gest_formModel.FK_bilan_eval_environnement_id_bilan_formation" ManuallyRouted="false" />
         <AssociationConnector Association="gest_formModel.FK_bilan_eval_formateur_id_bilan_formation" ManuallyRouted="false" />
         <AssociationConnector Association="gest_formModel.FK_bilan_eval_formation_id_bilan_formation" ManuallyRouted="false" />

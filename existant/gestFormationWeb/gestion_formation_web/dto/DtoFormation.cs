@@ -27,6 +27,10 @@ namespace gestion_formation_web.dto
             DaoFormation.Add(uneformation);
         }
 
+        public static void Modifier(formation uneformation)
+        {
+            DaoFormation.Modifier(uneformation);
+        }
     }
 }
 

@@ -23,6 +23,7 @@ namespace gestion_formation_web
     
         public int id_theme { get; set; }
         public string nom { get; set; }
+        public int id_categorie { get; set; }
     
         public virtual categorie categorie { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -17,6 +17,7 @@ namespace gestion_formation_web
         public int id_equipement { get; set; }
         public string numero_serie { get; set; }
         public string type { get; set; }
+        public Nullable<int> id_salle { get; set; }
     
         public virtual salle salle { get; set; }
     }

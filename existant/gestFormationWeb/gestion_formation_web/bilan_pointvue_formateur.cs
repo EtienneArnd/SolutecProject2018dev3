@@ -20,6 +20,7 @@ namespace gestion_formation_web
         public Nullable<int> integration_notions { get; set; }
         public Nullable<int> stage_correspond_besoin { get; set; }
         public string observations { get; set; }
+        public int id_bilan_formation { get; set; }
     
         public virtual bilan_formation bilan_formation { get; set; }
     }

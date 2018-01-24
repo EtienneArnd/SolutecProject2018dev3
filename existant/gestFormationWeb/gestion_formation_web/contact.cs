@@ -27,6 +27,7 @@ namespace gestion_formation_web
         public string mail { get; set; }
         public string telephone { get; set; }
         public string mobile { get; set; }
+        public int id_societe { get; set; }
     
         public virtual societe societe { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

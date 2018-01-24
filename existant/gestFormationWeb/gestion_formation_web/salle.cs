@@ -24,6 +24,7 @@ namespace gestion_formation_web
         public int id_salle { get; set; }
         public string nom { get; set; }
         public Nullable<int> capacite { get; set; }
+        public Nullable<int> id_site { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<equipement> equipement { get; set; }

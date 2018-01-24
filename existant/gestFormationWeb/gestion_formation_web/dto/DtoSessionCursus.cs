@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using gestion_formation_web.dao;
 
 namespace gestion_formation_web.dto
 {

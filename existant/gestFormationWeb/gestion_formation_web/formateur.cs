@@ -32,6 +32,9 @@ namespace gestion_formation_web
         public Nullable<decimal> cout { get; set; }
         public string civilite { get; set; }
         public string mail { get; set; }
+        public Nullable<int> id_societe { get; set; }
+        public Nullable<int> id_ville { get; set; }
+        public Nullable<int> id_identificateur { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<bilan_formation> bilan_formation { get; set; }

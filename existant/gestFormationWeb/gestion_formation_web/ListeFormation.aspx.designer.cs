@@ -10,7 +10,7 @@
 namespace gestion_formation_web {
     
     
-    public partial class WebForm2 {
+    public partial class ListeFormation {
         
         /// <summary>
         /// Contrôle form1.
@@ -20,6 +20,15 @@ namespace gestion_formation_web {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        
+        /// <summary>
+        /// Contrôle btnCreerFormation.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCreerFormation;
         
         /// <summary>
         /// Contrôle gvFormations.

@@ -29,6 +29,9 @@ namespace gestion_formation_web
         public string points_faibles_du_stage { get; set; }
         public string observations_diverses { get; set; }
         public string besoin_formation_complementaire { get; set; }
+        public int id_stagiaire { get; set; }
+        public int id_formateur { get; set; }
+        public int id_session_formation { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<bilan_eval_environnement> bilan_eval_environnement { get; set; }

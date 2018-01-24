@@ -28,6 +28,7 @@ namespace gestion_formation_web
         public string telephone { get; set; }
         public string adresse { get; set; }
         public string mail { get; set; }
+        public Nullable<int> id_ville { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<contact> contact { get; set; }
