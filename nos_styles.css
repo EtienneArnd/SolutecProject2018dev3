@@ -1,7 +1,82 @@
 .site-footer {
-	height: 100px;
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	right: 0;
+    height: 30px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: darkorange;
+}
+
+.site-header {
+    height: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: darkorange;
+}
+
+
+.FramePrincipal {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    left: 5%;
+    top: 100px;
+    bottom: 30px;
+    position: absolute;
+}
+
+.TableView {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+
+/* Projet C#: Classes initiales */
+body {
+    margin: 0;
+}
+
+.auto-style1 {
+    width: 100%;
+}
+
+.titre1 {
+    font-size: 16pt;
+    color: blue;
+    font-weight: bold;
+    text-align: left;
+    float: left;
+    clear: left;
+    padding-left: 30%;
+}
+
+.titre2 {
+    font-size: 13pt;
+    color: brown;
+    font-weight: bolder;
+    float: left;
+    clear: left;
+}
+
+.PetitBloc {
+    width: 35%;
+    float: left;
+}
+
+
+.datepicker {
+    width: 80px;
+}
+
+#Button1 {
+    z-index: 1;
+    left: 63px;
+    top: 470px;
+    position: absolute;
+}
+
+#btnAjoutFormation {
 }
