@@ -25,75 +25,92 @@
 				<h:panelGrid columns="2">
 					<h6>
 						Date de Début :
-						<p:calendar value="#{beanSessionFormation.sessionFormation.dateDebut}">
-							<p:ajax event="dateSelect" listener="#{beanSessionFormation.calenderChangeListener}" update="dateFin"/>
+						<p:calendar
+							value="#{beanSessionFormation.sessionFormation.dateDebut}">
+							<p:ajax event="dateSelect"
+								listener="#{beanSessionFormation.calenderChangeListener}"
+								update="dateFin" />
 						</p:calendar>
 					</h6>
 				</h:panelGrid>
 				<h:panelGrid columns="2">
 					<h6>
 						Date de Fin :
-							<p:calendar id="dateFin" value="#{beanSessionFormation.sessionFormation.dateFin}"
-							mindate="#{beanSessionFormation.dateLimit}"/>
+						<p:calendar id="dateFin"
+							value="#{beanSessionFormation.sessionFormation.dateFin}"
+							mindate="#{beanSessionFormation.dateLimit}" />
 					</h6>
 				</h:panelGrid>
 
 				<h:panelGrid columns="2">
 					<h6>
 						Tarif intra :
-						<h:inputText value="#{beanSessionFormation.sessionFormation.tarifIntra}" onkeypress="if(event.which &lt; 46 || event.which &gt; 57) return false;"/>
+						<h:inputText
+							value="#{beanSessionFormation.sessionFormation.tarifIntra}"
+							onkeypress="if(event.which &lt; 46 || event.which &gt; 57) return false;" />
 					</h6>
 				</h:panelGrid>
 
 				<h:panelGrid columns="2">
 					<h6>
 						Formation :
-						<h:selectOneMenu value="#{beanSessionFormation.sessionFormation.formation}"
+						<h:selectOneMenu
+							value="#{beanSessionFormation.sessionFormation.formation}"
 							converter="formationConverter">
-							<f:selectItems value="#{beanFormation.listFormation}" var="formation"
-								itemValue="#{formation}" itemLabel="#{formation.intitule}" />
+							<f:selectItems value="#{beanFormation.listFormation}"
+								var="formation" itemValue="#{formation}"
+								itemLabel="#{formation.intitule}" />
 						</h:selectOneMenu>
 					</h6>
 				</h:panelGrid>
-				
+
 				<h:panelGrid columns="2">
 					<h6>
 						Type :
-						<h:selectOneMenu value="#{beanSessionFormation.sessionFormation.type}">
-							<f:selectItems value="#{beanSessionFormation.listType}"/>
+						<h:selectOneMenu
+							value="#{beanSessionFormation.sessionFormation.type}">
+							<f:selectItems value="#{beanSessionFormation.listType}" />
 						</h:selectOneMenu>
 					</h6>
 				</h:panelGrid>
-				
+
 				<h:panelGrid columns="2">
 					<h6>
 						Session de Cursus :
-						<h:selectOneMenu value="#{beanSessionFormation.sessionFormation.sessionCursus}"
+						<h:selectOneMenu
+							value="#{beanSessionFormation.sessionFormation.sessionCursus}"
 							converter="sessionCursusConverter">
-							<f:selectItems value="#{beanSessionCursus.listSessionCursus}" var="sessionCursus"
-								itemValue="#{sessionCursus}" itemLabel="#{sessionCursus.nom}" />
+							<f:selectItems value="#{beanSessionCursus.listSessionCursus}"
+								var="sessionCursus" itemValue="#{sessionCursus}"
+								itemLabel="#{sessionCursus.nom}" />
 						</h:selectOneMenu>
 					</h6>
 				</h:panelGrid>
 				<h:panelGrid columns="2">
 					<h6>
 						Salle :
-						<h:selectOneMenu value="#{beanSessionFormation.sessionFormation.salle}"
+						<h:selectOneMenu
+							value="#{beanSessionFormation.sessionFormation.salle}"
 							converter="salleConverter">
 							<f:selectItems value="#{beanSalle.listSalle}" var="salle"
 								itemValue="#{salle}" itemLabel="#{salle.nom}" />
 						</h:selectOneMenu>
 					</h6>
 				</h:panelGrid>
-				
+				<h:panelGrid columns="2">
+					<h6>
+						Ordre :
+						<h:inputText
+							value="#{beanSessionFormation.sessionFormation.ordre}"
+							onkeypress="if(event.which &lt; 48 || event.which &gt; 57) return false;" />
+					</h6>
+				</h:panelGrid>
 			</p:panelGrid>
 			<p>
 				<p:panelGrid columns="2">
-					<h:commandButton value="Valider"
-						styleClass="btn btn-success" type="submit"
-						action="#{beanSessionFormation.ValiderInfos()}" />
-					<h:commandButton value="Annuler"
-						styleClass="btn btn-danger" 
+					<h:commandButton value="Valider" styleClass="btn btn-success"
+						type="submit" action="#{beanSessionFormation.ValiderInfos()}" />
+					<h:commandButton value="Annuler" styleClass="btn btn-danger"
 						action="#{beanSessionFormation.annulerFenetreAjouter()}" />
 				</p:panelGrid>
 			</p>
@@ -108,34 +125,42 @@
 				<h:panelGrid columns="2">
 					<h6>
 						Date de Début :
-						<p:calendar value="#{beanSessionFormation.sessionFormation_modif.dateDebut}">
-							<p:ajax event="dateSelect" listener="#{beanSessionFormation.calenderChangeListener}" update="dateFin"/>
+						<p:calendar
+							value="#{beanSessionFormation.sessionFormation_modif.dateDebut}">
+							<p:ajax event="dateSelect"
+								listener="#{beanSessionFormation.calenderChangeListener}"
+								update="dateFin" />
 						</p:calendar>
 					</h6>
 				</h:panelGrid>
 				<h:panelGrid columns="2">
 					<h6>
 						Date de Fin :
-							<p:calendar id="dateFin" value="#{beanSessionFormation.sessionFormation_modif.dateFin}"
-							mindate="#{beanSessionFormation.dateLimit}" placeholder="#{beanSessionFormation.sessionFormation.dateFin}"/>
-							<h:inputText value="#{beanSessionFormation.sessionFormation.dateFin}" />
+						<p:calendar id="dateFin"
+							value="#{beanSessionFormation.sessionFormation_modif.dateFin}"
+							mindate="#{beanSessionFormation.dateLimit}"
+							placeholder="#{beanSessionFormation.sessionFormation.dateFin}" />
 					</h6>
 				</h:panelGrid>
 
 				<h:panelGrid columns="2">
 					<h6>
 						Tarif intra :
-						<h:inputText value="#{beanSessionFormation.sessionFormation_modif.tarifIntra}" onkeypress="if(event.which &lt; 46 || event.which &gt; 57) return false;"/>
+						<h:inputText
+							value="#{beanSessionFormation.sessionFormation_modif.tarifIntra}"
+							onkeypress="if(event.which &lt; 46 || event.which &gt; 57) return false;" />
 					</h6>
 				</h:panelGrid>
 
 				<h:panelGrid columns="2">
 					<h6>
 						Formation :
-						<h:selectOneMenu value="#{beanSessionFormation.sessionFormation_modif.formation}"
+						<h:selectOneMenu
+							value="#{beanSessionFormation.sessionFormation_modif.formation}"
 							converter="formationConverter">
-							<f:selectItems value="#{beanFormation.listFormation}" var="formation"
-								itemValue="#{formation}" itemLabel="#{formation.intitule}" />
+							<f:selectItems value="#{beanFormation.listFormation}"
+								var="formation" itemValue="#{formation}"
+								itemLabel="#{formation.intitule}" />
 						</h:selectOneMenu>
 					</h6>
 				</h:panelGrid>
@@ -143,43 +168,54 @@
 				<h:panelGrid columns="2">
 					<h6>
 						Type :
-						<h:selectOneMenu value="#{beanSessionFormation.sessionFormation_modif.type}">
-							<f:selectItems value="#{beanSessionFormation.listType}"/>
+						<h:selectOneMenu
+							value="#{beanSessionFormation.sessionFormation_modif.type}">
+							<f:selectItems value="#{beanSessionFormation.listType}" />
 						</h:selectOneMenu>
 					</h6>
 				</h:panelGrid>
-				
+
 				<h:panelGrid columns="2">
 					<h6>
 						Session de Cursus :
-						<h:selectOneMenu value="#{beanSessionFormation.sessionFormation_modif.sessionCursus}"
+						<h:selectOneMenu
+							value="#{beanSessionFormation.sessionFormation_modif.sessionCursus}"
 							converter="sessionCursusConverter">
-							<f:selectItems value="#{beanSessionCursus.listSessionCursus}" var="sessionCursus"
-								itemValue="#{sessionCursus}" itemLabel="#{sessionCursus.nom}" />
+							<f:selectItems value="#{beanSessionCursus.listSessionCursus}"
+								var="sessionCursus" itemValue="#{sessionCursus}"
+								itemLabel="#{sessionCursus.nom}" />
 						</h:selectOneMenu>
 					</h6>
 				</h:panelGrid>
 				<h:panelGrid columns="2">
 					<h6>
 						Salle :
-						<h:selectOneMenu value="#{beanSessionFormation.sessionFormation_modif.salle}"
+						<h:selectOneMenu
+							value="#{beanSessionFormation.sessionFormation_modif.salle}"
 							converter="salleConverter">
 							<f:selectItems value="#{beanSalle.listSalle}" var="salle"
 								itemValue="#{salle}" itemLabel="#{salle.nom}" />
 						</h:selectOneMenu>
 					</h6>
 				</h:panelGrid>
+				<h:panelGrid columns="2">
+					<h6>
+						Ordre :
+						<h:inputText
+							value="#{beanSessionFormation.sessionFormation_modif.ordre}"
+							onkeypress="if(event.which &lt; 48 || event.which &gt; 57) return false;" />
+					</h6>
+				</h:panelGrid>
 			</p:panelGrid>
 			<p>
 				<p:panelGrid columns="3">
-					<h:commandButton value="Modifier"
-						styleClass="btn btn-success" type="submit"
+					<h:commandButton value="Modifier" styleClass="btn btn-success"
+						type="submit"
 						action="#{beanSessionFormation.modifierSessionFormation()}" />
-					<h:commandButton value="Supprimer"
-						styleClass="btn btn-warning" type="submit"
+					<h:commandButton value="Supprimer" styleClass="btn btn-warning"
+						type="submit"
 						action="#{beanSessionFormation.supprimerSessionFormation()}" />
-					<h:commandButton value="Annuler"
-						styleClass="btn btn-danger" 
+					<h:commandButton value="Annuler" styleClass="btn btn-danger"
 						action="#{beanSessionFormation.annulerFenetreMofifier()}" />
 				</p:panelGrid>
 			</p>
@@ -188,17 +224,21 @@
 		</h:form>
 	</p:dialog>
 
-	<h:dataTable value="#{beanSessionFormation.listSessionFormation}" var="sessionFormation"
-		styleClass="skill" rowClasses="btn-success,btn-light" columnClasses=",level">
+	<h:dataTable value="#{beanSessionFormation.listSessionFormation}"
+		var="sessionFormation" styleClass="skill"
+		rowClasses="btn-success,btn-light" columnClasses=",level">
 		<f:facet name="header">
-			<h:outputText styleClass="btn-lg" value="Liste des Sessions de Formations" />
+			<h:outputText styleClass="btn-lg"
+				value="Liste des Sessions de Formations" />
 		</f:facet>
 		<h:column>
 			<f:facet name="header">
 				<h:outputText styleClass="btn-lg" value="Session" />
 			</f:facet>
-			<p:commandLink action="#{beanSessionFormation.fenetreModifierSessionFormation()}"
-				value="Session #{sessionFormation.idSessionFormation} : #{sessionFormation.formation.intitule}" update=":dlg2, :dlg1">
+			<p:commandLink
+				action="#{beanSessionFormation.fenetreModifierSessionFormation()}"
+				value="Session #{sessionFormation.idSessionFormation} : #{sessionFormation.formation.intitule}"
+				update=":dlg2, :dlg1">
 				<f:param name="id" value="#{sessionFormation.idSessionFormation}" />
 			</p:commandLink>
 

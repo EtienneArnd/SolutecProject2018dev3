@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<h:outputStylesheet library="css" name="style.css" />
+	<h:outputStylesheet library="css" name="nos_styles.css" />
+</h:head>
+<body>
+	<h:panelGrid columns="3" cellpadding="5">
+		<p:commandButton value="Ajouter cursus" styleClass="btn btn-success"
+			type="button" onclick="PF('dlg1').show();" />
+	</h:panelGrid>
+
+
+
+	<p:dialog id="dlg1" header="Menu ajouter une cursus" resizable="false"
+		widgetVar="dlg1" modal="true">
+		<h:form>
+			<p:panelGrid columns="2">
+				<h:panelGrid columns="2">
+					<h6>
+						Nom :
+						<h:inputText value="#{beanCursus.cursus.nom}" />
+					</h6>
+				</h:panelGrid>
+				<h:panelGrid columns="2">
+					<h6>
+						Tarif :
+						<h:inputText value="#{beanCursus.cursus.tarif}"
+							onkeypress="if(event.which &lt; 46 || event.which &gt; 57) return false;" />
+					</h6>
+				</h:panelGrid>
+				<h:panelGrid columns="2">
+					<h6>
+						Sélectionner formations :
+						<h:selectOneMenu value="#{beanCursus.cursus.duree}">
+							<f:selectItems value="#{beanCursus.listDuree}" />
+						</h:selectOneMenu>
+					</h6>
+				</h:panelGrid>
+			</p:panelGrid>
+			<p>
+				<p:panelGrid columns="2">
+					<h:commandButton value="Valider" styleClass="btn btn-success"
+						type="submit" action="#{beanCursus.ValiderInfos()}" />
+					<h:commandButton value="Annuler" styleClass="btn btn-danger"
+						action="#{beanCursus.annulerFenetreAjouter()}" />
+				</p:panelGrid>
+			</p>
+
+		</h:form>
+	</p:dialog>
+	<p:dialog id="dlg2" header="Menu modifier une cursus" resizable="false"
+		widgetVar="dlg2" modal="true">
+		<h:form>
+			<p:panelGrid columns="2">
+				<h:panelGrid columns="2">
+					<h6>
+						Intitulé :
+						<h:inputText value="#{beanCursus.cursus_modif.intitule}" />
+					</h6>
+				</h:panelGrid>
+				<h:panelGrid columns="2">
+					<h6>
+						Niveau :
+						<h:selectOneMenu value="#{beanCursus.cursus_modif.niveau}">
+							<f:selectItems value="#{beanCursus.listNiveaux}" />
+						</h:selectOneMenu>
+					</h6>
+				</h:panelGrid>
+				<h:panelGrid columns="2">
+					<h6>
+						Durée :
+						<h:selectOneMenu value="#{beanCursus.cursus.duree}">
+							<f:selectItems value="#{beanCursus.listDuree}" />
+						</h:selectOneMenu>
+					</h6>
+				</h:panelGrid>
+
+				<h:panelGrid columns="2">
+					<h6>
+						Tarif inter :
+						<h:inputText value="#{beanCursus.cursus_modif.tarifInter}"
+							onkeypress="if(event.which &lt; 46 || event.which &gt; 57) return false;" />
+					</h6>
+				</h:panelGrid>
+
+				<h:panelGrid columns="2">
+					<h6>
+						Tarif intra :
+						<h:inputText value="#{beanCursus.cursus_modif.tarifIntra}"
+							onkeypress="if(event.which &lt; 46 || event.which &gt; 57) return false;" />
+					</h6>
+				</h:panelGrid>
+
+				<h:panelGrid columns="2">
+					<h6>
+						Thème :
+						<h:selectOneMenu value="#{beanCursus.cursus_modif.theme}"
+							converter="themeConverter">
+							<f:selectItems value="#{beanTheme.listTheme}" var="theme"
+								itemValue="#{theme}" itemLabel="#{theme.nom}" />
+						</h:selectOneMenu>
+					</h6>
+				</h:panelGrid>
+			</p:panelGrid>
+			<div class="row">
+				<p:panelGrid columns="3">
+					<h:commandButton value="Modifier" styleClass="btn btn-success"
+						type="submit" action="#{beanCursus.modifierCursus()}" />
+					<h:commandButton value="Supprimer" styleClass="btn btn-warning"
+						type="submit" action="#{beanCursus.supprimerCursus()}" />
+					<h:commandButton value="Annuler" styleClass="btn btn-danger"
+						action="#{beanCursus.annulerFenetreMofifier()}" />
+				</p:panelGrid>
+			</div>
+
+		</h:form>
+	</p:dialog>
+
+	<h:dataTable value="#{beanCursus.listCursus}" var="cursus"
+		styleClass="skill" rowClasses="btn-success,btn-light"
+		columnClasses=",level">
+		<f:facet name="header">
+			<h:outputText styleClass="btn-lg" value=" Liste des Cursuss" />
+		</f:facet>
+		<h:column>
+			<f:facet name="header">
+				<h:outputText styleClass="btn-lg" value="Nom" />
+			</f:facet>
+			<p:commandLink action="#{beanCursus.fenetreModifierCursus()}"
+				value="#{cursus.nom}" update=":dlg2, :dlg1">
+				<f:param name="id" value="#{cursus.idCursus}" />
+			</p:commandLink>
+		</h:column>
+		<h:column>
+			<f:facet name="header">
+				<h:outputText styleClass="btn-lg" value="Tarif" />
+			</f:facet>
+			<h:outputText value="#{cursus.tarif}" />
+		</h:column>
+	</h:dataTable>
+
+
+
+
+</body>
+</html>
