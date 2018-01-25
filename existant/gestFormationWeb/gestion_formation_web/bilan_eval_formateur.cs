@@ -19,6 +19,7 @@ namespace gestion_formation_web
         public Nullable<int> qualites_pedagogiques { get; set; }
         public Nullable<int> disponibilite { get; set; }
         public Nullable<int> annimation { get; set; }
+        public int id_bilan_formation { get; set; }
     
         public virtual bilan_formation bilan_formation { get; set; }
     }

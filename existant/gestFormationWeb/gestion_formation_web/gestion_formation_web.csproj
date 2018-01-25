@@ -56,8 +56,15 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="MySql.Data, Version=6.9.10.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
-    <Reference Include="MySql.Data.Entity, Version=6.9.10.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=6.9.10.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.10\lib\net45\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF5, Version=6.9.10.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.10.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.Entity.6.9.10\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -78,7 +85,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CreationModificationFormation.aspx" />
     <Content Include="css\jquery-ui.css" />
     <Content Include="css\style-jquery.css" />
     <Content Include="DetailsCursus.aspx" />
@@ -90,7 +96,6 @@
     <Content Include="js\jquery-3.2.1.min.js" />
     <Content Include="js\scriptFin.js" />
     <Content Include="ListeCursus.aspx" />
-    <Content Include="ListeFormation.aspx" />
     <Content Include="ListeSessionsCursus.aspx" />
     <Content Include="ModelGestFormation.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -104,6 +109,8 @@
     </Content>
     <Content Include="packages.config" />
     <Content Include="pageMaitre.Master" />
+    <Content Include="CreationModificationFormation.aspx" />
+    <Content Include="ListeFormation.aspx" />
     <Content Include="WSDocument.asmx" />
     <EntityDeploy Include="ModelGestFormation.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -111,6 +118,17 @@
     </EntityDeploy>
     <Content Include="ModelGestFormation.edmx.diagram">
       <DependentUpon>ModelGestFormation.edmx</DependentUpon>
+    </Content>
+    <Content Include="DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Content>
+    <None Include="DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
     </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -148,40 +166,17 @@
     <Compile Include="contact.cs">
       <DependentUpon>ModelGestFormation.tt</DependentUpon>
     </Compile>
-    <Compile Include="CreationModificationFormation.aspx.cs">
-      <DependentUpon>CreationModificationFormation.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CreationModificationFormation.aspx.designer.cs">
-      <DependentUpon>CreationModificationFormation.aspx</DependentUpon>
-    </Compile>
     <Compile Include="cursus.cs">
       <DependentUpon>ModelGestFormation.tt</DependentUpon>
     </Compile>
     <Compile Include="dao\Dao.cs" />
-    <Compile Include="dao\DaoBilanEvalEnvironnement.cs" />
-    <Compile Include="dao\DaoBilanEvalFormateur.cs" />
-    <Compile Include="dao\DaoBilanEvalFormation.cs" />
-    <Compile Include="dao\DaoBilanFormation.cs" />
-    <Compile Include="dao\DaoBilanPointVueFormateur.cs" />
-    <Compile Include="dao\DaoCategorie.cs" />
-    <Compile Include="dao\DaoContact.cs" />
-    <Compile Include="dao\DaoEquipement.cs" />
     <Compile Include="dao\DaoFormateur.cs" />
-    <Compile Include="dao\DaoFormateurSessionFormation.cs" />
-    <Compile Include="dao\DaoFormationCursus.cs" />
-    <Compile Include="dao\DaoIdentificateur.cs" />
-    <Compile Include="dao\DaoPersonnel.cs" />
-    <Compile Include="dao\DaoSalle.cs" />
-    <Compile Include="dao\DaoSite.cs" />
-    <Compile Include="dao\DaoSociete.cs" />
-    <Compile Include="dao\DaoStagiaire.cs" />
-    <Compile Include="dao\DaoStagiaireSessionCursus.cs" />
-    <Compile Include="dao\DaoStagiaireSessionFormation.cs" />
-    <Compile Include="dao\DaoSuivi.cs" />
     <Compile Include="dao\DaoTheme.cs" />
-    <Compile Include="dao\DaoThemeFormateur.cs" />
-    <Compile Include="dao\DaoVille.cs" />
+    <Compile Include="DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DetailsCursus.aspx.cs">
       <DependentUpon>DetailsCursus.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -196,16 +191,8 @@
     <Compile Include="DetailsSessionFormation.aspx.designer.cs">
       <DependentUpon>DetailsSessionFormation.aspx</DependentUpon>
     </Compile>
-    <Compile Include="dto\DtoBilanPointVueFormateur.cs" />
-    <Compile Include="dto\DtoBilanEvalEnvironnement.cs" />
-    <Compile Include="dto\DtoBilanEvalFormateur.cs" />
-    <Compile Include="dto\DtoBilanEvalFormation.cs" />
-    <Compile Include="dto\DtoBilanFormation.cs" />
-    <Compile Include="dto\DtoCategories.cs" />
-    <Compile Include="dto\DtoContact.cs" />
-    <Compile Include="dto\DtoEquipement.cs" />
+    <Compile Include="dto\CoupletNomValeur.cs" />
     <Compile Include="dto\DtoFormateur.cs" />
-    <Compile Include="dto\DtoIdentificateur.cs" />
     <Compile Include="dto\DtoFormation.cs" />
     <Compile Include="dao\DaoFormation.cs" />
     <Compile Include="dao\DaoCursus.cs" />
@@ -219,15 +206,9 @@
       <DependentUpon>DetailsSessionCursus.aspx</DependentUpon>
     </Compile>
     <Compile Include="dto\DtoCursus.cs" />
-    <Compile Include="dto\DtoPersonnel.cs" />
-    <Compile Include="dto\DtoSalle.cs" />
     <Compile Include="dto\DtoSessionFormation.cs" />
     <Compile Include="dto\DtoSessionCursus.cs" />
-    <Compile Include="dto\DtoSite.cs" />
-    <Compile Include="dto\DtoSociete.cs" />
-    <Compile Include="dto\DtoStagiaire.cs" />
     <Compile Include="dto\DtoTheme.cs" />
-    <Compile Include="dto\DtoVille.cs" />
     <Compile Include="dto\Publipostage.cs" />
     <Compile Include="equipement.cs">
       <DependentUpon>ModelGestFormation.tt</DependentUpon>
@@ -257,13 +238,6 @@
     </Compile>
     <Compile Include="ListeCursus.aspx.designer.cs">
       <DependentUpon>ListeCursus.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ListeFormation.aspx.cs">
-      <DependentUpon>ListeFormation.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ListeFormation.aspx.designer.cs">
-      <DependentUpon>ListeFormation.aspx</DependentUpon>
     </Compile>
     <Compile Include="ListeSessionsCursus.aspx.cs">
       <DependentUpon>ListeSessionsCursus.aspx</DependentUpon>
@@ -297,7 +271,15 @@
     <Compile Include="personnel.cs">
       <DependentUpon>ModelGestFormation.tt</DependentUpon>
     </Compile>
+    <Compile Include="Pojos\formation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CreationModificationFormation.aspx.cs">
+      <DependentUpon>CreationModificationFormation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreationModificationFormation.aspx.designer.cs">
+      <DependentUpon>CreationModificationFormation.aspx</DependentUpon>
+    </Compile>
     <Compile Include="salle.cs">
       <DependentUpon>ModelGestFormation.tt</DependentUpon>
     </Compile>
@@ -328,6 +310,13 @@
     <Compile Include="ville.cs">
       <DependentUpon>ModelGestFormation.tt</DependentUpon>
     </Compile>
+    <Compile Include="ListeFormation.aspx.cs">
+      <DependentUpon>ListeFormation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListeFormation.aspx.designer.cs">
+      <DependentUpon>ListeFormation.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WSDocument.asmx.cs">
       <DependentUpon>WSDocument.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -345,7 +334,7 @@
     <COMReference Include="Microsoft.Office.Core">
       <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
       <VersionMajor>2</VersionMajor>
-      <VersionMinor>5</VersionMinor>
+      <VersionMinor>4</VersionMinor>
       <Lcid>0</Lcid>
       <WrapperTool>primary</WrapperTool>
       <Isolated>False</Isolated>

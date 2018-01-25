@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System;
 namespace gestion_formation_web.dao
 {
     public class Dao
@@ -6,12 +7,19 @@ namespace gestion_formation_web.dao
         protected static gest_formEntities ctxt = new gest_formEntities();
         public static void Update()
         {
-            ctxt.SaveChanges();
+            try
+            {
+                ctxt.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                System.Console.WriteLine(e.Message);
+                System.Console.ReadLine();
+            }
         }
 
         public static string[] getEnumValues(string nomTable, string nomColonne)
         {
-            /* Cette Methode permet d'obtenir le type d'une colonne d'une table  */
             //string enumDesc = ctxt.Database.SqlQuery<string>("desc {0} {1} ", new object[] { nomTable, nomColonne }).SingleOrDefault<string>();
             string enumDesc = ctxt.Database.SqlQuery<string>("select  COLUMN_TYPE from information_schema.columns where table_name = {0} AND COLUMN_NAME ={1} limit 1", new string[] { nomTable, nomColonne }).SingleOrDefault<string>();
             

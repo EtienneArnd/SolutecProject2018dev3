@@ -9,7 +9,7 @@ namespace gestion_formation_web
 {
     public partial class ListeSessionsCursus : System.Web.UI.Page
     {
-        int idCursus = 0; // id du cursus de la page en cours 0 en cas de cursus inconnu
+        int idCursus = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
             String id = Request["idCursus"];

@@ -20,6 +20,7 @@ namespace gestion_formation_web
         public string civilite { get; set; }
         public string mail { get; set; }
         public string telephone { get; set; }
+        public Nullable<int> id_identificateur { get; set; }
     
         public virtual identificateur identificateur { get; set; }
     }

@@ -43,8 +43,7 @@
     <asp:UpdatePanel ID="upFormateurs" runat="server" class="PetitBloc" UpdateMode="Conditional">
         <ContentTemplate> 
             <asp:Label ID="lable1" Text="Formateurs"  runat="server"/>
-            <asp:GridView ID="gvFormateurs" runat="server" class="auto-style1" AutoGenerateColumns="False" DataSourceID="odsFormateurs" OnRowDeleted="gvFormateurs_RowDeleted" OnRowDeleting="gvFormateurs_RowDeleting" CellPadding="4" ForeColor="#333333" GridLines="None">
-                <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+            <asp:GridView ID="gvFormateurs" runat="server" class="auto-style1" AutoGenerateColumns="False" DataSourceID="odsFormateurs" OnRowDeleted="gvFormateurs_RowDeleted" OnRowDeleting="gvFormateurs_RowDeleting">
                 <Columns>
                     <asp:BoundField DataField="id_formateur" HeaderText="id_formateur" SortExpression="id_formateur" />
                     <asp:BoundField DataField="civilite" HeaderText="Civilite" SortExpression="civilite" />
@@ -59,16 +58,6 @@
                     </asp:TemplateField>
                     <asp:CommandField ShowDeleteButton="True" />
                 </Columns>
-                <EditRowStyle BackColor="#999999" />
-                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-                <SortedAscendingCellStyle BackColor="#E9E7E2" />
-                <SortedAscendingHeaderStyle BackColor="#506C8C" />
-                <SortedDescendingCellStyle BackColor="#FFFDF8" />
-                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
             </asp:GridView>
 <div style="clear:left;margin-top:20px;width:100%;">
             <asp:DropDownList ID="ddlFormateurs" runat="server"  />

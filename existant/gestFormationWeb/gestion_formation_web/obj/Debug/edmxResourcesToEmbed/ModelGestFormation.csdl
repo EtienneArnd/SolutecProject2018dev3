@@ -9,6 +9,7 @@
     <Property Name="environnement" Type="Int32" />
     <Property Name="materiel_informatique" Type="Int32" />
     <Property Name="support_cours" Type="Int32" />
+    <Property Name="id_bilan_formation" Type="Int32" Nullable="false" />
     <NavigationProperty Name="bilan_formation" Relationship="Self.FK_bilan_eval_environnement_id_bilan_formation" FromRole="bilan_eval_environnement" ToRole="bilan_formation" />
   </EntityType>
   <EntityType Name="bilan_eval_formateur">
@@ -20,6 +21,7 @@
     <Property Name="qualites_pedagogiques" Type="Int32" />
     <Property Name="disponibilite" Type="Int32" />
     <Property Name="annimation" Type="Int32" />
+    <Property Name="id_bilan_formation" Type="Int32" Nullable="false" />
     <NavigationProperty Name="bilan_formation" Relationship="Self.FK_bilan_eval_formateur_id_bilan_formation" FromRole="bilan_eval_formateur" ToRole="bilan_formation" />
   </EntityType>
   <EntityType Name="bilan_eval_formation">
@@ -33,6 +35,7 @@
     <Property Name="adaptation_exercices_profession" Type="Int32" />
     <Property Name="formation_niveau_groupe_homogene" Type="Int32" />
     <Property Name="stage_correspondant_besoin" Type="Int32" />
+    <Property Name="id_bilan_formation" Type="Int32" Nullable="false" />
     <NavigationProperty Name="bilan_formation" Relationship="Self.FK_bilan_eval_formation_id_bilan_formation" FromRole="bilan_eval_formation" ToRole="bilan_formation" />
   </EntityType>
   <EntityType Name="bilan_formation">
@@ -45,6 +48,9 @@
     <Property Name="points_faibles_du_stage" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
     <Property Name="observations_diverses" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
     <Property Name="besoin_formation_complementaire" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="id_stagiaire" Type="Int32" Nullable="false" />
+    <Property Name="id_formateur" Type="Int32" Nullable="false" />
+    <Property Name="id_session_formation" Type="Int32" Nullable="false" />
     <NavigationProperty Name="bilan_eval_environnement" Relationship="Self.FK_bilan_eval_environnement_id_bilan_formation" FromRole="bilan_formation" ToRole="bilan_eval_environnement" />
     <NavigationProperty Name="bilan_eval_formateur" Relationship="Self.FK_bilan_eval_formateur_id_bilan_formation" FromRole="bilan_formation" ToRole="bilan_eval_formateur" />
     <NavigationProperty Name="bilan_eval_formation" Relationship="Self.FK_bilan_eval_formation_id_bilan_formation" FromRole="bilan_formation" ToRole="bilan_eval_formation" />
@@ -63,6 +69,7 @@
     <Property Name="integration_notions" Type="Int32" />
     <Property Name="stage_correspond_besoin" Type="Int32" />
     <Property Name="observations" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="id_bilan_formation" Type="Int32" Nullable="false" />
     <NavigationProperty Name="bilan_formation" Relationship="Self.FK_bilan_pointvue_formateur_id_bilan_formation" FromRole="bilan_pointvue_formateur" ToRole="bilan_formation" />
   </EntityType>
   <EntityType Name="categorie">
@@ -83,6 +90,7 @@
     <Property Name="mail" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="telephone" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
     <Property Name="mobile" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="id_societe" Type="Int32" Nullable="false" />
     <NavigationProperty Name="societe" Relationship="Self.FK_contact_id_societe" FromRole="contact" ToRole="societe" />
     <NavigationProperty Name="session_cursus" Relationship="Self.FK_session_cursus_id_contact" FromRole="contact" ToRole="session_cursus" />
     <NavigationProperty Name="session_formation" Relationship="Self.suivi" FromRole="contact" ToRole="session_formation" />
@@ -104,6 +112,7 @@
     <Property Name="id_equipement" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="numero_serie" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
     <Property Name="type" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="id_salle" Type="Int32" />
     <NavigationProperty Name="salle" Relationship="Self.FK_equipement_id_salle" FromRole="equipement" ToRole="salle" />
   </EntityType>
   <EntityType Name="formateur">
@@ -120,6 +129,9 @@
     <Property Name="cout" Type="Decimal" />
     <Property Name="civilite" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" />
     <Property Name="mail" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="id_societe" Type="Int32" />
+    <Property Name="id_ville" Type="Int32" />
+    <Property Name="id_identificateur" Type="Int32" />
     <NavigationProperty Name="bilan_formation" Relationship="Self.FK_bilan_formation_id_formateur" FromRole="formateur" ToRole="bilan_formation" />
     <NavigationProperty Name="identificateur" Relationship="Self.FK_formateur_id_identificateur" FromRole="formateur" ToRole="identificateur" />
     <NavigationProperty Name="societe" Relationship="Self.FK_formateur_id_societe" FromRole="formateur" ToRole="societe" />
@@ -151,6 +163,7 @@
     <Property Name="tarif_inter" Type="Decimal" />
     <Property Name="intitule" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="niveau" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" />
+    <Property Name="id_theme" Type="Int32" Nullable="false" />
     <NavigationProperty Name="formation_cursus" Relationship="Self.FK_formation_cursus_id_formation" FromRole="formation" ToRole="formation_cursus" />
     <NavigationProperty Name="theme" Relationship="Self.FK_formation_id_theme" FromRole="formation" ToRole="theme" />
     <NavigationProperty Name="session_formation" Relationship="Self.FK_session_formation_id_formation" FromRole="formation" ToRole="session_formation" />
@@ -189,6 +202,7 @@
     <Property Name="civilite" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
     <Property Name="mail" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
     <Property Name="telephone" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="id_identificateur" Type="Int32" />
     <NavigationProperty Name="identificateur" Relationship="Self.FK_personnel_id_identificateur" FromRole="personnel" ToRole="identificateur" />
   </EntityType>
   <EntityType Name="salle">
@@ -198,6 +212,7 @@
     <Property Name="id_salle" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="nom" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
     <Property Name="capacite" Type="Int32" />
+    <Property Name="id_site" Type="Int32" />
     <NavigationProperty Name="equipement" Relationship="Self.FK_equipement_id_salle" FromRole="salle" ToRole="equipement" />
     <NavigationProperty Name="site" Relationship="Self.FK_salle_id_site" FromRole="salle" ToRole="site" />
     <NavigationProperty Name="session_formation" Relationship="Self.FK_session_formation_id_salle" FromRole="salle" ToRole="session_formation" />
@@ -209,6 +224,8 @@
     <Property Name="id_session_cursus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="nom" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
     <Property Name="date_debut" Type="DateTime" />
+    <Property Name="id_cursus" Type="Int32" Nullable="false" />
+    <Property Name="id_contact" Type="Int32" />
     <NavigationProperty Name="contact" Relationship="Self.FK_session_cursus_id_contact" FromRole="session_cursus" ToRole="contact" />
     <NavigationProperty Name="cursus" Relationship="Self.FK_session_cursus_id_cursus" FromRole="session_cursus" ToRole="cursus" />
     <NavigationProperty Name="session_formation" Relationship="Self.FK_session_formation_id_session_cursus" FromRole="session_cursus" ToRole="session_formation" />
@@ -224,6 +241,9 @@
     <Property Name="ordre" Type="Int32" />
     <Property Name="tarif_intra" Type="Decimal" />
     <Property Name="type" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" />
+    <Property Name="id_formation" Type="Int32" Nullable="false" />
+    <Property Name="id_session_cursus" Type="Int32" />
+    <Property Name="id_salle" Type="Int32" />
     <NavigationProperty Name="bilan_formation" Relationship="Self.FK_bilan_formation_id_session_formation" FromRole="session_formation" ToRole="bilan_formation" />
     <NavigationProperty Name="formateur_session_formation" Relationship="Self.FK_formateur_session_formation_id_session_formation" FromRole="session_formation" ToRole="formateur_session_formation" />
     <NavigationProperty Name="formation" Relationship="Self.FK_session_formation_id_formation" FromRole="session_formation" ToRole="formation" />
@@ -239,6 +259,7 @@
     <Property Name="id_site" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="nom" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="adresse" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="id_ville" Type="Int32" />
     <NavigationProperty Name="salle" Relationship="Self.FK_salle_id_site" FromRole="site" ToRole="salle" />
     <NavigationProperty Name="ville" Relationship="Self.FK_site_id_ville" FromRole="site" ToRole="ville" />
   </EntityType>
@@ -252,6 +273,7 @@
     <Property Name="telephone" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
     <Property Name="adresse" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="mail" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="id_ville" Type="Int32" />
     <NavigationProperty Name="contact" Relationship="Self.FK_contact_id_societe" FromRole="societe" ToRole="contact" />
     <NavigationProperty Name="formateur" Relationship="Self.FK_formateur_id_societe" FromRole="societe" ToRole="formateur" />
     <NavigationProperty Name="ville" Relationship="Self.FK_societe_id_ville" FromRole="societe" ToRole="ville" />
@@ -268,6 +290,8 @@
     <Property Name="civilite" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" />
     <Property Name="mail" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
     <Property Name="telephone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="id_societe" Type="Int32" />
+    <Property Name="id_identificateur" Type="Int32" />
     <NavigationProperty Name="bilan_formation" Relationship="Self.FK_bilan_formation_id_stagiaire" FromRole="stagiaire" ToRole="bilan_formation" />
     <NavigationProperty Name="identificateur" Relationship="Self.FK_stagiaire_id_identificateur" FromRole="stagiaire" ToRole="identificateur" />
     <NavigationProperty Name="societe" Relationship="Self.FK_stagiaire_id_societe" FromRole="stagiaire" ToRole="societe" />
@@ -291,6 +315,7 @@
     </Key>
     <Property Name="id_theme" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="nom" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="id_categorie" Type="Int32" Nullable="false" />
     <NavigationProperty Name="categorie" Relationship="Self.FK_theme_id_categorie" FromRole="theme" ToRole="categorie" />
     <NavigationProperty Name="formation" Relationship="Self.FK_formation_id_theme" FromRole="theme" ToRole="formation" />
     <NavigationProperty Name="theme_formateur" Relationship="Self.FK_theme_formateur_id_theme" FromRole="theme" ToRole="theme_formateur" />
@@ -320,42 +345,122 @@
   <Association Name="FK_bilan_eval_environnement_id_bilan_formation">
     <End Role="bilan_formation" Type="Self.bilan_formation" Multiplicity="1" />
     <End Role="bilan_eval_environnement" Type="Self.bilan_eval_environnement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bilan_formation">
+        <PropertyRef Name="id_bilan_formation" />
+      </Principal>
+      <Dependent Role="bilan_eval_environnement">
+        <PropertyRef Name="id_bilan_formation" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
   <Association Name="FK_bilan_eval_formateur_id_bilan_formation">
     <End Role="bilan_formation" Type="Self.bilan_formation" Multiplicity="1" />
     <End Role="bilan_eval_formateur" Type="Self.bilan_eval_formateur" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bilan_formation">
+        <PropertyRef Name="id_bilan_formation" />
+      </Principal>
+      <Dependent Role="bilan_eval_formateur">
+        <PropertyRef Name="id_bilan_formation" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
   <Association Name="FK_bilan_eval_formation_id_bilan_formation">
     <End Role="bilan_formation" Type="Self.bilan_formation" Multiplicity="1" />
     <End Role="bilan_eval_formation" Type="Self.bilan_eval_formation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bilan_formation">
+        <PropertyRef Name="id_bilan_formation" />
+      </Principal>
+      <Dependent Role="bilan_eval_formation">
+        <PropertyRef Name="id_bilan_formation" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
   <Association Name="FK_bilan_formation_id_formateur">
     <End Role="formateur" Type="Self.formateur" Multiplicity="1" />
     <End Role="bilan_formation" Type="Self.bilan_formation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="formateur">
+        <PropertyRef Name="id_formateur" />
+      </Principal>
+      <Dependent Role="bilan_formation">
+        <PropertyRef Name="id_formateur" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
   <Association Name="FK_bilan_formation_id_session_formation">
     <End Role="session_formation" Type="Self.session_formation" Multiplicity="1" />
     <End Role="bilan_formation" Type="Self.bilan_formation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="session_formation">
+        <PropertyRef Name="id_session_formation" />
+      </Principal>
+      <Dependent Role="bilan_formation">
+        <PropertyRef Name="id_session_formation" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
   <Association Name="FK_bilan_formation_id_stagiaire">
     <End Role="stagiaire" Type="Self.stagiaire" Multiplicity="1" />
     <End Role="bilan_formation" Type="Self.bilan_formation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="stagiaire">
+        <PropertyRef Name="id_stagiaire" />
+      </Principal>
+      <Dependent Role="bilan_formation">
+        <PropertyRef Name="id_stagiaire" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
   <Association Name="FK_bilan_pointvue_formateur_id_bilan_formation">
     <End Role="bilan_formation" Type="Self.bilan_formation" Multiplicity="1" />
     <End Role="bilan_pointvue_formateur" Type="Self.bilan_pointvue_formateur" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bilan_formation">
+        <PropertyRef Name="id_bilan_formation" />
+      </Principal>
+      <Dependent Role="bilan_pointvue_formateur">
+        <PropertyRef Name="id_bilan_formation" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
   <Association Name="FK_theme_id_categorie">
     <End Role="categorie" Type="Self.categorie" Multiplicity="1" />
     <End Role="theme" Type="Self.theme" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categorie">
+        <PropertyRef Name="id_categorie" />
+      </Principal>
+      <Dependent Role="theme">
+        <PropertyRef Name="id_categorie" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
   <Association Name="FK_contact_id_societe">
     <End Role="societe" Type="Self.societe" Multiplicity="1" />
     <End Role="contact" Type="Self.contact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="societe">
+        <PropertyRef Name="id_societe" />
+      </Principal>
+      <Dependent Role="contact">
+        <PropertyRef Name="id_societe" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
   <Association Name="FK_session_cursus_id_contact">
     <End Role="contact" Type="Self.contact" Multiplicity="0..1" />
     <End Role="session_cursus" Type="Self.session_cursus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="contact">
+        <PropertyRef Name="id_contact" />
+      </Principal>
+      <Dependent Role="session_cursus">
+        <PropertyRef Name="id_contact" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
   <Association Name="FK_formation_cursus_id_cursus">
     <End Role="cursus" Type="Self.cursus" Multiplicity="1" />
@@ -372,22 +477,62 @@
   <Association Name="FK_session_cursus_id_cursus">
     <End Role="cursus" Type="Self.cursus" Multiplicity="1" />
     <End Role="session_cursus" Type="Self.session_cursus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cursus">
+        <PropertyRef Name="id_cursus" />
+      </Principal>
+      <Dependent Role="session_cursus">
+        <PropertyRef Name="id_cursus" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
   <Association Name="FK_equipement_id_salle">
     <End Role="salle" Type="Self.salle" Multiplicity="0..1" />
     <End Role="equipement" Type="Self.equipement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="salle">
+        <PropertyRef Name="id_salle" />
+      </Principal>
+      <Dependent Role="equipement">
+        <PropertyRef Name="id_salle" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
   <Association Name="FK_formateur_id_identificateur">
     <End Role="identificateur" Type="Self.identificateur" Multiplicity="0..1" />
     <End Role="formateur" Type="Self.formateur" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="identificateur">
+        <PropertyRef Name="id_identificateur" />
+      </Principal>
+      <Dependent Role="formateur">
+        <PropertyRef Name="id_identificateur" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
   <Association Name="FK_formateur_id_societe">
     <End Role="societe" Type="Self.societe" Multiplicity="0..1" />
     <End Role="formateur" Type="Self.formateur" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="societe">
+        <PropertyRef Name="id_societe" />
+      </Principal>
+      <Dependent Role="formateur">
+        <PropertyRef Name="id_societe" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
   <Association Name="FK_formateur_id_ville">
     <End Role="ville" Type="Self.ville" Multiplicity="0..1" />
     <End Role="formateur" Type="Self.formateur" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ville">
+        <PropertyRef Name="id_ville" />
+      </Principal>
+      <Dependent Role="formateur">
+        <PropertyRef Name="id_ville" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
   <Association Name="FK_formateur_session_formation_id_formateur">
     <End Role="formateur" Type="Self.formateur" Multiplicity="1" />
@@ -440,30 +585,86 @@
   <Association Name="FK_formation_id_theme">
     <End Role="theme" Type="Self.theme" Multiplicity="1" />
     <End Role="formation" Type="Self.formation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="theme">
+        <PropertyRef Name="id_theme" />
+      </Principal>
+      <Dependent Role="formation">
+        <PropertyRef Name="id_theme" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
   <Association Name="FK_session_formation_id_formation">
     <End Role="formation" Type="Self.formation" Multiplicity="1" />
     <End Role="session_formation" Type="Self.session_formation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="formation">
+        <PropertyRef Name="id_formation" />
+      </Principal>
+      <Dependent Role="session_formation">
+        <PropertyRef Name="id_formation" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
   <Association Name="FK_personnel_id_identificateur">
     <End Role="identificateur" Type="Self.identificateur" Multiplicity="0..1" />
     <End Role="personnel" Type="Self.personnel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="identificateur">
+        <PropertyRef Name="id_identificateur" />
+      </Principal>
+      <Dependent Role="personnel">
+        <PropertyRef Name="id_identificateur" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
   <Association Name="FK_stagiaire_id_identificateur">
     <End Role="identificateur" Type="Self.identificateur" Multiplicity="0..1" />
     <End Role="stagiaire" Type="Self.stagiaire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="identificateur">
+        <PropertyRef Name="id_identificateur" />
+      </Principal>
+      <Dependent Role="stagiaire">
+        <PropertyRef Name="id_identificateur" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
   <Association Name="FK_salle_id_site">
     <End Role="site" Type="Self.site" Multiplicity="0..1" />
     <End Role="salle" Type="Self.salle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="site">
+        <PropertyRef Name="id_site" />
+      </Principal>
+      <Dependent Role="salle">
+        <PropertyRef Name="id_site" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
   <Association Name="FK_session_formation_id_salle">
     <End Role="salle" Type="Self.salle" Multiplicity="0..1" />
     <End Role="session_formation" Type="Self.session_formation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="salle">
+        <PropertyRef Name="id_salle" />
+      </Principal>
+      <Dependent Role="session_formation">
+        <PropertyRef Name="id_salle" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
   <Association Name="FK_session_formation_id_session_cursus">
     <End Role="session_cursus" Type="Self.session_cursus" Multiplicity="0..1" />
     <End Role="session_formation" Type="Self.session_formation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="session_cursus">
+        <PropertyRef Name="id_session_cursus" />
+      </Principal>
+      <Dependent Role="session_formation">
+        <PropertyRef Name="id_session_cursus" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
   <Association Name="FK_stagiaire_session_formation_id_session_formation">
     <End Role="session_formation" Type="Self.session_formation" Multiplicity="1" />
@@ -480,14 +681,38 @@
   <Association Name="FK_site_id_ville">
     <End Role="ville" Type="Self.ville" Multiplicity="0..1" />
     <End Role="site" Type="Self.site" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ville">
+        <PropertyRef Name="id_ville" />
+      </Principal>
+      <Dependent Role="site">
+        <PropertyRef Name="id_ville" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
   <Association Name="FK_societe_id_ville">
     <End Role="ville" Type="Self.ville" Multiplicity="0..1" />
     <End Role="societe" Type="Self.societe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ville">
+        <PropertyRef Name="id_ville" />
+      </Principal>
+      <Dependent Role="societe">
+        <PropertyRef Name="id_ville" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
   <Association Name="FK_stagiaire_id_societe">
     <End Role="societe" Type="Self.societe" Multiplicity="0..1" />
     <End Role="stagiaire" Type="Self.stagiaire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="societe">
+        <PropertyRef Name="id_societe" />
+      </Principal>
+      <Dependent Role="stagiaire">
+        <PropertyRef Name="id_societe" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
   <Association Name="FK_stagiaire_session_formation_id_stagiaire">
     <End Role="stagiaire" Type="Self.stagiaire" Multiplicity="1" />

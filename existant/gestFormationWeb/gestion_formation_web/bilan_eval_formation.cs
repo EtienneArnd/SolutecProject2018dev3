@@ -21,6 +21,7 @@ namespace gestion_formation_web
         public Nullable<int> adaptation_exercices_profession { get; set; }
         public Nullable<int> formation_niveau_groupe_homogene { get; set; }
         public Nullable<int> stage_correspondant_besoin { get; set; }
+        public int id_bilan_formation { get; set; }
     
         public virtual bilan_formation bilan_formation { get; set; }
     }

@@ -13,5 +13,16 @@ namespace gestion_formation_web
         {
 
         }
+
+        protected void btnCreerCursus_Click(object sender, EventArgs e)
+        {
+
+        }
+        protected void ModifierCursus_Command(object sender, CommandEventArgs e)
+        {
+            /*String id = e.CommandArgument.ToString();
+            int idFormation = int.Parse(id);
+            Response.Redirect("CreationModificationFormation.aspx?idFormation=" + idFormation);*/
+        }
     }
 }

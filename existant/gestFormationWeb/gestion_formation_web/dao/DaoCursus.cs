@@ -10,6 +10,7 @@ namespace gestion_formation_web.dao
     {
         public static IEnumerable<cursus> Get()
         {
+            List<cursus> cursus = ctxt.cursus.ToList();
             return ctxt.cursus.ToList();
         }
         public static cursus Get(int idCursus)
