@@ -1,14 +1,8 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ListeCursus.aspx.cs" Inherits="gestion_formation_web.ListeCursus" %>
+﻿
+<%@ Page Title="Liste Formation" Language="C#"  MasterPageFile="~/pageMaitre.Master" AutoEventWireup="true" CodeBehind="ListeCursus.aspx.cs" Inherits="gestion_formation_web.ListeCursus" %>
 
-<!DOCTYPE html>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
-</head>
-<body>
-<form id="formListeCursus" runat="server">
         <asp:Button ID="btnCreerCursus" runat="server" Text="Créer un nouveau cursus" OnClick="btnCreerCursus_Click" />
         <asp:GridView ID="gvCursus" runat="server" AutoGenerateColumns="False" DataSourceID="odsCursus" style="float:left;" CellPadding="4" ForeColor="#333333" GridLines="None">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
@@ -35,7 +29,5 @@
             <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
     </asp:GridView>
         <asp:ObjectDataSource ID="odsCursus" runat="server" SelectMethod="Get" TypeName="gestion_formation_web.dto.DtoCursus"></asp:ObjectDataSource>
-</form>
-</body>
-</html>
+</asp:Content>
 

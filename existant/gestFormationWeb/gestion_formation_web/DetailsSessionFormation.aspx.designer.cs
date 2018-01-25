@@ -94,13 +94,13 @@ namespace gestion_formation_web {
         protected global::System.Web.UI.WebControls.ObjectDataSource odsTypeSessionFormation;
         
         /// <summary>
-        /// Contrôle tbxIntitule.
+        /// Contrôle tbxTarifIntra.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbxIntitule;
+        protected global::System.Web.UI.WebControls.TextBox tbxTarifIntra;
         
         /// <summary>
         /// Contrôle btnModifier.

@@ -28,18 +28,18 @@
                 <tr>
                     <td>Type</td>
                     <td>
-                        <asp:DropDownList ID="ddlTypeSessionFormation" runat="server" DataSourceID="odsTypeSessionFormation" DataTextField="nom" DataValueField="nom">
+                        <asp:DropDownList ID="ddlTypeSessionFormation" runat="server" DataSourceID="odsTypeSessionFormation" DataTextField="valeur" DataValueField="valeur">
                         </asp:DropDownList>
                         <asp:ObjectDataSource ID="odsTypeSessionFormation" runat="server" SelectMethod="getTypesFormation" TypeName="gestion_formation_web.dto.DtoSessionFormation"></asp:ObjectDataSource>
                     </td>
                 </tr>
                 <tr>
                     <td>Tarif Intra</td>
-                    <td><asp:TextBox ID="tbxIntitule" runat="server"></asp:TextBox>&nbsp;</td>
+                    <td><asp:TextBox ID="tbxTarifIntra" runat="server"></asp:TextBox>&nbsp;</td>
                 </tr>     
                 <tr>
-                    <td><asp:Button ID="btnModifier" Text="Modifier"   runat="server" OnClientClick="onClick_btnModifier"/></td>
-                    <td><asp:Button ID="btnAnnuler" Text="Annuler"   runat="server" OnClientClick="onClick_btnAnnuler"/></td>
+                    <td><asp:Button ID="btnModifier" Text="Modifier"   runat="server" OnClientClick="onClick_btnModifier" OnClick="btnModifier_Click"/></td>
+                    <td><asp:Button ID="btnAnnuler" Text="Annuler"   runat="server" OnClientClick="onClick_btnAnnuler" OnClick="btnAnnuler_Click"/></td>
                 </tr>       
             </table>
         </ContentTemplate>
@@ -47,7 +47,8 @@
     <asp:UpdatePanel ID="upFormateurs" runat="server" class="PetitBloc" UpdateMode="Conditional">
         <ContentTemplate> 
             <asp:Label ID="lable1" Text="Formateurs"  runat="server"/>
-            <asp:GridView ID="gvFormateurs" runat="server" class="auto-style1" AutoGenerateColumns="False" DataSourceID="odsFormateurs" OnRowDeleted="gvFormateurs_RowDeleted" OnRowDeleting="gvFormateurs_RowDeleting">
+            <asp:GridView ID="gvFormateurs" runat="server" class="auto-style1" AutoGenerateColumns="False" DataSourceID="odsFormateurs" OnRowDeleted="gvFormateurs_RowDeleted" OnRowDeleting="gvFormateurs_RowDeleting" CellPadding="4" ForeColor="#333333" GridLines="None">
+                <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                 <Columns>
                     <asp:BoundField DataField="id_formateur" HeaderText="id_formateur" SortExpression="id_formateur" />
                     <asp:BoundField DataField="civilite" HeaderText="Civilite" SortExpression="civilite" />
@@ -62,6 +63,16 @@
                     </asp:TemplateField>
                     <asp:CommandField ShowDeleteButton="True" />
                 </Columns>
+                <EditRowStyle BackColor="#999999" />
+                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
             </asp:GridView>
 <div style="clear:left;margin-top:20px;width:100%;">
             <asp:DropDownList ID="ddlFormateurs" runat="server"  />

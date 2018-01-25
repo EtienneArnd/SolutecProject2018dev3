@@ -60,9 +60,9 @@ namespace gestion_formation_web.dto
         {
             dao.DaoSessionFormation.RemoveFormateurFromSession(idFormateur, idSessionFormation);
         }
-        public static void UpdateSessionFormation(int idSessionFormation, string dateDebut = "", string dateFin = "", string ordre = "", string Type = "", string tarifIntra = "")
+        public static void UpdateSessionFormation(int idSessionFormation, string dateDebut = "", string dateFin = "", string ordre = "", string type = "", string tarifIntra = "")
         {
-            dao.DaoSessionFormation.Update(idSessionFormation,dateDebut, dateFin, ordre, Type, tarifIntra);
+            dao.DaoSessionFormation.Update(idSessionFormation,dateDebut, dateFin, ordre, type, tarifIntra);
         }
     }
 }

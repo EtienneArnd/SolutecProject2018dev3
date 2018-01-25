@@ -47,11 +47,18 @@ namespace gestion_formation_web
                 }
                 if (!IsPostBack)
                 {
-                    tbxIntitule.Text = sessionFormation.formation.intitule;
+                    tbxTarifIntra.Text = sessionFormation.tarif_intra+"";
                     tbxDateDebut.Text = (dateDebut == DateTime.MinValue) ? "" : dateDebut.ToShortDateString();
                     // GetDateFin renvoie la date définie en base s'il y en a une, sinon, renvoie la date de fin présumée/calculée
                     tbxDateFin.Text = ((DateTime)sessionFormation.GetDateFin()).ToShortDateString(); 
                     tbxOrdre.Text = sessionFormation.ordre.ToString();
+                    IEnumerable<CoupletNomValeur> listeTypes = DtoSessionFormation.getTypesFormation();
+                    ddlTypeSessionFormation.Items.Add("");
+                    foreach (CoupletNomValeur type in listeTypes)
+                    {
+                        ddlTypeSessionFormation.Items.Add((string)type.valeur);
+                    }
+                    ddlTypeSessionFormation.SelectedValue = sessionFormation.type;
                 }
             }
             if (!IsPostBack)
@@ -93,19 +100,8 @@ namespace gestion_formation_web
             upFormateurs.Update();
         }
 
-
-        protected void onClick_btnModifier(object sender, EventArgs e)
-        {
-            DtoSessionFormation.UpdateSessionFormation(idSessionFormation, tbxDateDebut.Text, tbxOrdre.Text, ddlTypeSessionFormation.SelectedValue, tbxIntitule.Text);
-        }
-
-        protected void onClick_btnannuler(object sender, EventArgs e)
-        {
-            tbxDateDebut.Text = "";
-            tbxDateFin.Text = "";
-            tbxOrdre.Text = "";
-            tbxIntitule.Text = "";
-        }
+        
+        
 
         protected void gvFormateurs_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
@@ -121,6 +117,19 @@ namespace gestion_formation_web
             int idx = (int)e.Keys[0];
             gvFormateurs.DataBind();
             upFormateurs.Update();
+        }
+
+        protected void btnModifier_Click(object sender, EventArgs e)
+        {
+            DtoSessionFormation.UpdateSessionFormation(idSessionFormation, tbxDateDebut.Text, tbxDateFin.Text, tbxOrdre.Text, ddlTypeSessionFormation.SelectedValue, tbxTarifIntra.Text);
+        }
+
+        protected void btnAnnuler_Click(object sender, EventArgs e)
+        {
+            tbxDateDebut.Text = "";
+            tbxDateFin.Text = "";
+            tbxOrdre.Text = "";
+            tbxTarifIntra.Text = "";
         }
     }
 }

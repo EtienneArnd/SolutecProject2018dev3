@@ -73,7 +73,7 @@ namespace gestion_formation_web.dao
                 sessionformation.date_fin = (dateFin == null || dateFin == "") ? null : (DateTime?)DateTime.Parse(dateFin);
                 sessionformation.ordre = (ordre == null || ordre == "") ? sessionformation.ordre : int.Parse(ordre);
                 sessionformation.type = Type;
-                sessionformation.tarif_intra = (ordre == null || ordre == "") ? sessionformation.tarif_intra : decimal.Parse(ordre);
+                sessionformation.tarif_intra = (tarifIntra == null || tarifIntra == "") ? sessionformation.tarif_intra : decimal.Parse(tarifIntra);
                 ctxt.SaveChanges();
             }
             catch

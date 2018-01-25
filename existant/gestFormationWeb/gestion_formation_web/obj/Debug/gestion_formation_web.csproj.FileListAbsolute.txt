@@ -77,14 +77,14 @@ C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\SolutecProject2018dev3\exista
 C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\SolutecProject2018dev3\existant\gestFormationWeb\gestion_formation_web\bin\EntityFramework.SqlServer.dll
 C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\SolutecProject2018dev3\existant\gestFormationWeb\gestion_formation_web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\SolutecProject2018dev3\existant\gestFormationWeb\gestion_formation_web\bin\MySql.Data.dll
-C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\SolutecProject2018dev3\existant\gestFormationWeb\gestion_formation_web\bin\MySql.Data.Entity.dll
 C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\SolutecProject2018dev3\existant\gestFormationWeb\gestion_formation_web\bin\EntityFramework.xml
 C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\SolutecProject2018dev3\existant\gestFormationWeb\gestion_formation_web\bin\EntityFramework.SqlServer.xml
 C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\SolutecProject2018dev3\existant\gestFormationWeb\gestion_formation_web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\SolutecProject2018dev3\existant\gestFormationWeb\gestion_formation_web\bin\MySql.Data.xml
 C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\SolutecProject2018dev3\existant\gestFormationWeb\gestion_formation_web\bin\fr\EntityFramework.resources.dll
 C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\SolutecProject2018dev3\existant\gestFormationWeb\gestion_formation_web\bin\fr\EntityFramework.SqlServer.resources.dll
 C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\SolutecProject2018dev3\existant\gestFormationWeb\gestion_formation_web\obj\Debug\gestion_formation_web.csproj.ResolveComReference.cache
 C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\SolutecProject2018dev3\existant\gestFormationWeb\gestion_formation_web\obj\Debug\gestion_formation_web.dll
 C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\SolutecProject2018dev3\existant\gestFormationWeb\gestion_formation_web\obj\Debug\gestion_formation_web.pdb
-C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\SolutecProject2018dev3\existant\gestFormationWeb\gestion_formation_web\obj\Debug\gestion_formation_web.csprojResolveAssemblyReference.cache
+C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\SolutecProject2018dev3\existant\gestFormationWeb\gestion_formation_web\bin\MySql.Data.Entity.EF5.dll
+C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\SolutecProject2018dev3\existant\gestFormationWeb\gestion_formation_web\bin\MySql.Data.Entity.EF6.dll
+C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\SolutecProject2018dev3\existant\gestFormationWeb\gestion_formation_web\bin\MySql.Data.Entity.EF5.xml

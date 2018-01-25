@@ -76,47 +76,6 @@ namespace gestion_formation_web
                 }
             }
         }
-        //[WebMethod]
-        //public static void GenererFeuillesEvaluation2()
-        //{
-        //    String id = HttpContext.Current.Request["idSessionFormation"];
-        //    int idSessionFormation = int.Parse(id);
-
-        //    GenererFeuillesEvaluation(idSessionFormation);
-        //}
-        //[WebMethod]
-        //public static void  GenererFeuillesEvaluation(int idSessionFormation)
-        //{
-        //    try
-        //    {
-        //        //            return "hi "+idSessionFormation;
-        //        String nomFichierFeuillesEvaluation = dto.Publipostage.CreateFeuillesEvaluation(idSessionFormation);
-        //        // return le doc word généré
-        //        System.IO.FileInfo file = new System.IO.FileInfo(nomFichierFeuillesEvaluation);
-
-        //        if (file.Exists)
-        //        {
-        //            HttpContext.Current.Response.Clear();
-        //            HttpContext.Current.Response.AddHeader("Content-Disposition", "attachment; filename=" + file.Name);
-        //            HttpContext.Current.Response.AddHeader("Content-Length", file.Length.ToString());
-        //            HttpContext.Current.Response.ContentType = "application/octet-stream";
-        //            //HttpContext.Current.Response.WriteFile(file.FullName);
-        //            //HttpContext.Current.Response.End();
-        //            HttpContext.Current.Response.TransmitFile(file.FullName);
-        //            HttpContext.Current.Response.Flush();
-        //        }
-        //    }
-        //    catch
-        //    {
-        //        HttpContext.Current.Response.Clear();
-        //        String msg = "Pb de génération de doc word";
-        //        HttpContext.Current.Response.AddHeader("Content-Length", msg.Length.ToString());
-        //        HttpContext.Current.Response.ContentType = "text/plain";
-        //        HttpContext.Current.Response.Write("Pb de génération de doc word");
-        //    }
-        //    HttpContext.Current.Response.End();
-
-        //}
         public void RenvoyerFichier(String nomFichier)
         {
             try
@@ -194,6 +153,12 @@ namespace gestion_formation_web
             dto.DtoSessionCursus.Add(sessionCursus);
             DataBind();
             pnlDetails.Visible = true;
+        }
+
+        protected void btnAjouterStagiaire_Click(object sender, EventArgs e)
+        {
+            // TODO
+            Console.WriteLine("btnAjouterStagiaire_Click not implemented #TODO");
         }
     }
 }
