@@ -49,11 +49,8 @@ namespace gestion_formation_web
                 {
                     tbxIntitule.Text = sessionFormation.formation.intitule;
                     tbxDateDebut.Text = (dateDebut == DateTime.MinValue) ? "" : dateDebut.ToShortDateString();
-                    DateTime dateFin = DateTime.MinValue;
-                    if (sessionFormation.date_fin != null)
-                    {
-                        tbxDateFin.Text = ((DateTime)sessionFormation.GetDateFin()).ToShortDateString();
-                    }
+                    // GetDateFin renvoie la date définie en base s'il y en a une, sinon, renvoie la date de fin présumée/calculée
+                    tbxDateFin.Text = ((DateTime)sessionFormation.GetDateFin()).ToShortDateString(); 
                     tbxOrdre.Text = sessionFormation.ordre.ToString();
                 }
             }
@@ -99,8 +96,7 @@ namespace gestion_formation_web
 
         protected void onClick_btnModifier(object sender, EventArgs e)
         {
-            DtoSessionFormation.UpdateSessionFormation(idSessionFormation, tbxDateDebut.Text,
-            tbxDateFin.Text, tbxOrdre.Text, tbxType.Text, tbxIntitule.Text);
+            DtoSessionFormation.UpdateSessionFormation(idSessionFormation, tbxDateDebut.Text, tbxOrdre.Text, ddlTypeSessionFormation.SelectedValue, tbxIntitule.Text);
         }
 
         protected void onClick_btnannuler(object sender, EventArgs e)
@@ -108,7 +104,6 @@ namespace gestion_formation_web
             tbxDateDebut.Text = "";
             tbxDateFin.Text = "";
             tbxOrdre.Text = "";
-            tbxType.Text = "";
             tbxIntitule.Text = "";
         }
 

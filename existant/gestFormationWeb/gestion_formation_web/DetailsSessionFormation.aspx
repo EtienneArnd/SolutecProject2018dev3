@@ -27,7 +27,11 @@
                 </tr>
                 <tr>
                     <td>Type</td>
-                    <td><asp:TextBox ID="tbxType" runat="server"></asp:TextBox></td>
+                    <td>
+                        <asp:DropDownList ID="ddlTypeSessionFormation" runat="server" DataSourceID="odsTypeSessionFormation" DataTextField="nom" DataValueField="nom">
+                        </asp:DropDownList>
+                        <asp:ObjectDataSource ID="odsTypeSessionFormation" runat="server" SelectMethod="getTypesFormation" TypeName="gestion_formation_web.dto.DtoSessionFormation"></asp:ObjectDataSource>
+                    </td>
                 </tr>
                 <tr>
                     <td>Tarif Intra</td>

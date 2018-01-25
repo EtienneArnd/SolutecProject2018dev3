@@ -76,13 +76,22 @@ namespace gestion_formation_web {
         protected global::System.Web.UI.WebControls.TextBox tbxOrdre;
         
         /// <summary>
-        /// Contrôle tbxType.
+        /// Contrôle ddlTypeSessionFormation.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbxType;
+        protected global::System.Web.UI.WebControls.DropDownList ddlTypeSessionFormation;
+        
+        /// <summary>
+        /// Contrôle odsTypeSessionFormation.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource odsTypeSessionFormation;
         
         /// <summary>
         /// Contrôle tbxIntitule.

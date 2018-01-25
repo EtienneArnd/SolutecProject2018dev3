@@ -70,9 +70,9 @@ namespace gestion_formation_web.dao
             try
             {
                 sessionformation.date_debut = (dateDebut == null || dateDebut == "") ? sessionformation.date_debut : DateTime.Parse(dateDebut);
-                sessionformation.date_fin = (dateFin == null || dateFin == "") ? sessionformation.date_fin : DateTime.Parse(dateFin);
+                sessionformation.date_fin = (dateFin == null || dateFin == "") ? null : (DateTime?)DateTime.Parse(dateFin);
                 sessionformation.ordre = (ordre == null || ordre == "") ? sessionformation.ordre : int.Parse(ordre);
-                sessionformation.type = (ordre == null || ordre == "") ? sessionformation.type : ordre;
+                sessionformation.type = Type;
                 sessionformation.tarif_intra = (ordre == null || ordre == "") ? sessionformation.tarif_intra : decimal.Parse(ordre);
                 ctxt.SaveChanges();
             }
