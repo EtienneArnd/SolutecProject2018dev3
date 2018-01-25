@@ -40,19 +40,6 @@ public class BeanTheme implements Serializable{
 	}
 
 	
-	public static Theme ConvertNomToTheme(String nom) {
-	
-		List<Theme> listThemeStatic = DtoTheme.getListTheme();
-		
-		for (Theme theme : listThemeStatic) {
-			
-			if(theme.getNom().equals(nom)) {
-				return theme;
-			}
-		}
-				
-		return null;
-	}
 	
 	public void setListTheme(List<Theme> listTheme) {
 		this.listTheme = listTheme;

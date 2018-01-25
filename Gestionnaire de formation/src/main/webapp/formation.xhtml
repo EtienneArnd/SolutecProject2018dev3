@@ -12,7 +12,7 @@
 <body>
 	<h:panelGrid columns="3" cellpadding="5">
 		<p:commandButton value="Ajouter formation"
-			styleClass="w3-btn w3-teal w3-center " type="button"
+			styleClass="btn btn-success" type="button"
 			onclick="PF('dlg1').show();" />
 	</h:panelGrid>
 
@@ -21,14 +21,14 @@
 	<p:dialog id="dlg1" header="Menu ajouter une formation"
 		resizable="false" widgetVar="dlg1" modal="true">
 		<h:form>
-			<h:panelGrid columns="2" cellpadding="10" cellspacing="10">
-				<h:panelGrid columns="2" cellpadding="5" cellspacing="2">
+			<p:panelGrid columns="2">
+				<h:panelGrid columns="2">
 					<h6>
 						Intitulé :
-						<h:inputText value="#{beanFormation.formation.intitule}" />
+						<h:inputText value="#{beanFormation.formation.intitule}"/>
 					</h6>
 				</h:panelGrid>
-				<h:panelGrid columns="2" cellpadding="5" cellspacing="2">
+				<h:panelGrid columns="2">
 					<h6>
 						Niveau :
 						<h:selectOneMenu value="#{beanFormation.formation.niveau}">
@@ -36,7 +36,7 @@
 						</h:selectOneMenu>
 					</h6>
 				</h:panelGrid>
-				<h:panelGrid columns="2" cellpadding="5" cellspacing="2">
+				<h:panelGrid columns="2">
 					<h6>
 						Durée :
 						<h:selectOneMenu value="#{beanFormation.formation.duree}">
@@ -45,21 +45,21 @@
 					</h6>
 				</h:panelGrid>
 
-				<h:panelGrid columns="2" cellpadding="5" cellspacing="2">
+				<h:panelGrid columns="2">
 					<h6>
 						Tarif inter :
-						<h:inputText value="#{beanFormation.formation.tarifInter}" />
+						<h:inputText value="#{beanFormation.formation.tarifInter}"  onkeypress="if(event.which &lt; 46 || event.which &gt; 57) return false;"/>
 					</h6>
 				</h:panelGrid>
 
-				<h:panelGrid columns="2" cellpadding="5" cellspacing="2">
+				<h:panelGrid columns="2">
 					<h6>
 						Tarif intra :
-						<h:inputText value="#{beanFormation.formation.tarifIntra}" />
+						<h:inputText value="#{beanFormation.formation.tarifIntra}" onkeypress="if(event.which &lt; 46 || event.which &gt; 57) return false;"/>
 					</h6>
 				</h:panelGrid>
 
-				<h:panelGrid columns="2" cellpadding="5" cellspacing="2">
+				<h:panelGrid columns="2">
 					<h6>
 						Thème :
 						<h:selectOneMenu value="#{beanFormation.formation.theme}"
@@ -69,29 +69,31 @@
 						</h:selectOneMenu>
 					</h6>
 				</h:panelGrid>
+			</p:panelGrid>
+			<p>
+				<p:panelGrid columns="2">
+					<h:commandButton value="Valider"
+						styleClass="btn btn-success" type="submit"
+						action="#{beanFormation.ValiderInfos()}" />
+					<h:commandButton value="Annuler"
+						styleClass="btn btn-danger" 
+						action="#{beanFormation.annulerFenetreAjouter()}" />
+				</p:panelGrid>
+			</p>
 
-				<h:commandButton value="Valider"
-					styleClass="w3-btn w3-teal w3-center " type="submit"
-					action="#{beanFormation.ValiderInfos()}" />
-				<h:commandButton value="Annuler"
-					styleClass="w3-btn w3-teal w3-center " 
-					action="#{beanFormation.annulerFenetreAjouter()}" />
-
-
-			</h:panelGrid>
 		</h:form>
 	</p:dialog>
 	<p:dialog id="dlg2" header="Menu modifier une formation"
 		resizable="false" widgetVar="dlg2" modal="true">
 		<h:form>
-			<h:panelGrid columns="2" cellpadding="10" cellspacing="10">
-				<h:panelGrid columns="2" cellpadding="5" cellspacing="2">
+			<p:panelGrid columns="2" >
+				<h:panelGrid columns="2">
 					<h6>
 						Intitulé :
 						<h:inputText value="#{beanFormation.formation_modif.intitule}" />
 					</h6>
 				</h:panelGrid>
-				<h:panelGrid columns="2" cellpadding="5" cellspacing="2">
+				<h:panelGrid columns="2">
 					<h6>
 						Niveau :
 						<h:selectOneMenu value="#{beanFormation.formation_modif.niveau}">
@@ -99,7 +101,7 @@
 						</h:selectOneMenu>
 					</h6>
 				</h:panelGrid>
-				<h:panelGrid columns="2" cellpadding="5" cellspacing="2">
+				<h:panelGrid columns="2">
 					<h6>
 						Durée :
 						<h:selectOneMenu value="#{beanFormation.formation.duree}">
@@ -108,21 +110,21 @@
 					</h6>
 				</h:panelGrid>
 
-				<h:panelGrid columns="2" cellpadding="5" cellspacing="2">
+				<h:panelGrid columns="2">
 					<h6>
 						Tarif inter :
-						<h:inputText value="#{beanFormation.formation_modif.tarifInter}" />
+						<h:inputText value="#{beanFormation.formation_modif.tarifInter}" onkeypress="if(event.which &lt; 46 || event.which &gt; 57) return false;"/>
 					</h6>
 				</h:panelGrid>
 
-				<h:panelGrid columns="2" cellpadding="5" cellspacing="2">
+				<h:panelGrid columns="2">
 					<h6>
 						Tarif intra :
-						<h:inputText value="#{beanFormation.formation_modif.tarifIntra}" />
+						<h:inputText value="#{beanFormation.formation_modif.tarifIntra}" onkeypress="if(event.which &lt; 46 || event.which &gt; 57) return false;"/>
 					</h6>
 				</h:panelGrid>
 
-				<h:panelGrid columns="2" cellpadding="5" cellspacing="2">
+				<h:panelGrid columns="2">
 					<h6>
 						Thème :
 						<h:selectOneMenu value="#{beanFormation.formation_modif.theme}"
@@ -132,19 +134,21 @@
 						</h:selectOneMenu>
 					</h6>
 				</h:panelGrid>
-
-				<h:commandButton value="Modifier"
-					styleClass="w3-btn w3-teal w3-center " type="submit"
-					action="#{beanFormation.modifierFormation()}" />
-				<h:commandButton value="Supprimer"
-					styleClass="w3-btn w3-teal w3-center " type="submit"
-					action="#{beanFormation.supprimerFormation()}" />
-				<h:commandButton value="Annuler"
-					styleClass="w3-btn w3-teal w3-center " 
-					action="#{beanFormation.annulerFenetreMofifier()}" />
-
-
-			</h:panelGrid>
+			</p:panelGrid>
+			<div class ="row">
+				<p:panelGrid columns="3">
+					<h:commandButton value="Modifier"
+						styleClass="btn btn-success" type="submit"
+						action="#{beanFormation.modifierFormation()}" />
+					<h:commandButton value="Supprimer"
+						styleClass="btn btn-warning" type="submit"
+						action="#{beanFormation.supprimerFormation()}" />
+					<h:commandButton value="Annuler"
+						styleClass="btn btn-danger" 
+						action="#{beanFormation.annulerFenetreMofifier()}" />
+				</p:panelGrid>
+			</div>
+				
 		</h:form>
 	</p:dialog>
 

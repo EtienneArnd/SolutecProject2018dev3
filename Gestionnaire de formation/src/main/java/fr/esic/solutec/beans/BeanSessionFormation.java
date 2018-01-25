@@ -1,6 +1,8 @@
 package fr.esic.solutec.beans;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,10 +13,9 @@ import javax.faces.component.html.HtmlDataTable;
 import javax.faces.context.FacesContext;
 
 import org.primefaces.context.RequestContext;
+import org.primefaces.event.SelectEvent;
 
-import fr.esic.solutec.dto.DtoFormation;
 import fr.esic.solutec.dto.DtoSessionFormation;
-import fr.esic.solutec.entities.Formation;
 import fr.esic.solutec.entities.SessionFormation;
 
 
@@ -29,8 +30,17 @@ public class BeanSessionFormation implements Serializable{
 	private List<SessionFormation> listSessionFormation;
 	private HtmlDataTable tableSessionFormation;
 	private int[] listDuree;
+	private String dateLimit = "";
 
 	
+	public String getDateLimit() {
+		return dateLimit;
+	}
+
+	public void setDateLimit(String dateLimit) {
+		this.dateLimit = dateLimit;
+	}
+
 	public HtmlDataTable getTableSessionFormation() {
 		return tableSessionFormation;
 	}
@@ -65,7 +75,7 @@ public class BeanSessionFormation implements Serializable{
 	}
 
 	public String toPageSessionsFormation() {
-		return "sesionFormation"; //Pas besoin de / et de .xhtml
+		return "sessionFormation"; //Pas besoin de / et de .xhtml
 	}
 	
 //	public String[] getListNiveaux() {
@@ -85,15 +95,22 @@ public class BeanSessionFormation implements Serializable{
 
 	
 	public void ValiderInfos() {
-
 		DtoSessionFormation.AddSessionFormation(sessionFormation);
 		init();
 	}
 	
+	
 	public void setListSessionFormation(List<SessionFormation> listSessionFormation) {
 		this.listSessionFormation = listSessionFormation;
 	}
-
+	
+	public void calenderChangeListener(SelectEvent event) {
+		
+		Date date = (Date)event.getObject();
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yy");
+		dateLimit = dateFormat.format(date);
+	}
+	
 	
 	public void fenetreModifierSessionFormation() {
 		Map<String,String> par_map = new HashMap<String,String>();
@@ -103,6 +120,10 @@ public class BeanSessionFormation implements Serializable{
 		sessionFormation_modif = DtoSessionFormation.getSessionFormation(Integer.parseInt(id));
 		RequestContext context = RequestContext.getCurrentInstance();
 		context.execute("PF('dlg2').show();");
+	}
+	
+	public String[] getListType() {
+		return DtoSessionFormation.getListType(); //Pas besoin de / et de .xhtml
 	}
 	
 	public void modifierSessionFormation() {
