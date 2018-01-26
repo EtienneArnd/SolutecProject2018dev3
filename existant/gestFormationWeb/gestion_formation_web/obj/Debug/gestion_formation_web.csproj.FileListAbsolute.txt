@@ -88,3 +88,4 @@ C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\SolutecProject2018dev3\exista
 C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\SolutecProject2018dev3\existant\gestFormationWeb\gestion_formation_web\bin\MySql.Data.Entity.EF5.dll
 C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\SolutecProject2018dev3\existant\gestFormationWeb\gestion_formation_web\bin\MySql.Data.Entity.EF6.dll
 C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\SolutecProject2018dev3\existant\gestFormationWeb\gestion_formation_web\bin\MySql.Data.Entity.EF5.xml
+C:\Users\esic.esic-HP1\Documents\solutec_dev3_2018\SolutecProject2018dev3\existant\gestFormationWeb\gestion_formation_web\obj\Debug\gestion_formation_web.csprojResolveAssemblyReference.cache

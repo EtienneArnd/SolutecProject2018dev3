@@ -10,23 +10,25 @@
 
     <asp:Label ID="lblTitrePage" runat="server" Text="Cursus ...." CssClass="titre1 auto-style1"></asp:Label>
     <br />
-    <div class="auto-style1">
-        <asp:Label ID="Label3" runat="server" Text="Nom de la session"></asp:Label>
-        <asp:TextBox ID="tbxNom" runat="server"></asp:TextBox>
-        <br />
-        <asp:Label ID="Label4" runat="server" Text="Date de la session"></asp:Label>
-        <asp:TextBox ID="tbxDateSessionCursus" runat="server" CssClass="datepicker"></asp:TextBox>
-        <br />
-        <asp:Button ID="btnCreerSessionCursus" runat="server" Text="Créer" OnClick="btnCreerSessionCursus_Click" />
-        <br />
-    </div>
+    <asp:Panel ID="PnlCreate" runat="server" Visible="False">
+        <div class="auto-style1">
+            <asp:Label ID="Label3" runat="server" Text="Nom de la session"></asp:Label>
+            <asp:TextBox ID="tbxNom" runat="server"></asp:TextBox>
+            <br />
+            <asp:Label ID="Label4" runat="server" Text="Date de la session"></asp:Label>
+            <asp:TextBox ID="tbxDateSessionCursus" runat="server" CssClass="datepicker"></asp:TextBox>
+            <br />
+            <asp:Button ID="btnCreerSessionCursus" runat="server" Text="Créer" OnClick="btnCreerSessionCursus_Click" />
+            <br />
+        </div>
+    </asp:Panel>
 
-    <br />
     <asp:Panel ID="pnlDetails" runat="server" Visible="False">
-        <h1><asp:Label ID="Label2" runat="server" Text="Liste des sessions de formation" CssClass="titre2 auto-style1"></asp:Label></h1>
+        <h1>
+            <asp:Label ID="Label2" runat="server" Text="Liste des sessions de formation" CssClass="titre2 auto-style1"></asp:Label></h1>
         <br />
         <div class="TableView">
-            <asp:GridView ID="gvSessionsFormation" runat="server" AutoGenerateColumns="False" DataSourceID="odsSessionsFormation" Style="float: left;" CellPadding="4" ForeColor="#333333" GridLines="None">
+            <asp:GridView ID="gvSessionsFormation" runat="server" AutoGenerateColumns="False" DataSourceID="odsSessionsFormation" Style="float: left;" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="gvSessionsFormation_SelectedIndexChanged">
                 <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                 <Columns>
                     <%--            <asp:BoundField DataField="date_debut" HeaderText="Date de début" SortExpression="date_debut" />--%>
@@ -97,8 +99,11 @@
         <div>
             <asp:Button ID="btnCalculerDateSession" runat="server" Text="Calculer les dates des sessions" OnClick="btnCalculerDateSession_Click" />
         </div>
-        <br />
-        <h1><asp:Label ID="Label1" runat="server" Text="Liste des stagiaires" CssClass="titre2"></asp:Label></h1>
+    </asp:Panel>
+
+    <asp:Panel ID="PnlStagiaire" runat="server" Visible="False">
+        <h1>
+            <asp:Label ID="Label1" runat="server" Text="Liste des stagiaires" CssClass="titre2"></asp:Label></h1>
         <br />
         <div class="TableView">
             <asp:GridView ID="gvStagiaires" runat="server" AutoGenerateColumns="False" DataSourceID="odsStagiaires" Style="height: 180px; width: 1128px" CellPadding="4" ForeColor="#333333" GridLines="None">

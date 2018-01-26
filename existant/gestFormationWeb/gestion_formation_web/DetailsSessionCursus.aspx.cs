@@ -13,6 +13,7 @@ namespace gestion_formation_web
     {
         int idSessionCursus;
         int idCursus;
+        bool CreateOrEdit; //Create=true, edit=false
         protected void Page_Load(object sender, EventArgs e)
         {
             //if (!IsPostBack)
@@ -20,7 +21,9 @@ namespace gestion_formation_web
             String id = Request["id_session_cursus"];
             if (String.IsNullOrEmpty(id))
             {
-                if (String.IsNullOrEmpty(Request["idCursus"]))
+                // Cas d'appel sans id de sessionCursus
+                // -> Tentative de création d'une nouvelle session cursus
+                if (String.IsNullOrEmpty(Request["idCursus"]))// Verification de l'id du cursus dont une sessio est a créer
                 {
                     Response.Write("Page mal appelée : id cursus requis");
                     Response.End();
@@ -35,7 +38,10 @@ namespace gestion_formation_web
                         Response.End();
 
                     }
+                    //id reconnu: création de la session cursus prete à validation
                     lblTitrePage.Text = "Nouvelle session du cursus " + leCursus.nom;
+                    CreateOrEdit = false;
+                    switchMode();
                 }
                 catch
                 {
@@ -46,6 +52,7 @@ namespace gestion_formation_web
             }
             else
             {
+                // Chargement des infos de la session cursus
                 try
                 {
                     idSessionCursus = int.Parse(id);
@@ -72,7 +79,8 @@ namespace gestion_formation_web
                         tbxDateSessionCursus.Text = date.ToString(DateTimeFormatInfo.CurrentInfo.ShortDatePattern);
                         lblTitrePage.Text += " du " + tbxDateSessionCursus.Text;
                     }
-                    pnlDetails.Visible = true;
+                    CreateOrEdit = true;
+                    switchMode();
                 }
             }
         }
@@ -159,6 +167,23 @@ namespace gestion_formation_web
         {
             // TODO
             Console.WriteLine("btnAjouterStagiaire_Click not implemented #TODO");
+        }
+
+        protected void switchMode()
+        {
+            if(CreateOrEdit)
+            {
+                PnlCreate.Visible = true;
+                pnlDetails.Visible = false;
+                PnlStagiaire.Visible = false;
+            }
+            else
+            {
+                PnlCreate.Visible = true;
+                pnlDetails.Visible = false;
+                PnlStagiaire.Visible = false;
+            }
+            CreateOrEdit = !CreateOrEdit;
         }
     }
 }

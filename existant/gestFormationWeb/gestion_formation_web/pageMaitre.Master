@@ -4,32 +4,35 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>GestionFormation-Master</title>
-    
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-       <link href="css/style.css" rel="stylesheet" type="text/css" />
-       <link href="css/nos_styles.css" rel="stylesheet" type="text/css" />
-       <link href="Style.css" rel="stylesheet" type="text/css" />
-       <link href="css/jquery-ui.css" rel="stylesheet" type="text/css" />
-       <link href="css/style-jquery.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/nos_styles.css" rel="stylesheet" type="text/css" />
+    <link href="css/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <link href="css/style-jquery.css" rel="stylesheet" type="text/css" />
+    <%-- <link href="Style.css" rel="stylesheet" type="text/css" /> 
+           Page du projet original, contenu dépacée dans css/nos_styles.css --%>
 
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
- 
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 
 </head>
 <body>
-    <header class="site-header col-lg-12 col-md-12 col-sm-12"><h1>Gestion Formation Web</h1></header>
+    <header class="site-header col-lg-12 col-md-12 col-sm-12">
+        <h1>Gestion Formation Web</h1>
+        <a href="ListeCursus.aspx">Accueil</a>
+    </header>
     <section class="col-lg-12 col-md-12 col-sm-12">
-    <form id="form1" runat="server">
-    <div class="FramePrincipal">
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        
-        </asp:ContentPlaceHolder>
-    </div>
-    </form>
+        <form id="form1" runat="server">
+            <div class="FramePrincipal">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </form>
     </section>
     <footer class="site-footer col-sm-12 col-md-12 col-lg-12">solutec_dev3</footer>
     <script type="text/javascript" src="js/scriptFin.js">
