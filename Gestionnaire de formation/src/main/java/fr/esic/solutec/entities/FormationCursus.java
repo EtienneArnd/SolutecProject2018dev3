@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Entity
 @Table(name="formation_cursus")
 @NamedQueries({@NamedQuery(name="FormationCursus.findAll", query="SELECT f FROM FormationCursus f"),
-@NamedQuery(name="FormationCursus.findByIdCursus", query="SELECT f FROM FormationCursus f WHERE f.cursus.idCursus = :idCursus")})
+@NamedQuery(name="FormationCursus.findByIdCursus", query="SELECT f FROM FormationCursus f WHERE f.cursus.idCursus = :idCursus ORDER BY f.ordre")})
 public class FormationCursus implements Serializable {
 	private static final long serialVersionUID = 1L;
 

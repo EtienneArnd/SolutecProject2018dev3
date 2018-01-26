@@ -55,7 +55,7 @@
 		</h:form>
 	</p:dialog>
 	
-	<p:dialog id="dlg2" header="Cursus : #{beanCursus.cursus_modif.nom}" resizable="false"
+	<p:dialog id="dlg2" header="Modifier un cursus" resizable="false"
 		widgetVar="dlg2" modal="true" height ="400">
 		
 		<h:form>
@@ -64,13 +64,13 @@
 				<h:panelGrid columns="2">
 					<h6>
 						Nom Cursus :
-						<h:inputText value="#{beanCursus.cursus_modif.nom}" />
+						<h:inputText value="#{beanFormationCursus.cursus_modif.nom}" />
 					</h6>
 				</h:panelGrid>
 				<h:panelGrid columns="2">
 					<h6>
 						Tarif :
-						<h:inputText value="#{beanCursus.cursus_modif.tarif}"
+						<h:inputText value="#{beanFormationCursus.cursus_modif.tarif}"
 							onkeypress="if(event.which &lt; 46 || event.which &gt; 57) return false;" />
 					</h6>
 				</h:panelGrid>

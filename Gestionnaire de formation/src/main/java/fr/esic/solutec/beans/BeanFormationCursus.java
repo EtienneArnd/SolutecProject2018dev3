@@ -10,7 +10,9 @@ import javax.faces.context.FacesContext;
 
 import org.primefaces.context.RequestContext;
 
+import fr.esic.solutec.dto.DtoCursus;
 import fr.esic.solutec.dto.DtoFormationCursus;
+import fr.esic.solutec.entities.Cursus;
 import fr.esic.solutec.entities.FormationCursus;
 
 
@@ -27,6 +29,7 @@ public class BeanFormationCursus {
 
 	private FormationCursus formationCursus = new FormationCursus();
 	private FormationCursus formationCursus_modif = new FormationCursus();
+	private Cursus cursus_modif = new Cursus();
 			
 	public FormationCursus getFormationCursus_modif() {
 		return formationCursus_modif;
@@ -55,6 +58,7 @@ public class BeanFormationCursus {
 	private void init() {
 		formationCursus = new FormationCursus();
 		formationCursus_modif = new FormationCursus();
+		cursus_modif = new Cursus();
 	}
 
 	
@@ -83,10 +87,19 @@ public class BeanFormationCursus {
 		String id=par_map.get("id");
 		init();
 		listFormationByCursus = DtoFormationCursus.getListFormationCursusByIdCursus(Integer.parseInt(id));
+		cursus_modif = DtoCursus.getCursus(Integer.parseInt(id));
 		RequestContext context = RequestContext.getCurrentInstance();
 		context.execute("PF('dlg2').show();");
 	}
 	
+	public Cursus getCursus_modif() {
+		return cursus_modif;
+	}
+
+	public void setCursus_modif(Cursus cursus_modif) {
+		this.cursus_modif = cursus_modif;
+	}
+
 	public void modifierFormationCursus() {
 	//	DtoFormationCursus.EditFormationCursus(formationCursus_modif);
 	}
