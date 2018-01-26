@@ -10,8 +10,16 @@
             <asp:BoundField DataField="tarif_intra" HeaderText="Tarif intra" SortExpression="tarif_intra" />
             <asp:BoundField DataField="tarif_inter" HeaderText="Tarif unitaire" SortExpression="tarif_inter" />
             <asp:BoundField DataField="niveau" HeaderText="Niveau" SortExpression="niveau" />
-            <asp:BoundField DataField="theme.nom" HeaderText="Thème" SortExpression="theme" />
-            <asp:ButtonField ButtonType="Button" CommandName="Update" HeaderText="" ShowHeader="True" Text="Modifier" />
+            <asp:TemplateField HeaderText="Thème">
+                <ItemTemplate>
+                 <asp:Label ID="themeName" runat="server" Text='<%# Eval("theme.nom") %>'></asp:Label>
+                    </ItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="">
+                <ItemTemplate>
+                     <asp:Button ID="btnModifier" runat="server" Text="Modifier" OnCommand="ModifierFormation_Command" CommandArgument='<%# Eval("id_formation") %>'></asp:Button>
+               </ItemTemplate>
+            </asp:TemplateField>
             <asp:ButtonField ButtonType="Button" CommandName="Delete" Text="Supprimer" />
         </Columns>
         <EditRowStyle BackColor="#999999" />

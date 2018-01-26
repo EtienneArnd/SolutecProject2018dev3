@@ -14,10 +14,14 @@
             <asp:BoundField DataField="duree" HeaderText="duree" SortExpression="duree" />
             <asp:TemplateField HeaderText="Ordre">
                 <ItemTemplate>
-                 <asp:Label ID="ordre" runat="server" Text='<%# ((IEnumerable<gestion_formation_web.formation_cursus>) Eval("formation_cursus")).FirstOrDefault().ordre %>'></asp:Label>
+                <%--<essai>--%>
+                 <%--<asp:DropDownList ID="ddlordre" runat="server" DataSourceID="odsFormations" DataValueField="ordre"  DataTextField='<%# ((IEnumerable<gestion_formation_web.formation_cursus>) Eval("formation_cursus")).FirstOrDefault().ordre %>'/>--%>
+                <%--<essai>--%>
+                <asp:Label ID="ordre" runat="server" Text='<%# ((IEnumerable<gestion_formation_web.formation_cursus>) Eval("formation_cursus")).FirstOrDefault().ordre %>'></asp:Label>
                     </ItemTemplate>
             </asp:TemplateField>
         <asp:BoundField DataField="niveau" HeaderText="niveau" SortExpression="niveau" />
+            
         </Columns>
         <EditRowStyle BackColor="#999999" />
         <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -46,10 +50,28 @@
     <asp:Button ID="btnAjouterFormation" runat="server" OnClick="btnAjouterFormation_Click"  Text="Ajouter la formation au cursus" />
     </div>
 
+<br />
+    <input id="btnModificationOrdreFormation" type="button" value="Modifier l'ordre d'une formation dans le cursus" onclick="document.getElementById('divModifierOrdreFormation').style='display:bloc';" />
+    <asp:Label ID="lblMemeOrdre" runat="server" Text="La formation est déjà à l'ordre que vous demandez" Visible="False"></asp:Label>
+<br />
+
+    <div  id="divModifierOrdreFormation"  style="display:none">
+    <asp:DropDownList ID="ddlModifierOrdreFormation" runat="server" DataSourceID="odsFormations" DataTextField="intitule" DataValueField="id_formation" />    
+    <asp:TextBox ID="tbxOrdreFormation" runat="server" placeholder="Ordre souhaité"></asp:TextBox>
+    <asp:Button ID="btnModifierOrdreFormation" runat="server" OnClick="btnModifierOrdreFormation_Click"  Text="Modifier l'ordre de la formation" />
+    </div>
+
     <asp:ObjectDataSource ID="odsFormations" runat="server" SelectMethod="GetFormations" TypeName="gestion_formation_web.dto.DtoCursus">
         <SelectParameters>
             <asp:QueryStringParameter Name="idCursus" QueryStringField="idCursus" Type="Int32" />
         </SelectParameters>
     </asp:ObjectDataSource>
+    <%--<essai>--%>
+<%--        <asp:ObjectDataSource ID="odsOrdre" runat="server" SelectMethod="GetOrders" TypeName="gestion_formation_web.dto.DtoCursus">
+        <SelectParameters>
+            <asp:QueryStringParameter Name="idCursus" QueryStringField="idCursus" Type="Int32" />
+        </SelectParameters>
+    </asp:ObjectDataSource>--%>
+    <%--<Fin essai>--%>
 
 </asp:Content>

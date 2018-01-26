@@ -109,7 +109,12 @@ namespace gestion_formation_web
                 if (idFormation == 0)
                 {
                     DtoFormation.Add(formation);
-                    Response.Redirect("CreationModificationFormation.aspx?idFormation=" + 0);
+                    lblFormationCreee.Visible = true;
+                    //Response.Redirect("CreationModificationFormation.aspx?idFormation=" + 0);
+                    tbxNom.Text = "";
+                    tbxDuree.Text = "";
+                    tbxTarif_intra.Text = "";
+                    tbxTarif_unitaire.Text = "";
                 }
                 else
                 {

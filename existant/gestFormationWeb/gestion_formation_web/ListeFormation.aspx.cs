@@ -20,11 +20,6 @@ namespace gestion_formation_web
             Response.Redirect("CreationModificationFormation.aspx?idFormation="+idFormation);
         }
 
-        protected void gvFormations_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         protected void btnCreerFormation_Click(object sender, EventArgs e)
         {
             Response.Redirect("CreationModificationFormation.aspx?idFormation=" +0);
