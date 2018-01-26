@@ -3,9 +3,7 @@ package fr.esic.solutec.dto;
 import java.util.List;
 
 import fr.esic.solutec.dao.Dao;
-import fr.esic.solutec.dao.DaoFormation;
 import fr.esic.solutec.dao.DaoSessionFormation;
-import fr.esic.solutec.entities.Formation;
 import fr.esic.solutec.entities.SessionFormation;
 
 public class DtoSessionFormation {

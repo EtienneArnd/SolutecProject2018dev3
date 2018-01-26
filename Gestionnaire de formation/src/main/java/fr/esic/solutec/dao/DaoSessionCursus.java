@@ -6,6 +6,7 @@ import javax.persistence.Query;
 
 
 import fr.esic.solutec.entities.SessionCursus;
+import fr.esic.solutec.entities.SessionFormation;
 
 
 
@@ -39,4 +40,10 @@ public class DaoSessionCursus extends Dao{
 		entityManager.getTransaction().commit();
 	}
 	
+	public static void EditSessionCursus(SessionCursus sessionCursus_modif)
+	{	
+		entityManager.getTransaction().begin();
+		
+		entityManager.getTransaction().commit();
+	}
 }

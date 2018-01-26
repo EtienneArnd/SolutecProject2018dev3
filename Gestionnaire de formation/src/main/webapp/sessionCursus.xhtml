@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<h:outputStylesheet library="css" name="style.css" />
+	<h:outputStylesheet library="css" name="nos_styles.css" />
+</h:head>
+<body>
+
+	<div id="header">
+		<ui:insert name="header">
+			<ui:include src="/template/common/commonHeader.xhtml" />
+		</ui:insert>
+	</div>
+	
+	<h:panelGrid columns="3" cellpadding="5">
+		<p:commandButton value="Ajouter Session de Cursus"
+			styleClass="btn btn-success" type="button"
+			onclick="PF('dlg1').show();" />
+	</h:panelGrid>
+
+
+
+	<p:dialog id="dlg1" header="Menu ajouter une session de cursus"
+		resizable="false" widgetVar="dlg1" modal="true">
+		<h:form id="form1">
+			<p:panelGrid columns="3">
+				<h:panelGrid columns="2">
+					<h6>
+						Nom :
+						<h:inputText
+							value="#{beanSessionCursus.sessionCursus.nom}" />
+					</h6>
+				</h:panelGrid>
+				<h:panelGrid columns="2">
+					<h6>
+						Date de Début :
+						<p:calendar
+							value="#{beanSessionCursus.sessionCursus.dateDebut}"/>
+					</h6>
+				</h:panelGrid>
+
+				<h:panelGrid columns="2">
+					<h6>
+						Cursus :
+						<h:selectOneMenu
+							value="#{beanSessionCursus.sessionCursus.cursus}"
+							converter="cursusConverter">
+							<f:selectItems value="#{beanCursus.listCursus}"
+								var="cursus" itemValue="#{cursus}"
+								itemLabel="#{cursus.nom}" />
+						</h:selectOneMenu>
+					</h6>
+				</h:panelGrid>
+
+				<h:panelGrid columns="2">
+					<h6>
+						Contact :
+						<h:selectOneMenu
+							value="#{beanSessionCursus.sessionCursus.contact}"
+							converter="contactConverter">
+							<f:selectItems value="#{beanContact.listContact}"
+								var="contact" itemValue="#{contact}"
+								itemLabel="#{contact.nom}" />
+						</h:selectOneMenu>
+					</h6>
+				</h:panelGrid>
+			</p:panelGrid>
+			<p>
+				<p:panelGrid columns="2">
+					<h:commandButton value="Valider" styleClass="btn btn-success"
+						type="submit" action="#{beanSessionCursus.ValiderInfos()}" />
+					<h:commandButton value="Annuler" styleClass="btn btn-danger"
+						action="#{beanSessionCursus.annulerFenetreAjouter()}" />
+				</p:panelGrid>
+			</p>
+
+
+		</h:form>
+	</p:dialog>
+	<p:dialog id="dlg2" header="Menu modifier une session de cursus"
+		resizable="false" widgetVar="dlg2" modal="true">
+		<h:form>
+			<p:panelGrid columns="3">
+				<h:panelGrid columns="2">
+					<h6>
+						Nom :
+						<h:inputText
+							value="#{beanSessionCursus.sessionCursus_modif.nom}" />
+					</h6>
+				</h:panelGrid>
+				<h:panelGrid columns="2">
+					<h6>
+						Date de Début :
+						<p:calendar
+							value="#{beanSessionCursus.sessionCursus_modif.dateDebut}"/>
+					</h6>
+				</h:panelGrid>
+
+				<h:panelGrid columns="2">
+					<h6>
+						Cursus :
+						<h:selectOneMenu
+							value="#{beanSessionCursus.sessionCursus_modif.cursus}"
+							converter="cursusConverter">
+							<f:selectItems value="#{beanCursus.listCursus}"
+								var="cursus" itemValue="#{cursus}"
+								itemLabel="#{cursus.nom}" />
+						</h:selectOneMenu>
+					</h6>
+				</h:panelGrid>
+
+				<h:panelGrid columns="2">
+					<h6>
+						Contact :
+						<h:selectOneMenu
+							value="#{beanSessionCursus.sessionCursus_modif.contact}"
+							converter="contactConverter">
+							<f:selectItems value="#{beanContact.listContact}"
+								var="contact" itemValue="#{contact}"
+								itemLabel="#{contact.nom}" />
+						</h:selectOneMenu>
+					</h6>
+				</h:panelGrid>
+			</p:panelGrid>
+			<p>
+				<p:panelGrid columns="3">
+					<h:commandButton value="Modifier" styleClass="btn btn-success"
+						type="submit"
+						action="#{beanSessionCursus.modifierSessionCursus()}" />
+					<h:commandButton value="Supprimer" styleClass="btn btn-warning"
+						type="submit"
+						action="#{beanSessionCursus.supprimerSessionCursus()}" />
+					<h:commandButton value="Annuler" styleClass="btn btn-danger"
+						action="#{beanSessionCursus.annulerFenetreMofifier()}" />
+				</p:panelGrid>
+			</p>
+
+		</h:form>
+	</p:dialog>
+
+	<h:dataTable value="#{beanSessionCursus.listSessionCursus}"
+		var="sessionCursus" styleClass="skill"
+		rowClasses="btn-success,btn-light" columnClasses=",level">
+		<f:facet name="header">
+			<h:outputText styleClass="btn-lg"
+				value="Liste des Sessions de Cursuss" />
+		</f:facet>
+		<h:column>
+			<f:facet name="header">
+				<h:outputText styleClass="btn-lg" value="Session" />
+			</f:facet>
+			<p:commandLink
+				action="#{beanSessionCursus.fenetreModifierSessionCursus()}"
+				value="#{sessionCursus.nom}"
+				update=":dlg2, :dlg1">
+				<f:param name="id" value="#{sessionCursus.idSessionCursus}" />
+			</p:commandLink>
+
+		</h:column>
+		<h:column>
+			<f:facet name="header">
+				<h:outputText styleClass="btn-lg" value="Date de début" />
+			</f:facet>
+			<h:outputText value="#{sessionCursus.dateDebut}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">
+				<h:outputText styleClass="btn-lg" value="Cursus" />
+			</f:facet>
+			<h:outputText value="#{sessionCursus.cursus.nom}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">
+				<h:outputText styleClass="btn-lg" value="Contact" />
+			</f:facet>
+			<h:outputText value="#{sessionCursus.contact.nom}" />
+		</h:column>
+	</h:dataTable>
+</body>
+</html>
