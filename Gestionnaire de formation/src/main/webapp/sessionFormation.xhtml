@@ -10,6 +10,13 @@
 	<h:outputStylesheet library="css" name="nos_styles.css" />
 </h:head>
 <body>
+
+	<div id="header">
+		<ui:insert name="header">
+			<ui:include src="/template/common/commonHeader.xhtml" />
+		</ui:insert>
+	</div>
+	
 	<h:panelGrid columns="3" cellpadding="5">
 		<p:commandButton value="Ajouter Session de Formation"
 			styleClass="btn btn-success" type="button"
@@ -292,8 +299,6 @@
 			<h:outputText value="#{sessionFormation.salle.nom}" />
 		</h:column>
 	</h:dataTable>
-
-
 
 
 </body>

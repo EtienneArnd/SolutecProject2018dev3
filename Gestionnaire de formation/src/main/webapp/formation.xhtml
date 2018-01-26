@@ -10,6 +10,13 @@
 	<h:outputStylesheet library="css" name="nos_styles.css" />
 </h:head>
 <body>
+
+	<div id="header">
+		<ui:insert name="header">
+			<ui:include src="/template/common/commonHeader.xhtml" />
+		</ui:insert>
+	</div>
+
 	<h:panelGrid columns="3" cellpadding="5">
 		<p:commandButton value="Ajouter formation"
 			styleClass="btn btn-success" type="button"
@@ -25,7 +32,7 @@
 				<h:panelGrid columns="2">
 					<h6>
 						Intitulé :
-						<h:inputText value="#{beanFormation.formation.intitule}"/>
+						<h:inputText value="#{beanFormation.formation.intitule}" />
 					</h6>
 				</h:panelGrid>
 				<h:panelGrid columns="2">
@@ -48,14 +55,16 @@
 				<h:panelGrid columns="2">
 					<h6>
 						Tarif inter :
-						<h:inputText value="#{beanFormation.formation.tarifInter}"  onkeypress="if(event.which &lt; 46 || event.which &gt; 57) return false;"/>
+						<h:inputText value="#{beanFormation.formation.tarifInter}"
+							onkeypress="if(event.which &lt; 46 || event.which &gt; 57) return false;" />
 					</h6>
 				</h:panelGrid>
 
 				<h:panelGrid columns="2">
 					<h6>
 						Tarif intra :
-						<h:inputText value="#{beanFormation.formation.tarifIntra}" onkeypress="if(event.which &lt; 46 || event.which &gt; 57) return false;"/>
+						<h:inputText value="#{beanFormation.formation.tarifIntra}"
+							onkeypress="if(event.which &lt; 46 || event.which &gt; 57) return false;" />
 					</h6>
 				</h:panelGrid>
 
@@ -72,11 +81,9 @@
 			</p:panelGrid>
 			<p>
 				<p:panelGrid columns="2">
-					<h:commandButton value="Valider"
-						styleClass="btn btn-success" type="submit"
-						action="#{beanFormation.ValiderInfos()}" />
-					<h:commandButton value="Annuler"
-						styleClass="btn btn-danger" 
+					<h:commandButton value="Valider" styleClass="btn btn-success"
+						type="submit" action="#{beanFormation.ValiderInfos()}" />
+					<h:commandButton value="Annuler" styleClass="btn btn-danger"
 						action="#{beanFormation.annulerFenetreAjouter()}" />
 				</p:panelGrid>
 			</p>
@@ -86,7 +93,7 @@
 	<p:dialog id="dlg2" header="Menu modifier une formation"
 		resizable="false" widgetVar="dlg2" modal="true">
 		<h:form>
-			<p:panelGrid columns="2" >
+			<p:panelGrid columns="2">
 				<h:panelGrid columns="2">
 					<h6>
 						Intitulé :
@@ -113,14 +120,16 @@
 				<h:panelGrid columns="2">
 					<h6>
 						Tarif inter :
-						<h:inputText value="#{beanFormation.formation_modif.tarifInter}" onkeypress="if(event.which &lt; 46 || event.which &gt; 57) return false;"/>
+						<h:inputText value="#{beanFormation.formation_modif.tarifInter}"
+							onkeypress="if(event.which &lt; 46 || event.which &gt; 57) return false;" />
 					</h6>
 				</h:panelGrid>
 
 				<h:panelGrid columns="2">
 					<h6>
 						Tarif intra :
-						<h:inputText value="#{beanFormation.formation_modif.tarifIntra}" onkeypress="if(event.which &lt; 46 || event.which &gt; 57) return false;"/>
+						<h:inputText value="#{beanFormation.formation_modif.tarifIntra}"
+							onkeypress="if(event.which &lt; 46 || event.which &gt; 57) return false;" />
 					</h6>
 				</h:panelGrid>
 
@@ -135,25 +144,23 @@
 					</h6>
 				</h:panelGrid>
 			</p:panelGrid>
-			<div class ="row">
+			<div class="row">
 				<p:panelGrid columns="3">
-					<h:commandButton value="Modifier"
-						styleClass="btn btn-success" type="submit"
-						action="#{beanFormation.modifierFormation()}" />
-					<h:commandButton value="Supprimer"
-						styleClass="btn btn-warning" type="submit"
-						action="#{beanFormation.supprimerFormation()}" />
-					<h:commandButton value="Annuler"
-						styleClass="btn btn-danger" 
+					<h:commandButton value="Modifier" styleClass="btn btn-success"
+						type="submit" action="#{beanFormation.modifierFormation()}" />
+					<h:commandButton value="Supprimer" styleClass="btn btn-warning"
+						type="submit" action="#{beanFormation.supprimerFormation()}" />
+					<h:commandButton value="Annuler" styleClass="btn btn-danger"
 						action="#{beanFormation.annulerFenetreMofifier()}" />
 				</p:panelGrid>
 			</div>
-				
+
 		</h:form>
 	</p:dialog>
 
 	<h:dataTable value="#{beanFormation.listFormation}" var="Formation"
-		styleClass="skill" rowClasses="btn-success,btn-light" columnClasses=",level">
+		styleClass="skill" rowClasses="btn-success,btn-light"
+		columnClasses=",level">
 		<f:facet name="header">
 			<h:outputText styleClass="btn-lg" value=" Liste des Formations" />
 		</f:facet>

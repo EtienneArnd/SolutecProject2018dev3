@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<body>
+
+	<ui:composition>
+		<h:form>
+			<div class="navbar navbar-default">
+				<div class="container-fluid">
+
+					<!-- Définition de la barre de navigation -->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed"
+							data-toggle="collapse"
+							data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+							<span class="sr-only">Toggle navigation</span> <span
+								class="icon-bar"></span> <span class="icon-bar"></span> <span
+								class="icon-bar"></span>
+						</button>
+						<!-- Bouton d'accueil -->
+						<h:commandLink class="navbar-brand glyphicon glyphicon-tent"
+							action="/index.xhtml"/>
+					</div>
+
+					<!-- Boutons des liens de navigation Gauche -->
+					<div class="collapse navbar-collapse"
+						id="bs-example-navbar-collapse-1">
+
+						<ul class="nav navbar-nav">
+
+							<li><h:commandLink
+									action="#{beanFormation.toPageFormations()}" value="Formation" /></li>
+							<li><h:commandLink
+									action="#{beanSessionFormation.toPageSessionsFormation()}"
+									value="Session de formation" /></li>
+							<li><h:commandLink action="#{beanCursus.toPageCursus()}"
+									value="Cursus" /></li>
+							<li><h:commandLink action="#" value="Session de cursus" /></li>
+
+						</ul>
+
+
+
+						<!-- Boutons des liens de navigation Droite -->
+						<ul class="nav navbar-nav navbar-right">
+							<li><a href="#">Quitter</a></li>
+						</ul>
+					</div>
+
+				</div>
+			</div>
+		</h:form>
+	</ui:composition>
+
+</body>
+</html>
