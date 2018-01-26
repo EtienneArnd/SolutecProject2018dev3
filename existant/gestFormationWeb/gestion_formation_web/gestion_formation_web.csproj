@@ -171,6 +171,7 @@
     </Compile>
     <Compile Include="dao\Dao.cs" />
     <Compile Include="dao\DaoFormateur.cs" />
+    <Compile Include="dao\DaoFormationCursus.cs" />
     <Compile Include="dao\DaoTheme.cs" />
     <Compile Include="DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -206,6 +207,7 @@
       <DependentUpon>DetailsSessionCursus.aspx</DependentUpon>
     </Compile>
     <Compile Include="dto\DtoCursus.cs" />
+    <Compile Include="dto\DtoFormationCursus.cs" />
     <Compile Include="dto\DtoSessionFormation.cs" />
     <Compile Include="dto\DtoSessionCursus.cs" />
     <Compile Include="dto\DtoTheme.cs" />

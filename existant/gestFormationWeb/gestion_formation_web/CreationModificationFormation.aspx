@@ -15,10 +15,11 @@
 <body>
     <form id="form1" runat="server">
        
-        <asp:Label ID="lblTitre" runat="server" Text="Créer une formation"></asp:Label><br />
-        <asp:Label ID="lblNom" runat="server" Text="Nom de la formation"></asp:Label>
-        <asp:TextBox ID="tbxNom" runat="server"></asp:TextBox>
-        <asp:Label ID="lblNomObligatoire" runat="server" Text="Champ obligatoire" Visible="False"></asp:Label><br />
+        <asp:Label ID="lblTitre" runat="server" Text="Créer ou modifier une formation"></asp:Label><br />
+        <asp:Label ID="lblFormationCreee" runat="server" Text="La formation a bien été créée" Visible="False"></asp:Label><br />
+        <asp:Label ID="lblNom" runat="server" Text="Nom de la formation" />
+        <asp:TextBox ID="tbxNom" runat="server" />
+        <asp:Label ID="lblNomObligatoire" runat="server" Text="Champ obligatoire" Visible="False" /><br />
 
         <asp:Label ID="lblDuree" runat="server" Text="Durée de la formation"></asp:Label>
         <asp:TextBox ID="tbxDuree" runat="server"></asp:TextBox>
