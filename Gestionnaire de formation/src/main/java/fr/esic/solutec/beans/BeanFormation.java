@@ -25,17 +25,9 @@ public class BeanFormation implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	private List<Formation> listFormation;
-	private HtmlDataTable tableFormation;
 	private int[] listDuree;
 
 	
-	public HtmlDataTable getTableFormation() {
-		return tableFormation;
-	}
-
-	public void setTableFormation(HtmlDataTable tableFormation) {
-		this.tableFormation = tableFormation;
-	}
 
 	private Formation formation = new Formation();
 	private Formation formation_modif = new Formation();

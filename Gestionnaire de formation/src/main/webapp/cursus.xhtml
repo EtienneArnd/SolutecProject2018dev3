@@ -38,10 +38,8 @@
 				</h:panelGrid>
 				<h:panelGrid columns="2">
 					<h6>
-						Sélectionner formations :
-						<h:selectOneMenu value="#{beanCursus.cursus.duree}">
-							<f:selectItems value="#{beanCursus.listDuree}" />
-						</h:selectOneMenu>
+						Sélectionner Cursus :
+
 					</h6>
 				</h:panelGrid>
 			</p:panelGrid>
@@ -56,60 +54,55 @@
 
 		</h:form>
 	</p:dialog>
-	<p:dialog id="dlg2" header="Menu modifier une cursus" resizable="false"
-		widgetVar="dlg2" modal="true">
+	
+	<p:dialog id="dlg2" header="Cursus : #{beanCursus.cursus_modif.nom}" resizable="false"
+		widgetVar="dlg2" modal="true" height ="400">
+		
 		<h:form>
+		
 			<p:panelGrid columns="2">
 				<h:panelGrid columns="2">
 					<h6>
-						Intitulé :
-						<h:inputText value="#{beanCursus.cursus_modif.intitule}" />
+						Nom Cursus :
+						<h:inputText value="#{beanCursus.cursus_modif.nom}" />
 					</h6>
 				</h:panelGrid>
 				<h:panelGrid columns="2">
 					<h6>
-						Niveau :
-						<h:selectOneMenu value="#{beanCursus.cursus_modif.niveau}">
-							<f:selectItems value="#{beanCursus.listNiveaux}" />
-						</h:selectOneMenu>
-					</h6>
-				</h:panelGrid>
-				<h:panelGrid columns="2">
-					<h6>
-						Durée :
-						<h:selectOneMenu value="#{beanCursus.cursus.duree}">
-							<f:selectItems value="#{beanCursus.listDuree}" />
-						</h:selectOneMenu>
-					</h6>
-				</h:panelGrid>
-
-				<h:panelGrid columns="2">
-					<h6>
-						Tarif inter :
-						<h:inputText value="#{beanCursus.cursus_modif.tarifInter}"
+						Tarif :
+						<h:inputText value="#{beanCursus.cursus_modif.tarif}"
 							onkeypress="if(event.which &lt; 46 || event.which &gt; 57) return false;" />
 					</h6>
 				</h:panelGrid>
-
-				<h:panelGrid columns="2">
-					<h6>
-						Tarif intra :
-						<h:inputText value="#{beanCursus.cursus_modif.tarifIntra}"
-							onkeypress="if(event.which &lt; 46 || event.which &gt; 57) return false;" />
-					</h6>
-				</h:panelGrid>
-
-				<h:panelGrid columns="2">
-					<h6>
-						Thème :
-						<h:selectOneMenu value="#{beanCursus.cursus_modif.theme}"
-							converter="themeConverter">
-							<f:selectItems value="#{beanTheme.listTheme}" var="theme"
-								itemValue="#{theme}" itemLabel="#{theme.nom}" />
-						</h:selectOneMenu>
-					</h6>
-				</h:panelGrid>
+				
+				
+				
+				
+				
 			</p:panelGrid>
+			
+			<h:dataTable value="#{beanFormationCursus.listFormationByCursus}" var="formationCursus"
+					styleClass="skill" rowClasses="btn-success,btn-light"
+					columnClasses=",level" >
+					
+					<f:facet name="header">
+						<h:outputText styleClass="btn-lg" value="Detail du cursus : #{beanCursus.cursus.nom}"  />
+					</f:facet>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText styleClass="btn-lg" value="Nom de formation" />
+						</f:facet>
+						<h:outputText styleClass="btn-lg" value="#{formationCursus.formation.intitule}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText styleClass="btn-lg" value="Ordre de passage" />
+						</f:facet>
+						<h:outputText value="#{formationCursus.ordre}" />
+					</h:column>
+					
+			</h:dataTable>
+		
 			<div class="row">
 				<p:panelGrid columns="3">
 					<h:commandButton value="Modifier" styleClass="btn btn-success"
@@ -120,21 +113,21 @@
 						action="#{beanCursus.annulerFenetreMofifier()}" />
 				</p:panelGrid>
 			</div>
-
 		</h:form>
+		
 	</p:dialog>
 
 	<h:dataTable value="#{beanCursus.listCursus}" var="cursus"
 		styleClass="skill" rowClasses="btn-success,btn-light"
 		columnClasses=",level">
 		<f:facet name="header">
-			<h:outputText styleClass="btn-lg" value=" Liste des Cursuss" />
+			<h:outputText styleClass="btn-lg" value=" Liste des Cursus" />
 		</f:facet>
 		<h:column>
 			<f:facet name="header">
 				<h:outputText styleClass="btn-lg" value="Nom" />
 			</f:facet>
-			<p:commandLink action="#{beanCursus.fenetreModifierCursus()}"
+			<p:commandLink action="#{beanFormationCursus.fenetreModifierFormationCursus()}"
 				value="#{cursus.nom}" update=":dlg2, :dlg1">
 				<f:param name="id" value="#{cursus.idCursus}" />
 			</p:commandLink>
