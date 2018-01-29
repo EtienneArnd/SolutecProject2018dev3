@@ -67,42 +67,6 @@ namespace gestion_formation_web {
         protected global::System.Web.UI.WebControls.Button btnAjouterFormation;
         
         /// <summary>
-        /// Contrôle lblMemeOrdre.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMemeOrdre;
-        
-        /// <summary>
-        /// Contrôle ddlModifierOrdreFormation.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlModifierOrdreFormation;
-        
-        /// <summary>
-        /// Contrôle tbxOrdreFormation.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbxOrdreFormation;
-        
-        /// <summary>
-        /// Contrôle btnModifierOrdreFormation.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnModifierOrdreFormation;
-        
-        /// <summary>
         /// Contrôle odsFormations.
         /// </summary>
         /// <remarks>
@@ -110,5 +74,14 @@ namespace gestion_formation_web {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ObjectDataSource odsFormations;
+        
+        /// <summary>
+        /// Contrôle odsFormationCursus.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource odsFormationCursus;
     }
 }

@@ -11,6 +11,7 @@ namespace gestion_formation_web
     public partial class DetailsCursus : System.Web.UI.Page
     {
         int idCursus;
+        int idFormation;
         protected void Page_Load(object sender, EventArgs e)
         {
             //if (!IsPostBack)
@@ -89,6 +90,55 @@ namespace gestion_formation_web
             else if (ordreSouhaite==ordreActuel)
             {
                 lblMemeOrdre.Visible = true;                
+            }
+        }
+
+        protected void ddlOrdre_Command(object sender, CommandEventArgs e)
+        {
+
+        }
+
+        protected void ddlOrdre_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            String idCursusString = Request["idCursus"];
+            int idCursus = int.Parse(idCursusString);
+            DropDownList ddl = (DropDownList)sender;
+            GridViewRow row = (GridViewRow)ddl.NamingContainer;
+            Label lblIdFormation = (Label)row.FindControl("lblIdFormation");
+            int idFormationADecaler = int.Parse(lblIdFormation.Text);
+            formation_cursus formationADecaler = DtoFormationCursus.Get(idCursus, idFormationADecaler);
+
+            int ordreActuel = (int)formationADecaler.ordre;
+            int ordreSouhaite = int.Parse(ddl.Text);
+            int multiplicateurOrdre = 0;
+            int compteur;
+
+            if (ordreSouhaite != ordreActuel)
+            {
+                if (ordreSouhaite > ordreActuel)
+                {
+                    multiplicateurOrdre = 1;
+                }
+                else if (ordreSouhaite < ordreActuel)
+                {
+                    multiplicateurOrdre = -1;
+                }
+                compteur = ordreActuel + multiplicateurOrdre;
+                do
+                {
+                    formation_cursus formationCursus = DtoFormationCursus.GetByOrder(idCursus, compteur);
+                    formationCursus.ordre = formationCursus.ordre - multiplicateurOrdre;
+                    DtoFormationCursus.Modifier(formationCursus);
+                    compteur = compteur + multiplicateurOrdre;
+                }
+                while (compteur != ordreSouhaite + multiplicateurOrdre);
+                formationADecaler.ordre = ordreSouhaite;
+                DtoFormationCursus.Modifier(formationADecaler);
+                Response.Redirect(Request.RawUrl);
+            }
+            else if (ordreSouhaite == ordreActuel)
+            {
+                lblMemeOrdre.Visible = true;
             }
         }
     }

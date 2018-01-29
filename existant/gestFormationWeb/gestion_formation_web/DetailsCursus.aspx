@@ -2,23 +2,28 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    &nbsp;
     <asp:Label ID="lblTitrePage" runat="server" Text="Cursus ...." CssClass="titre1 auto-style1"></asp:Label>
     <br />
     <asp:Label ID="Label2" runat="server" Text="Liste des formations" CssClass="titre2 auto-style1" ></asp:Label>
     <br />
-    <asp:GridView ID="gvFormations" runat="server" AutoGenerateColumns="False" DataSourceID="odsFormations" CellPadding="4" ForeColor="#333333" GridLines="None" >
+    <asp:GridView ID="gvFormations" runat="server" AutoGenerateColumns="False" DataSourceID="odsFormations" CellPadding="4" ForeColor="#333333" GridLines="None"  >
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         <Columns>
-            <asp:BoundField DataField="id_formation" HeaderText="id_formation" SortExpression="id_formation" Visible="False" />
+            <%--<asp:BoundField DataField="id_formation" HeaderText="id_formation" SortExpression="id_formation" Visible="false" />--%>
+            <asp:TemplateField Visible="false">
+                <ItemTemplate>
+                    <asp:Label ID="lblIdFormation" runat="server" Text='<%#Eval("id_formation") %>' />
+                </ItemTemplate>
+            </asp:TemplateField>
             <asp:BoundField DataField="intitule" HeaderText="intitule" SortExpression="intitule" />
             <asp:BoundField DataField="duree" HeaderText="duree" SortExpression="duree" />
             <asp:TemplateField HeaderText="Ordre">
                 <ItemTemplate>
-                <%--<essai>--%>
-                 <%--<asp:DropDownList ID="ddlordre" runat="server" DataSourceID="odsFormations" DataValueField="ordre"  DataTextField='<%# ((IEnumerable<gestion_formation_web.formation_cursus>) Eval("formation_cursus")).FirstOrDefault().ordre %>'/>--%>
-                <%--<essai>--%>
-                <asp:Label ID="ordre" runat="server" Text='<%# ((IEnumerable<gestion_formation_web.formation_cursus>) Eval("formation_cursus")).FirstOrDefault().ordre %>'></asp:Label>
-                    </ItemTemplate>
+                    <asp:dropdownlist ID="ddlOrdre" runat="server" DataTextField="ordre" DataValueField="ordre" DataSourceID="odsFormationCursus" SelectedValue='<%# ( (IEnumerable<gestion_formation_web.formation_cursus>)Eval("formation_cursus")).FirstOrDefault().ordre %>'  OnSelectedIndexChanged="ddlOrdre_SelectedIndexChanged" AutoPostBack="true">
+                    </asp:dropdownlist>   
+<%--                    <asp:Label ID="ordre" runat="server" Text='<%# ((IEnumerable<gestion_formation_web.formation_cursus>) Eval("formation_cursus")).FirstOrDefault().ordre %>'></asp:Label>--%>
+                </ItemTemplate>
             </asp:TemplateField>
         <asp:BoundField DataField="niveau" HeaderText="niveau" SortExpression="niveau" />
             
@@ -50,7 +55,7 @@
     <asp:Button ID="btnAjouterFormation" runat="server" OnClick="btnAjouterFormation_Click"  Text="Ajouter la formation au cursus" />
     </div>
 
-<br />
+<%--<br />
     <input id="btnModificationOrdreFormation" type="button" value="Modifier l'ordre d'une formation dans le cursus" onclick="document.getElementById('divModifierOrdreFormation').style='display:bloc';" />
     <asp:Label ID="lblMemeOrdre" runat="server" Text="La formation est déjà à l'ordre que vous demandez" Visible="False"></asp:Label>
 <br />
@@ -59,19 +64,19 @@
     <asp:DropDownList ID="ddlModifierOrdreFormation" runat="server" DataSourceID="odsFormations" DataTextField="intitule" DataValueField="id_formation" />    
     <asp:TextBox ID="tbxOrdreFormation" runat="server" placeholder="Ordre souhaité"></asp:TextBox>
     <asp:Button ID="btnModifierOrdreFormation" runat="server" OnClick="btnModifierOrdreFormation_Click"  Text="Modifier l'ordre de la formation" />
-    </div>
+    </div>--%>
 
     <asp:ObjectDataSource ID="odsFormations" runat="server" SelectMethod="GetFormations" TypeName="gestion_formation_web.dto.DtoCursus">
         <SelectParameters>
             <asp:QueryStringParameter Name="idCursus" QueryStringField="idCursus" Type="Int32" />
         </SelectParameters>
     </asp:ObjectDataSource>
-    <%--<essai>--%>
-<%--        <asp:ObjectDataSource ID="odsOrdre" runat="server" SelectMethod="GetOrders" TypeName="gestion_formation_web.dto.DtoCursus">
+
+       <asp:ObjectDataSource ID="odsFormationCursus" runat="server" SelectMethod="Get" TypeName="gestion_formation_web.dto.DtoFormationCursus" >
         <SelectParameters>
             <asp:QueryStringParameter Name="idCursus" QueryStringField="idCursus" Type="Int32" />
         </SelectParameters>
-    </asp:ObjectDataSource>--%>
-    <%--<Fin essai>--%>
+    </asp:ObjectDataSource>
+
 
 </asp:Content>

@@ -9,7 +9,7 @@ namespace gestion_formation_web.dao
     {
         public static IEnumerable<formation_cursus> Get(int idCursus)
         {
-            return ctxt.formation_cursus.Where(fc => fc.id_cursus == idCursus).ToList();
+            return ctxt.formation_cursus.Where(fc => fc.id_cursus == idCursus).OrderBy(fc => fc.ordre).ToList();
         }
         public static formation_cursus Get(int idCursus, int idFormation)
         {

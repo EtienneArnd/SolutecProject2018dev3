@@ -34,7 +34,7 @@
         <br />
 
         <asp:Label ID="lblTheme" runat="server" Text="Theme de la formation"></asp:Label>
-        <asp:DropDownList ID="ddlTheme" runat="server" DataTextField="nom" DataValueField="id_theme" DataSourceID="odsListeThemes">
+        <asp:DropDownList ID="ddlTheme" runat="server" DataTextField="nom" DataValueField="id_theme" DataSourceID="odsListeThemes" >
         </asp:DropDownList>
         <asp:ObjectDataSource ID="odsListeThemes" runat="server" SelectMethod="Get" TypeName="gestion_formation_web.dto.DtoTheme"></asp:ObjectDataSource>
         <br />
