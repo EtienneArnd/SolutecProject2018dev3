@@ -51,47 +51,47 @@ namespace gestion_formation_web
             gvFormations.DataBind();
             ddlFormations.DataBind();
         }
-        protected void btnModifierOrdreFormation_Click(object sender, EventArgs e)
-        {
-            String idCursusString = Request["idCursus"];
-            int idCursus = int.Parse(idCursusString);
+        //protected void btnModifierOrdreFormation_Click(object sender, EventArgs e)
+        //{
+        //    String idCursusString = Request["idCursus"];
+        //    int idCursus = int.Parse(idCursusString);
 
-            int idFormationADecaler = int.Parse(ddlModifierOrdreFormation.SelectedValue);
+        //    int idFormationADecaler = int.Parse(ddlModifierOrdreFormation.SelectedValue);
 
-            formation_cursus formationADecaler = DtoFormationCursus.Get(idCursus, idFormationADecaler);
+        //    formation_cursus formationADecaler = DtoFormationCursus.Get(idCursus, idFormationADecaler);
 
-            int ordreActuel = (int)formationADecaler.ordre;
-            int ordreSouhaite = int.Parse(tbxOrdreFormation.Text);
-            int multiplicateurOrdre = 0;
-            int compteur;
+        //    int ordreActuel = (int)formationADecaler.ordre;
+        //    int ordreSouhaite = int.Parse(tbxOrdreFormation.Text);
+        //    int multiplicateurOrdre = 0;
+        //    int compteur;
 
-            if (ordreSouhaite != ordreActuel)
-            {
-                if (ordreSouhaite > ordreActuel)
-                {
-                    multiplicateurOrdre = 1;
-                }
-                else if (ordreSouhaite < ordreActuel)
-                {
-                    multiplicateurOrdre = -1;
-                }
-                compteur = ordreActuel + multiplicateurOrdre;
-                do
-                {
-                    formation_cursus formationCursus = DtoFormationCursus.GetByOrder(idCursus, compteur);
-                    formationCursus.ordre = formationCursus.ordre - multiplicateurOrdre;
-                    DtoFormationCursus.Modifier(formationCursus);
-                    compteur = compteur + multiplicateurOrdre;
-                }
-                while (compteur != ordreSouhaite+1);
-                formationADecaler.ordre = ordreSouhaite;
-                DtoFormationCursus.Modifier(formationADecaler);
-            }
-            else if (ordreSouhaite==ordreActuel)
-            {
-                lblMemeOrdre.Visible = true;                
-            }
-        }
+        //    if (ordreSouhaite != ordreActuel)
+        //    {
+        //        if (ordreSouhaite > ordreActuel)
+        //        {
+        //            multiplicateurOrdre = 1;
+        //        }
+        //        else if (ordreSouhaite < ordreActuel)
+        //        {
+        //            multiplicateurOrdre = -1;
+        //        }
+        //        compteur = ordreActuel + multiplicateurOrdre;
+        //        do
+        //        {
+        //            formation_cursus formationCursus = DtoFormationCursus.GetByOrder(idCursus, compteur);
+        //            formationCursus.ordre = formationCursus.ordre - multiplicateurOrdre;
+        //            DtoFormationCursus.Modifier(formationCursus);
+        //            compteur = compteur + multiplicateurOrdre;
+        //        }
+        //        while (compteur != ordreSouhaite+1);
+        //        formationADecaler.ordre = ordreSouhaite;
+        //        DtoFormationCursus.Modifier(formationADecaler);
+        //    }
+        //    else if (ordreSouhaite==ordreActuel)
+        //    {
+        //        lblMemeOrdre.Visible = true;                
+        //    }
+        //}
 
         protected void ddlOrdre_Command(object sender, CommandEventArgs e)
         {
