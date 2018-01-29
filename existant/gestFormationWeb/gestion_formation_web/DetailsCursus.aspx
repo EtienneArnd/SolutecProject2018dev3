@@ -54,10 +54,10 @@
         </asp:ObjectDataSource>
     <asp:Button ID="btnAjouterFormation" runat="server" OnClick="btnAjouterFormation_Click"  Text="Ajouter la formation au cursus" />
     </div>
-
+<asp:Label ID="lblMemeOrdre" runat="server" Text="La formation est déjà à l'ordre que vous demandez" Visible="False"></asp:Label>
 <%--<br />
     <input id="btnModificationOrdreFormation" type="button" value="Modifier l'ordre d'une formation dans le cursus" onclick="document.getElementById('divModifierOrdreFormation').style='display:bloc';" />
-    <asp:Label ID="lblMemeOrdre" runat="server" Text="La formation est déjà à l'ordre que vous demandez" Visible="False"></asp:Label>
+    
 <br />
 
     <div  id="divModifierOrdreFormation"  style="display:none">
