@@ -39,6 +39,11 @@ namespace gestion_formation_web.dao
             return ctxt.stagiaire_session_formation.Where(ssf => ssf.id_session_formation == idSessionFormation).Select(ssf => ssf.stagiaire.societe).Distinct().ToList();
         }
 
+        public static IEnumerable<session_formation> GetSessionsFormation(int idSessionCursus)
+        {
+            return ctxt.session_formation.Where(sf => sf.id_session_cursus == idSessionCursus);
+        }
+
 
 
         public static void Add(session_formation sessionFormation, formateur leFormateur, DateTime date)

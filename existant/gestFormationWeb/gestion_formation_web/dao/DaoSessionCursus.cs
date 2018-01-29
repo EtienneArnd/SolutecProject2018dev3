@@ -32,6 +32,7 @@ namespace gestion_formation_web.dao
         {
             var sessionCursus = ctxt.session_cursus.SingleOrDefault(cs => cs.id_session_cursus == idSessionCursus);
             return sessionCursus.session_formation.OrderBy(sf => sf.ordre);
+            //return ctxt.session_formation.Where(sf => sf.id_session_cursus == idSessionCursus);
         }
 
         internal static void Add(session_cursus sessionCursus)

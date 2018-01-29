@@ -19,6 +19,7 @@ namespace gestion_formation_web
             //if (!IsPostBack)
             //{
             String id = Request["id_session_cursus"];
+            CreateOrEdit = true;
             if (String.IsNullOrEmpty(id))
             {
                 // Cas d'appel sans id de sessionCursus
@@ -40,7 +41,6 @@ namespace gestion_formation_web
                     }
                     //id reconnu: création de la session cursus prete à validation
                     lblTitrePage.Text = "Nouvelle session du cursus " + leCursus.nom;
-                    CreateOrEdit = false;
                     switchMode();
                 }
                 catch
@@ -48,7 +48,6 @@ namespace gestion_formation_web
                     Response.Write("Page mal appelée : id session cursus requis");
                     Response.End();
                 }
-                    pnlDetails.Visible = false;               
             }
             else
             {
@@ -70,8 +69,8 @@ namespace gestion_formation_web
                         Response.Write("Anomalie : Session Cursus introuvable pour id = " + idSessionCursus);
                         Response.End();
                     }
-                    
-                    lblTitrePage.Text = "Session Cursus " + sessionCursus.cursus.nom  + " : "+ sessionCursus.nom;
+
+                    lblTitrePage.Text = "Session Cursus " + sessionCursus.cursus.nom + " : " + sessionCursus.nom;
                     tbxNom.Text = sessionCursus.nom;
                     if (sessionCursus.date_debut != null)
                     {
@@ -79,9 +78,9 @@ namespace gestion_formation_web
                         tbxDateSessionCursus.Text = date.ToString(DateTimeFormatInfo.CurrentInfo.ShortDatePattern);
                         lblTitrePage.Text += " du " + tbxDateSessionCursus.Text;
                     }
-                    CreateOrEdit = true;
-                    switchMode();
+                    CreateOrEdit = false;
                 }
+                switchMode();
             }
         }
         public void RenvoyerFichier(String nomFichier)
@@ -154,15 +153,15 @@ namespace gestion_formation_web
             DateTime dateDebut = DateTime.MinValue;
             if (!string.IsNullOrEmpty(tbxDateSessionCursus.Text))
             {
-                    dateDebut = Convert.ToDateTime(tbxDateSessionCursus.Text);
+                dateDebut = Convert.ToDateTime(tbxDateSessionCursus.Text);
             }
             sessionCursus.date_debut = dateDebut;
 
             dto.DtoSessionCursus.Add(sessionCursus);
             DataBind();
 
-            sessionCursus.session_formation = dao.DaoSessionCursus.GetSessionsFormation(sessionCursus.id_session_cursus).ToList();
-            Response.Redirect(string.Format("DetailsSessionCursus.aspx?id_session_cursus={0}",sessionCursus.id_session_cursus));
+            sessionCursus.session_formation = dao.DaoSessionFormation.GetSessionsFormation(sessionCursus.id_session_cursus).ToList();
+            Response.Redirect(string.Format("~/DetailsSessionCursus.aspx?id_session_cursus={0}", sessionCursus.id_session_cursus));
         }
 
         protected void btnAjouterStagiaire_Click(object sender, EventArgs e)
@@ -173,7 +172,7 @@ namespace gestion_formation_web
 
         protected void switchMode()
         {
-            if(CreateOrEdit)
+            if (CreateOrEdit)
             {
                 PnlCreate.Visible = true;
                 pnlDetails.Visible = false;
@@ -181,9 +180,9 @@ namespace gestion_formation_web
             }
             else
             {
-                PnlCreate.Visible = true;
-                pnlDetails.Visible = false;
-                PnlStagiaire.Visible = false;
+                PnlCreate.Visible = false;
+                pnlDetails.Visible = true;
+                PnlStagiaire.Visible = true;
             }
             CreateOrEdit = !CreateOrEdit;
         }
