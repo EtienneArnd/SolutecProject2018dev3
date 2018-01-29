@@ -11,6 +11,12 @@
 </h:head>
 <body>
 
+	<div id="header">
+		<ui:insert name="header">
+			<ui:include src="/template/common/commonHeader.xhtml" />
+		</ui:insert>
+	</div>
+
 
 	<h:panelGrid columns="3" cellpadding="5">
 		<p:commandButton value="Ajouter cursus" styleClass="btn btn-success"
@@ -37,10 +43,7 @@
 					</h6>
 				</h:panelGrid>
 				<h:panelGrid columns="2">
-					<h6>
-						Sélectionner Cursus :
-
-					</h6>
+					<h6>Sélectionner Cursus :</h6>
 				</h:panelGrid>
 			</p:panelGrid>
 			<p>
@@ -54,12 +57,12 @@
 
 		</h:form>
 	</p:dialog>
-	
+
 	<p:dialog id="dlg2" header="Modifier un cursus" resizable="false"
-		widgetVar="dlg2" modal="true" height ="400">
-		
+		widgetVar="dlg2" modal="true" height="400">
+
 		<h:form>
-		
+
 			<p:panelGrid columns="2">
 				<h:panelGrid columns="2">
 					<h6>
@@ -74,48 +77,153 @@
 							onkeypress="if(event.which &lt; 46 || event.which &gt; 57) return false;" />
 					</h6>
 				</h:panelGrid>
-				
-				
-				
-				
-				
+
 			</p:panelGrid>
-			
-			<h:dataTable value="#{beanFormationCursus.listFormationByCursus}" var="formationCursus"
-					styleClass="skill" rowClasses="btn-success,btn-light"
-					columnClasses=",level" >
-					
-					<f:facet name="header">
-						<h:outputText styleClass="btn-lg" value="Detail du cursus : #{beanCursus.cursus.nom}"  />
-					</f:facet>
-					<h:column>
-						<f:facet name="header">
-							<h:outputText styleClass="btn-lg" value="Nom de formation" />
-						</f:facet>
-						<h:outputText styleClass="btn-lg" value="#{formationCursus.formation.intitule}" />
-					</h:column>
-					<h:column>
-						<f:facet name="header">
-							<h:outputText styleClass="btn-lg" value="Ordre de passage" />
-						</f:facet>
-						<h:outputText value="#{formationCursus.ordre}" />
-					</h:column>
-					
-			</h:dataTable>
-		
+
 			<div class="row">
-				<p:panelGrid columns="3">
+				<p:panelGrid columns="4">
 					<h:commandButton value="Modifier" styleClass="btn btn-success"
 						type="submit" action="#{beanCursus.modifierCursus()}" />
 					<h:commandButton value="Supprimer" styleClass="btn btn-warning"
 						type="submit" action="#{beanCursus.supprimerCursus()}" />
 					<h:commandButton value="Annuler" styleClass="btn btn-danger"
 						action="#{beanCursus.annulerFenetreMofifier()}" />
+					<input type="button" value="Ajouter une formation"
+						class="btn btn-success" onclick="$('#ajoutFormation').show()" />
+				</p:panelGrid>
+			</div>
+
+			<!-- 			Champs pour ajouter une formation -->
+			<div id="ajoutFormation" style="display: none">
+
+				<p:panelGrid columns="2">
+
+					<h:panelGrid columns="3">
+						<h6>
+							Nom Formation :
+							<h:selectOneMenu
+								value="#{beanFormationCursus.formationCursus_modif.formation}"
+								converter="formationConverter">
+								<f:selectItems value="#{beanFormation.listFormation}"
+									var="listformation" itemValue="#{listformation}"
+									itemLabel="#{listformation.intitule}" />
+							</h:selectOneMenu>
+						</h6>
+					</h:panelGrid>
+					<h:panelGrid columns="2">
+						<h6>
+							Ordre :
+							<h:selectOneMenu
+								value="#{beanFormationCursus.formationCursus_modif.ordre}">
+								<f:selectItems value="#{beanFormationCursus.listOrdre}"
+									var="ordre" itemValue="#{ordre}" itemLabel="#{ordre}" />
+							</h:selectOneMenu>
+						</h6>
+					</h:panelGrid>
+					<h:panelGrid columns="1">
+						<h:commandButton value="Valider" styleClass="btn btn-success"
+							action="#{beanFormationCursus.ValiderAjoutFormation()}" />
+					</h:panelGrid>
+				</p:panelGrid>
+			</div>
+			<!-- 			FIN Champs pour ajouter une formation -->
+
+
+			<h:dataTable value="#{beanFormationCursus.listFormationByCursus}"
+				var="formationCursus" styleClass="skill"
+				rowClasses="btn-success,btn-light" columnClasses=",level">
+
+				<f:facet name="header">
+					<h:outputText styleClass="btn-lg"
+						value="Detail du cursus : #{beanCursus.cursus.nom}" />
+				</f:facet>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText styleClass="btn-lg" value="Nom de formation" />
+					</f:facet>
+					<p:commandLink
+						action="#{beanFormationCursus.fenetreModifierOrdreFormationCursus()}"
+						value="#{formationCursus.formation.intitule}"
+						update=":dlg2, :dlg1, :dlg3">
+						<f:param name="idFormation"
+							value="#{formationCursus.formation.idFormation}" />
+						<f:param name="ordreFormation" value="#{formationCursus.ordre}" />
+					</p:commandLink>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText styleClass="btn-lg" value="Ordre de passage" />
+					</f:facet>
+					<h:outputText value="#{formationCursus.ordre}" />
+				</h:column>
+
+			</h:dataTable>
+
+
+		</h:form>
+
+	</p:dialog>
+
+
+
+
+
+
+	<p:dialog id="dlg3" header="Modifier une formation" resizable="false"
+		widgetVar="dlg3" modal="true" height="200">
+
+		<h:form>
+
+			<p:panelGrid columns="2">
+				<h:panelGrid columns="2">
+					<h6>
+						Nom Formation :
+						<h:outputText
+							value="#{beanFormationCursus.formation_modif.intitule}" />
+					</h6>
+				</h:panelGrid>
+				<h:panelGrid columns="2">
+					<h6>
+						Ordre :
+						<h:selectOneMenu
+							value="#{beanFormationCursus.formationCursus_modif.ordre}">
+							<f:selectItems value="#{beanFormationCursus.listOrdre}"
+								var="ordre" itemValue="#{ordre}" itemLabel="#{ordre}" />
+							<f:param name="ordreFormationInitial"
+								value="#{beanFormationCursus.formationCursus_modif.ordre}" />
+						</h:selectOneMenu>
+					</h6>
+				</h:panelGrid>
+
+
+
+
+
+			</p:panelGrid>
+
+
+
+			<div class="row">
+				<p:panelGrid columns="3">
+					<h:commandButton value="Valider les changements"
+						styleClass="btn btn-success" type="submit"
+						action="#{beanFormationCursus.ValiderLeChangementOrdre()}" />
+					<h:commandButton value="Supprimer la formation"
+						styleClass="btn btn-warning" type="submit" action="#" />
+					<h:commandButton value="Annuler" styleClass="btn btn-danger"
+						action="#" />
 				</p:panelGrid>
 			</div>
 		</h:form>
-		
+
 	</p:dialog>
+
+
+
+
+
+
+
 
 	<h:dataTable value="#{beanCursus.listCursus}" var="cursus"
 		styleClass="skill" rowClasses="btn-success,btn-light"
@@ -127,7 +235,8 @@
 			<f:facet name="header">
 				<h:outputText styleClass="btn-lg" value="Nom" />
 			</f:facet>
-			<p:commandLink action="#{beanFormationCursus.fenetreModifierFormationCursus()}"
+			<p:commandLink
+				action="#{beanFormationCursus.fenetreModifierFormationCursus()}"
 				value="#{cursus.nom}" update=":dlg2, :dlg1">
 				<f:param name="id" value="#{cursus.idCursus}" />
 			</p:commandLink>
@@ -139,6 +248,8 @@
 			<h:outputText value="#{cursus.tarif}" />
 		</h:column>
 	</h:dataTable>
+
+
 
 
 

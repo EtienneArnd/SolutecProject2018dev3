@@ -33,10 +33,23 @@ public class DtoFormationCursus {
 	}
 	
 	
-	public static List<FormationCursus> getListFormationCursusByIdCursus(int IdCursus)
+	public static List<FormationCursus> getListFormationCursusByIdCursus(int idCursus)
 	{		
-		return DaoFormationCursus.getListFormationCursusByIdCursus(IdCursus);
+		return DaoFormationCursus.getListFormationCursusByIdCursus(idCursus);
 	}
 	
+	
+	public static List<Integer> getListOrdreByIdCursus(int idCursus) {
+		return DaoFormationCursus.getListFormationOrdreByIdCursus(idCursus);
+	}
+	
+	public static FormationCursus GetFormationCursusByOrdre(int idCursus, int ordre) {
+		return DaoFormationCursus.GetFormationCursusByOrdre(idCursus, ordre);
+		
+	}
+	
+	public static void AjoutFormationFromCursus(FormationCursus formationCursus) {
+		DaoFormationCursus.AjoutFormationFromCursus(formationCursus);
+	}
 	
 }

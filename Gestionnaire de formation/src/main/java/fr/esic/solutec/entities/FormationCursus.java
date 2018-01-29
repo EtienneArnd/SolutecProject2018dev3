@@ -11,7 +11,9 @@ import javax.persistence.*;
 @Entity
 @Table(name="formation_cursus")
 @NamedQueries({@NamedQuery(name="FormationCursus.findAll", query="SELECT f FROM FormationCursus f"),
-@NamedQuery(name="FormationCursus.findByIdCursus", query="SELECT f FROM FormationCursus f WHERE f.cursus.idCursus = :idCursus ORDER BY f.ordre")})
+@NamedQuery(name="FormationCursus.findByIdCursus", query="SELECT f FROM FormationCursus f WHERE f.cursus.idCursus = :idCursus ORDER BY f.ordre"),
+@NamedQuery(name="FormationCursus.findOrdreByIdCursus", query="SELECT f.ordre FROM FormationCursus f WHERE f.cursus.idCursus = :idCursus ORDER BY f.ordre"),
+@NamedQuery(name="FormationCursus.findFormationCursusByOrdre", query="SELECT f FROM FormationCursus f WHERE f.cursus.idCursus = :idCursus AND f.ordre = :ordre")})
 public class FormationCursus implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -32,6 +34,8 @@ public class FormationCursus implements Serializable {
 
 	public FormationCursus() {
 	}
+	
+
 
 	public FormationCursusPK getId() {
 		return this.id;
