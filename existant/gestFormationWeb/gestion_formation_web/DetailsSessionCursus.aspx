@@ -4,11 +4,12 @@
     <%--    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>--%>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <%-- <asp:ScriptManager runat="server" EnablePageMethods="true"  />--%>
     <%--    <script type="text/javascript">
-    </script>--%>
-
-    <asp:Label ID="lblTitrePage" runat="server" Text="Cursus ...." CssClass="titre1 auto-style1"></asp:Label>
+    </script>--%>    <%--            <asp:BoundField DataField="date_debut" HeaderText="Date de début" SortExpression="date_debut" />--%>
+    <div>
+        <asp:Label ID="lblTitrePage" runat="server" Text="Cursus ...." CssClass="titre1 auto-style1"></asp:Label>
+        <asp:Button ID="btnRetourListeCursus" runat="server" Text="Liste des Cursus" OnClick="btnRetourListeCursus_Click" />
+    </div>
     <br />
     <asp:Panel ID="PnlCreate" runat="server" Visible="False">
         <div class="auto-style1">
@@ -28,7 +29,7 @@
             <asp:Label ID="Label2" runat="server" Text="Liste des sessions de formation" CssClass="titre2 auto-style1"></asp:Label></h1>
         <br />
         <div class="TableView">
-            <asp:GridView ID="gvSessionsFormation" runat="server" AutoGenerateColumns="False" DataSourceID="odsSessionsFormation" Style="float: left;" CellPadding="4" ForeColor="#333333" GridLines="None">
+            <asp:GridView ID="gvSessionsFormation" runat="server" AutoGenerateColumns="False" DataSourceID="odsSessionsFormation" Style="float: left;" CellPadding="4" ForeColor="#333333" GridLines="None" Width="90%">
                 <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                 <Columns>
                     <%--            <asp:BoundField DataField="date_debut" HeaderText="Date de début" SortExpression="date_debut" />--%>
@@ -66,7 +67,6 @@
                     <asp:TemplateField HeaderText="Formateurs">
                         <ItemTemplate>
                             <asp:Label ID="formateurs" runat="server" Text='<%# gestion_formation_web.Globale.GetFormateursAsString((int)Eval("id_session_formation")) %>'></asp:Label>
-                            <%--                     <asp:Button ID="btnAffecterFormateur" runat="server" Text="Affecter un formateur" OnCommand="AffecterFormateur_Command" CommandArgument='<%# Eval("id_session_formation") %>'></asp:Button>--%>
                         </ItemTemplate>
                     </asp:TemplateField>
 
@@ -106,7 +106,7 @@
             <asp:Label ID="Label1" runat="server" Text="Liste des stagiaires" CssClass="titre2"></asp:Label></h1>
         <br />
         <div class="TableView">
-            <asp:GridView ID="gvStagiaires" runat="server" AutoGenerateColumns="False" DataSourceID="odsStagiaires" Style="height: 180px; width: 1128px" CellPadding="4" ForeColor="#333333" GridLines="None">
+            <asp:GridView ID="gvStagiaires" runat="server" AutoGenerateColumns="False" DataSourceID="odsStagiaires" Style="height: 180px; width: 1128px" CellPadding="4" ForeColor="#333333" GridLines="None" Width="90%">
                 <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                 <Columns>
                     <asp:BoundField DataField="id_stagiaire" HeaderText="id_stagiaire" SortExpression="id_stagiaire" Visible="False" />

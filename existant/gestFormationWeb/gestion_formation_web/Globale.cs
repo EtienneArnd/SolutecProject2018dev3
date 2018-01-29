@@ -14,13 +14,33 @@ namespace gestion_formation_web
         public static String GetFormateursAsString(this session_formation sessionFormation)
         {
             if (sessionFormation.formateur_session_formation.Count == 0) return "";
-            String str =sessionFormation.formateur_session_formation.First().formateur.GetNomPrenom();
+            String str = sessionFormation.formateur_session_formation.First().formateur.GetNomPrenom();
             foreach (formateur_session_formation fsf in sessionFormation.formateur_session_formation.Skip(1))
             {
                 str += " & " + fsf.formateur.GetNomPrenom(); 
             }
             return str;
         }
+        public static String GetSocieteAsString(int idSessionFormation)
+        {
+            return dto.DtoSessionFormation.Get(idSessionFormation).GetSocieteAsString();
+        }
+        public static String GetSocieteAsString(this session_formation sessionFormation)
+        {
+            if (sessionFormation.formateur_session_formation.Count == 0) return "";
+            String str = sessionFormation.stagiaire_session_formation.First().stagiaire.societe.GetNomComplementDeNom();
+            foreach (stagiaire_session_formation ssf in sessionFormation.stagiaire_session_formation.Skip(1))
+            {
+                str += " & " + ssf.stagiaire.societe.GetNomComplementDeNom();
+            }
+            return str;
+        }
+
+        public static string GetNomComplementDeNom(this societe societe)
+        {
+            return societe.nom + " " + societe.complement_nom;
+        }
+
         public static String GetNomPrenom(this formateur formateur)
         {
             return formateur.nom + " " + formateur.prenom;
@@ -29,6 +49,12 @@ namespace gestion_formation_web
         {
             return stagiaire.nom + " " + stagiaire.prenom;
         }
+
+        public static DateTime GetDateFin(int idSessionFormation)
+        {
+            return dto.DtoSessionFormation.Get(idSessionFormation).GetDateFin();
+        }
+
         public static DateTime GetDateFin(this session_formation sessionFormation)
         {
             if (sessionFormation.date_fin !=null) {

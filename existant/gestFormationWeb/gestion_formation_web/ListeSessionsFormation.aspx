@@ -7,10 +7,10 @@
     <br />
     <br />
     <div class=""></div>
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="ObjectDataSource1" CellPadding="4" ForeColor="#333333" GridLines="None" Width="80%">
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="ObjectDataSource1" CellPadding="4" ForeColor="#333333" GridLines="None" Width="90%">
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         <Columns>
-            <asp:BoundField DataField="id_session_formation" HeaderText="id_session_formation" SortExpression="id_session_formation" />
+            <asp:BoundField DataField="id_session_formation" HeaderText="id_session_formation" SortExpression="id_session_formation"  Visible="False" />
             <asp:BoundField DataField="date_debut" HeaderText="date_debut" SortExpression="date_debut" />
             <asp:BoundField DataField="date_fin" HeaderText="date_fin" SortExpression="date_fin" />
             <asp:BoundField DataField="ordre" HeaderText="ordre" SortExpression="ordre" />
@@ -18,6 +18,11 @@
             <asp:BoundField DataField="type" HeaderText="type" SortExpression="type" />
             <%-- <asp:BoundField DataField="id_session_cursus" HeaderText="id_session_cursus" SortExpression="id_session_cursus" />
             <asp:BoundField DataField="id_salle" HeaderText="id_salle" SortExpression="id_salle" />--%>
+            <asp:TemplateField HeaderText="Formateurs">
+                        <ItemTemplate>
+                            <asp:Label ID="formateurs" runat="server" Text='<%# gestion_formation_web.Globale.GetFormateursAsString((int)Eval("id_session_formation")) %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
             <asp:TemplateField HeaderText="Session cursus">
                 <ItemTemplate>
                     <asp:HyperLink ID="sessionCursus" runat="server" Text='<%# Eval("session_cursus.nom") %>' NavigateUrl='<%# String.Format("~/DetailsSessionCursus.aspx?id_session_cursus={0}", Eval("session_cursus.id_session_cursus")) %>'></asp:HyperLink>
@@ -45,9 +50,12 @@
             <asp:QueryStringParameter DefaultValue="0" Name="idFormation" QueryStringField="idFormation" Type="Int32" />
         </SelectParameters>
     </asp:ObjectDataSource>
+    
+    <br />
+    <input id="btnAjoutSessionFormation" type="button" value="Nouvelle Session Formation" onclick="document.getElementById('CreateZone').style = 'display:bloc';" />
     <br />
     <asp:Panel ID="PnlCreate" runat="server" Visible="True">
-        <div class="auto-style1">
+        <div id="CreateZone" class="auto-style1" style="display: none">
             <asp:Label ID="Label3" runat="server" Text="Nom  du formateur "></asp:Label>
             <asp:DropDownList ID="ddlFormateur" runat="server" DataSourceID="odsFormateur" DataTextField="nom" DataValueField="id_formateur">
             </asp:DropDownList>

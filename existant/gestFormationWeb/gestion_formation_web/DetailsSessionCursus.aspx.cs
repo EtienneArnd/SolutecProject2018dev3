@@ -41,6 +41,7 @@ namespace gestion_formation_web
                     }
                     //id reconnu: création de la session cursus prete à validation
                     lblTitrePage.Text = "Nouvelle session du cursus " + leCursus.nom;
+                    btnRetourListeCursus.Text = "Retour ves la liste des cursus " + leCursus.nom;
                     switchMode();
                 }
                 catch
@@ -185,6 +186,12 @@ namespace gestion_formation_web
                 PnlStagiaire.Visible = true;
             }
             CreateOrEdit = !CreateOrEdit;
+        }
+
+        protected void btnRetourListeCursus_Click(object sender, EventArgs e)
+        {
+            session_cursus sessionCursus = dto.DtoSessionCursus.Get(idSessionCursus);
+            Response.Redirect(string.Format("~/ListeSessionsCursus.aspx?idCursus={0}", sessionCursus.id_cursus));
         }
     }
 }

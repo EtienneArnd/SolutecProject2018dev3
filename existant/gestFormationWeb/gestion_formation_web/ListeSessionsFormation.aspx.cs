@@ -53,7 +53,7 @@ namespace gestion_formation_web
             dto.DtoSessionFormation.Add(sessionFormation,formateur, dateDebut);
             DataBind();
             
-            Response.Redirect(string.Format("~/DetailsSessionFormation.aspx?id_session_formation={0}", sessionFormation.id_session_formation));
+            Response.Redirect(string.Format("~/DetailsSessionFormation.aspx?idSessionFormation={0}", sessionFormation.id_session_formation));
         }
     }
 }
