@@ -36,7 +36,19 @@
         </SelectParameters>
     </asp:ObjectDataSource>
     <br />
+    <asp:Panel ID="PnlCreate" runat="server" Visible="True">
+        <div class="auto-style1">
+            <asp:Label ID="Label3" runat="server" Text="Nom de la session"></asp:Label>
+            <asp:TextBox ID="tbxNom" runat="server"></asp:TextBox>
+            <br />
+            <asp:Label ID="Label4" runat="server" Text="Date de la session"></asp:Label>
+            <asp:TextBox ID="tbxDateSessionCursus" runat="server" CssClass="datepicker"></asp:TextBox>
+            <br />
+            <asp:Button ID="btnAjouterSessionCursus" runat="server" Text="Ajouter une nouvelle session" OnClick="btnAjouterSessionCursus_Click" />
+            <br />
+        </div>
+    </asp:Panel>
 
-    <asp:Button ID="btnAjouterSessionCursus" runat="server" Text="Ajouter une nouvelle session" OnClick="btnAjouterSessionCursus_Click" />
+    
 
 </asp:Content>
