@@ -16,7 +16,7 @@
             <asp:BoundField DataField="date_debut" HeaderText="Date de début" SortExpression="nom" DataFormatString="{0:dd/MM/yyyy}" />
             <asp:TemplateField HeaderText="Date de fin">
                 <ItemTemplate>
-                    <asp:Label ID="date_fin" runat="server" Text='<%# gestion_formation_web.Globale.GetDateFin((int)Eval("id_session_cursus")) %>'></asp:Label>
+                    <asp:Label ID="date_fin" runat="server" Text='<%# gestion_formation_web.Globale.GetDateFinCursus((int)Eval("id_session_cursus")) %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Nom du cursus">
