@@ -1,15 +1,17 @@
-﻿<%@ Page Title="Liste Formation" Language="C#"  MasterPageFile="~/pageMaitre.Master" AutoEventWireup="true" CodeBehind="ListeFormation.aspx.cs" Inherits="gestion_formation_web.WebForm2" %>
+﻿<%@ Page Title="Liste Formation" Language="C#"  MasterPageFile="~/pageMaitre.Master" AutoEventWireup="true" CodeBehind="ListeFormation.aspx.cs" Inherits="gestion_formation_web.ListeFormation" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
         <asp:GridView ID="gvFormations" runat="server" AutoGenerateColumns="False" DataSourceID="odsFormation" style="float:left;" CellPadding="4" ForeColor="#333333" GridLines="None">
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         <Columns>
             <asp:BoundField DataField="id_formation" HeaderText="ID formation" SortExpression="id_formation" Visible="False"/>
+            
             <asp:BoundField DataField="intitule" HeaderText="Intitulé" SortExpression="intitule" />
             <asp:BoundField DataField="duree" HeaderText="Durée" SortExpression="duree" />
             <asp:BoundField DataField="tarif_intra" HeaderText="Tarif intra" SortExpression="tarif_intra" />
             <asp:BoundField DataField="tarif_inter" HeaderText="Tarif unitaire" SortExpression="tarif_inter" />
             <asp:BoundField DataField="niveau" HeaderText="Niveau" SortExpression="niveau" />
+            <asp:HyperLinkField DataNavigateUrlFields="id_formation" DataNavigateUrlFormatString="ListeSessionsFormation.aspx?idFormation={0}" DataTextField="intitule" DataTextFormatString="Sessions de {0}" HeaderText="Sessions" />
             <asp:TemplateField HeaderText="Thème">
                 <ItemTemplate>
                  <asp:Label ID="themeName" runat="server" Text='<%# Eval("theme.nom") %>'></asp:Label>

@@ -96,7 +96,7 @@
             </asp:GridView>
         </div>
         <br />
-        <div>
+        <div class="TableView">
             <asp:Button ID="btnCalculerDateSession" runat="server" Text="Calculer les dates des sessions" OnClick="btnCalculerDateSession_Click" />
         </div>
     </asp:Panel>
@@ -130,8 +130,9 @@
             </asp:GridView>
         </div>
         <br />
-        <asp:Button ID="btnAjouterStagiaire" runat="server" Text="Inscrire un stagiaire a la session" OnClick="btnAjouterStagiaire_Click" />
-
+        <div class="TableView">
+            <asp:Button ID="btnAjouterStagiaire" runat="server" Text="Inscrire un stagiaire a la session" OnClick="btnAjouterStagiaire_Click" />
+        </div>
         <asp:ObjectDataSource ID="odsSessionsFormation" runat="server" SelectMethod="GetSessionsFormation" TypeName="gestion_formation_web.dto.DtoSessionCursus">
             <SelectParameters>
                 <asp:QueryStringParameter Name="idSessionCursus" QueryStringField="id_session_cursus" Type="Int32" />

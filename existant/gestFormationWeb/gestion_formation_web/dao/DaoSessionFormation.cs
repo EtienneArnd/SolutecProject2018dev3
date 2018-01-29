@@ -12,6 +12,11 @@ namespace gestion_formation_web.dao
         { 
            return  ctxt.session_formation.SingleOrDefault(cs => cs.id_session_formation == idSessionFormation);
         }
+
+        public static IEnumerable<session_formation> GetSessionFormation(int idFormation)
+        {
+            return ctxt.session_formation.Where(sf => sf.id_formation == idFormation).ToList();
+        }
         public static IEnumerable<stagiaire> GetStagiaires(int idSessionFormation)
         {
             return  ctxt.stagiaire_session_formation.Where (ssf => ssf.id_session_formation == idSessionFormation).Select(ssf => ssf.stagiaire).ToList();

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Liste Cession Cursus" Language="C#" MasterPageFile="~/pageMaitre.Master" AutoEventWireup="true" CodeBehind="ListeSessionsCursus.aspx.cs" Inherits="gestion_formation_web.ListeSessionsCursus" %>
+﻿<%@ Page Title="Liste Session Cursus" Language="C#" MasterPageFile="~/pageMaitre.Master" AutoEventWireup="true" CodeBehind="ListeSessionsCursus.aspx.cs" Inherits="gestion_formation_web.ListeSessionsCursus" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">

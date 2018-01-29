@@ -11,6 +11,11 @@ namespace gestion_formation_web.dto
         {
             return dao.DaoSessionFormation.Get(idSessionFormation);
         }
+        public static IEnumerable<session_formation> GetSessionFormation(int idFormation)
+        {
+            return dao.DaoSessionFormation.GetSessionFormation(idFormation);
+        }
+
         public static IEnumerable<stagiaire> GetStagiaires(int idSessionFormation)
         {
             return dao.DaoSessionFormation.GetStagiaires(idSessionFormation);

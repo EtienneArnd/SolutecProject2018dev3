@@ -97,6 +97,7 @@
     <Content Include="js\jquery-3.2.1.min.js" />
     <Content Include="js\scriptFin.js" />
     <Content Include="ListeCursus.aspx" />
+    <Content Include="ListeSessionsFormation.aspx" />
     <Content Include="ListeSessionsCursus.aspx" />
     <Content Include="ModelGestFormation.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -240,6 +241,13 @@
     </Compile>
     <Compile Include="ListeCursus.aspx.designer.cs">
       <DependentUpon>ListeCursus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListeSessionsFormation.aspx.cs">
+      <DependentUpon>ListeSessionsFormation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListeSessionsFormation.aspx.designer.cs">
+      <DependentUpon>ListeSessionsFormation.aspx</DependentUpon>
     </Compile>
     <Compile Include="ListeSessionsCursus.aspx.cs">
       <DependentUpon>ListeSessionsCursus.aspx</DependentUpon>

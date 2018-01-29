@@ -54,6 +54,7 @@ namespace gestion_formation_web
 
             sessionCursus.session_formation = dao.DaoSessionFormation.GetSessionsFormation(sessionCursus.id_session_cursus).ToList();
             Response.Redirect(string.Format("~/DetailsSessionCursus.aspx?id_session_cursus={0}", sessionCursus.id_session_cursus));
+            Response.Redirect("DetailsSessionCursus.aspx?idCursus="+idCursus);
         }
     }
 }
