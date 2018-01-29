@@ -97,6 +97,7 @@
     <Content Include="js\jquery-3.2.1.min.js" />
     <Content Include="js\scriptFin.js" />
     <Content Include="ListeCursus.aspx" />
+    <Content Include="ListeSessionsFormation.aspx" />
     <Content Include="ListeSessionsCursus.aspx" />
     <Content Include="ModelGestFormation.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -119,17 +120,6 @@
     </EntityDeploy>
     <Content Include="ModelGestFormation.edmx.diagram">
       <DependentUpon>ModelGestFormation.edmx</DependentUpon>
-    </Content>
-    <Content Include="DataSet1.xsc">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </Content>
-    <None Include="DataSet1.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="DataSet1.xss">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
     </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -173,11 +163,6 @@
     <Compile Include="dao\DaoFormateur.cs" />
     <Compile Include="dao\DaoFormationCursus.cs" />
     <Compile Include="dao\DaoTheme.cs" />
-    <Compile Include="DataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </Compile>
     <Compile Include="DetailsCursus.aspx.cs">
       <DependentUpon>DetailsCursus.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -240,6 +225,13 @@
     </Compile>
     <Compile Include="ListeCursus.aspx.designer.cs">
       <DependentUpon>ListeCursus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListeSessionsFormation.aspx.cs">
+      <DependentUpon>ListeSessionsFormation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListeSessionsFormation.aspx.designer.cs">
+      <DependentUpon>ListeSessionsFormation.aspx</DependentUpon>
     </Compile>
     <Compile Include="ListeSessionsCursus.aspx.cs">
       <DependentUpon>ListeSessionsCursus.aspx</DependentUpon>

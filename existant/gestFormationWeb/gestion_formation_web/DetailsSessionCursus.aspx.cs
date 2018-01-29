@@ -41,6 +41,7 @@ namespace gestion_formation_web
                     }
                     //id reconnu: création de la session cursus prete à validation
                     lblTitrePage.Text = "Nouvelle session du cursus " + leCursus.nom;
+                    btnRetourListeCursus.Text = "Retour ves la liste des cursus " + leCursus.nom;
                     switchMode();
                 }
                 catch
@@ -166,8 +167,26 @@ namespace gestion_formation_web
 
         protected void btnAjouterStagiaire_Click(object sender, EventArgs e)
         {
-            // TODO
-            Console.WriteLine("btnAjouterStagiaire_Click not implemented #TODO");
+            int idStagiaire = Convert.ToInt32(ddlAjouterStagiaire.SelectedValue);
+            dto.DtoSessionCursus.AddStagiaire(idSessionCursus, idStagiaire);
+            gvStagiaires.DataBind();
+            ddlAjouterStagiaire.DataBind();
+        }
+
+        protected void gvStagiaires_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            System.Collections.Specialized.IOrderedDictionary valeurs = e.Values;
+            //int idFormateur = Convert.ToInt32(valeurs["id_formateur"]);
+            int idStagiaire = (int)gvStagiaires.DataKeys[e.RowIndex].Value;
+            dto.DtoSessionCursus.RemoveStagiaireFromSession(idStagiaire, idSessionCursus);
+            //gvFormateurs.DeleteRow(e.RowIndex);
+            Response.Redirect(Request.RawUrl);
+        }
+
+        protected void gvStagiaires_RowDeleted(object sender, GridViewDeletedEventArgs e)
+        {
+            int idx = (int)e.Keys[0];
+            gvStagiaires.DataBind();
         }
 
         protected void switchMode()
@@ -185,6 +204,12 @@ namespace gestion_formation_web
                 PnlStagiaire.Visible = true;
             }
             CreateOrEdit = !CreateOrEdit;
+        }
+
+        protected void btnRetourListeCursus_Click(object sender, EventArgs e)
+        {
+            session_cursus sessionCursus = dto.DtoSessionCursus.Get(idSessionCursus);
+            Response.Redirect(string.Format("~/ListeSessionsCursus.aspx?idCursus={0}", sessionCursus.id_cursus));
         }
     }
 }

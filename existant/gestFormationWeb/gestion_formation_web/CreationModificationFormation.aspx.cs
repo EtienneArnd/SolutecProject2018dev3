@@ -16,10 +16,13 @@ namespace gestion_formation_web
 
         protected void Page_Load(object sender, EventArgs e)
         {
-                String idFormationString = Request["idFormation"];
+            //récupération de l'id de formation dans l'URL
+            String idFormationString = Request["idFormation"];
                 this.idFormation = int.Parse(idFormationString);
            if (!Page.IsPostBack)
            {
+                //Si l'id n'est pas nul, c'est qu'on est en train de modifier une formation existante
+                //On récupère en BDD les infos de la formation à modifier et on les affiche
                 if (idFormation != 0)
                 {
                     formation formation = DtoFormation.Get(idFormation);
@@ -34,7 +37,7 @@ namespace gestion_formation_web
         }
 
 
-        //Obligation d'avoir un thème et un nom non vides et des valeurs numériques du bon type
+        //Obligation d'avoir un nom non vide et des valeurs numériques du bon type
         protected void btnValider_Click(object sender, EventArgs e)
         {
             formation formation = new formation();
@@ -106,16 +109,19 @@ namespace gestion_formation_web
                 formation.intitule = tbxNom.Text;
                 formation.niveau = ddlNiveau.SelectedValue;
                 formation.id_theme = Convert.ToInt32(ddlTheme.SelectedValue);
+                //Si on crée une nouvelle formation
                 if (idFormation == 0)
                 {
                     DtoFormation.Add(formation);
                     lblFormationCreee.Visible = true;
                     //Response.Redirect("CreationModificationFormation.aspx?idFormation=" + 0);
+                    //Ici, on réinitialise les champs pour ajouter une nouvelle formation
                     tbxNom.Text = "";
                     tbxDuree.Text = "";
                     tbxTarif_intra.Text = "";
                     tbxTarif_unitaire.Text = "";
                 }
+                //Si on modifie une formation existante
                 else
                 {
                     formation.id_formation = idFormation;

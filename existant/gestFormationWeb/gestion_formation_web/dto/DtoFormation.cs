@@ -13,6 +13,7 @@ namespace gestion_formation_web.dto
         {
             return DaoFormation.Get(idFormation);
         }
+
         public static formation Get(string intitule)
         {
             return DaoFormation.Get(intitule);

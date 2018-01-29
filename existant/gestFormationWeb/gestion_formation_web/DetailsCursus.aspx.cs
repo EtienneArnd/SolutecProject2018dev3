@@ -11,11 +11,10 @@ namespace gestion_formation_web
     public partial class DetailsCursus : System.Web.UI.Page
     {
         int idCursus;
-        int idFormation;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (!IsPostBack)
-            //{
+
                 String id = Request["idCursus"];
                 if (String.IsNullOrEmpty(id))
                 {
@@ -41,7 +40,6 @@ namespace gestion_formation_web
                     lblTitrePage.Text = "Cursus " + leCursus.nom;
                 }
                 }
-//            }
         }
 
         protected void btnAjouterFormation_Click(object sender, EventArgs e)
@@ -51,6 +49,9 @@ namespace gestion_formation_web
             gvFormations.DataBind();
             ddlFormations.DataBind();
         }
+
+        //EN-DESSOUS: Modification de l'ordre d'une formation par click sur bouton (fonctionne mais abandonné pour solution plus ergonomique)
+
         //protected void btnModifierOrdreFormation_Click(object sender, EventArgs e)
         //{
         //    String idCursusString = Request["idCursus"];
@@ -93,23 +94,22 @@ namespace gestion_formation_web
         //    }
         //}
 
-        protected void ddlOrdre_Command(object sender, CommandEventArgs e)
-        {
-
-        }
-
+        //Action quand on modifie un ordre
         protected void ddlOrdre_SelectedIndexChanged(object sender, EventArgs e)
         {
-            String idCursusString = Request["idCursus"];
-            int idCursus = int.Parse(idCursusString);
+            
+            //On récupère: la dropdownlist, la ligne du gridview qui la contient et l'id de la formation correspondante, puis la formation elle-même
             DropDownList ddl = (DropDownList)sender;
             GridViewRow row = (GridViewRow)ddl.NamingContainer;
             Label lblIdFormation = (Label)row.FindControl("lblIdFormation");
             int idFormationADecaler = int.Parse(lblIdFormation.Text);
             formation_cursus formationADecaler = DtoFormationCursus.Get(idCursus, idFormationADecaler);
 
+            //On récupère l'ordre actuel de la formation à décaler ainsi que l'ordre souhaité
             int ordreActuel = (int)formationADecaler.ordre;
             int ordreSouhaite = int.Parse(ddl.Text);
+
+            //Le multiplicateurOrdre sert à distinguer les cas où on veut décaler l'ordre vers le haut ou vers le bas; il vaut +/-1
             int multiplicateurOrdre = 0;
             int compteur;
 
@@ -124,6 +124,7 @@ namespace gestion_formation_web
                     multiplicateurOrdre = -1;
                 }
                 compteur = ordreActuel + multiplicateurOrdre;
+                //On décale toutes les formations dont l'ordre est compris entre l'ancien (exclus) et le nouvel ordre (inclus) de la formation à décaler
                 do
                 {
                     formation_cursus formationCursus = DtoFormationCursus.GetByOrder(idCursus, compteur);
@@ -132,6 +133,7 @@ namespace gestion_formation_web
                     compteur = compteur + multiplicateurOrdre;
                 }
                 while (compteur != ordreSouhaite + multiplicateurOrdre);
+                //On affecte le nouvel ordre à la formation à décaler, on sauvegarde en BDD et on rafraichit la page
                 formationADecaler.ordre = ordreSouhaite;
                 DtoFormationCursus.Modifier(formationADecaler);
                 Response.Redirect(Request.RawUrl);

@@ -22,6 +22,7 @@ namespace gestion_formation_web
 
         protected void btnCreerFormation_Click(object sender, EventArgs e)
         {
+            //Si on crée une nouvelle formation, on envoie comme id la valeur 0
             Response.Redirect("CreationModificationFormation.aspx?idFormation=" +0);
         }
     }

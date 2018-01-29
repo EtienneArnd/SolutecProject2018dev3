@@ -4,11 +4,12 @@
     <%--    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>--%>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <%-- <asp:ScriptManager runat="server" EnablePageMethods="true"  />--%>
     <%--    <script type="text/javascript">
-    </script>--%>
-
-    <asp:Label ID="lblTitrePage" runat="server" Text="Cursus ...." CssClass="titre1 auto-style1"></asp:Label>
+    </script>--%>    <%--            <asp:BoundField DataField="date_debut" HeaderText="Date de début" SortExpression="date_debut" />--%>
+    <div>
+        <asp:Label ID="lblTitrePage" runat="server" Text="Cursus ...." CssClass="titre1 auto-style1"></asp:Label>
+        <asp:Button ID="btnRetourListeCursus" runat="server" Text="Liste des Cursus" OnClick="btnRetourListeCursus_Click" />
+    </div>
     <br />
     <asp:Panel ID="PnlCreate" runat="server" Visible="False">
         <div class="auto-style1">
@@ -28,16 +29,12 @@
             <asp:Label ID="Label2" runat="server" Text="Liste des sessions de formation" CssClass="titre2 auto-style1"></asp:Label></h1>
         <br />
         <div class="TableView">
-            <asp:GridView ID="gvSessionsFormation" runat="server" AutoGenerateColumns="False" DataSourceID="odsSessionsFormation" Style="float: left;" CellPadding="4" ForeColor="#333333" GridLines="None">
+            <asp:GridView ID="gvSessionsFormation" runat="server" AutoGenerateColumns="False" DataSourceID="odsSessionsFormation" Style="float: left;" CellPadding="4" ForeColor="#333333" GridLines="None" Width="90%">
                 <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                 <Columns>
-                    <%--            <asp:BoundField DataField="date_debut" HeaderText="Date de début" SortExpression="date_debut" />--%>
-                    <%--<asp:ButtonField DataTextField="intitule" DataTextFormatString="Génerer la feuille d'éval pour {0}" HeaderText="Feuille d'éval" />--%>
-
                     <asp:BoundField DataField="id_session_formation" HeaderText="id_session_formation" SortExpression="id_session_formation" Visible="False" />
                     <asp:TemplateField HeaderText="Intitulé">
                         <ItemTemplate>
-                            <%--<asp:Label ID="intitule" runat="server" Text='<%# Eval("formation.intitule") %>'></asp:Label>--%>
                             <asp:HyperLink ID="intitule" runat="server" Text='<%# Eval("formation.intitule") %>' NavigateUrl='<%# String.Format("~/DetailsSessionFormation.aspx?idSessionFormation={0}", Eval("id_session_formation")) %>'></asp:HyperLink>
                         </ItemTemplate>
                     </asp:TemplateField>
@@ -66,7 +63,6 @@
                     <asp:TemplateField HeaderText="Formateurs">
                         <ItemTemplate>
                             <asp:Label ID="formateurs" runat="server" Text='<%# gestion_formation_web.Globale.GetFormateursAsString((int)Eval("id_session_formation")) %>'></asp:Label>
-                            <%--                     <asp:Button ID="btnAffecterFormateur" runat="server" Text="Affecter un formateur" OnCommand="AffecterFormateur_Command" CommandArgument='<%# Eval("id_session_formation") %>'></asp:Button>--%>
                         </ItemTemplate>
                     </asp:TemplateField>
 
@@ -96,17 +92,18 @@
             </asp:GridView>
         </div>
         <br />
-        <div>
+        <div class="TableView">
             <asp:Button ID="btnCalculerDateSession" runat="server" Text="Calculer les dates des sessions" OnClick="btnCalculerDateSession_Click" />
         </div>
     </asp:Panel>
 
     <asp:Panel ID="PnlStagiaire" runat="server" Visible="False">
-        <h1>
+</div>
+            <h1>
             <asp:Label ID="Label1" runat="server" Text="Liste des stagiaires" CssClass="titre2"></asp:Label></h1>
         <br />
         <div class="TableView">
-            <asp:GridView ID="gvStagiaires" runat="server" AutoGenerateColumns="False" DataSourceID="odsStagiaires" Style="height: 180px; width: 1128px" CellPadding="4" ForeColor="#333333" GridLines="None">
+            <asp:GridView ID="gvStagiaires" runat="server" AutoGenerateColumns="False" DataSourceID="odsStagiaires" OnRowDeleted="gvStagiaires_RowDeleted" OnRowDeleting="gvStagiaires_RowDeleting" CellPadding="4" ForeColor="#333333" GridLines="None"  DataKeyNames="id_stagiaire">
                 <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                 <Columns>
                     <asp:BoundField DataField="id_stagiaire" HeaderText="id_stagiaire" SortExpression="id_stagiaire" Visible="False" />
@@ -116,6 +113,7 @@
                     <asp:BoundField DataField="date_naissance" HeaderText="date_naissance" SortExpression="date_naissance" />
                     <asp:BoundField DataField="mail" HeaderText="mail" SortExpression="mail" />
                     <asp:BoundField DataField="telephone" HeaderText="telephone" SortExpression="telephone" />
+                     <asp:CommandField ShowDeleteButton="True" />
                 </Columns>
                 <EditRowStyle BackColor="#999999" />
                 <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -130,7 +128,16 @@
             </asp:GridView>
         </div>
         <br />
-        <asp:Button ID="btnAjouterStagiaire" runat="server" Text="Inscrire un stagiaire a la session" OnClick="btnAjouterStagiaire_Click" />
+        <div class="TableView">
+            <asp:DropDownList ID="ddlAjouterStagiaire" runat="server" DataSourceID="odsAutresStagiaires" DataTextField="nom" DataValueField="id_stagiaire"/>
+            <asp:Button ID="btnAjouterStagiaire" runat="server" Text="Inscrire un stagiaire à la session" OnClick="btnAjouterStagiaire_Click" />
+        </div>
+
+        <asp:ObjectDataSource ID="odsAutresStagiaires" runat="server" SelectMethod="GetAutresStagiaires" TypeName="gestion_formation_web.dto.DtoSessionCursus">
+            <SelectParameters>
+                <asp:QueryStringParameter Name="idSessionCursus" QueryStringField="id_session_cursus" Type="Int32" />
+            </SelectParameters>
+        </asp:ObjectDataSource>
 
         <asp:ObjectDataSource ID="odsSessionsFormation" runat="server" SelectMethod="GetSessionsFormation" TypeName="gestion_formation_web.dto.DtoSessionCursus">
             <SelectParameters>

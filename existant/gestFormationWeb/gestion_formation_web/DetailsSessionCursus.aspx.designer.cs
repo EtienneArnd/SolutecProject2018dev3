@@ -22,6 +22,15 @@ namespace gestion_formation_web {
         protected global::System.Web.UI.WebControls.Label lblTitrePage;
         
         /// <summary>
+        /// Contrôle btnRetourListeCursus.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRetourListeCursus;
+        
+        /// <summary>
         /// Contrôle PnlCreate.
         /// </summary>
         /// <remarks>
@@ -139,6 +148,15 @@ namespace gestion_formation_web {
         protected global::System.Web.UI.WebControls.GridView gvStagiaires;
         
         /// <summary>
+        /// Contrôle ddlAjouterStagiaire.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlAjouterStagiaire;
+        
+        /// <summary>
         /// Contrôle btnAjouterStagiaire.
         /// </summary>
         /// <remarks>
@@ -146,6 +164,15 @@ namespace gestion_formation_web {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAjouterStagiaire;
+        
+        /// <summary>
+        /// Contrôle odsAutresStagiaires.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource odsAutresStagiaires;
         
         /// <summary>
         /// Contrôle odsSessionsFormation.

@@ -100,15 +100,24 @@ namespace gestion_formation_web
             upFormateurs.Update();
         }
 
-        
-        
+        protected void btnAjouterStagiaire_Click(object sender, EventArgs e)
+        {
+            int idStagiaire = Convert.ToInt32(ddlAjouterStagiaire.SelectedValue);
+            dto.DtoSessionFormation.AddStagiaire(idSessionFormation, idStagiaire);
+            gvStagiaires.DataBind();
+            ddlAjouterStagiaire.DataBind();
+        }
+
+
 
         protected void gvFormateurs_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             System.Collections.Specialized.IOrderedDictionary valeurs = e.Values;
-            int idFormateur = Convert.ToInt32(valeurs["id_formateur"]);
+            //int idFormateur = Convert.ToInt32(valeurs["id_formateur"]);
+            int idFormateur = (int)gvFormateurs.DataKeys[e.RowIndex].Value;
             dto.DtoSessionFormation.RemoveFormateurFromSession(idFormateur, idSessionFormation);
-            gvFormateurs.DeleteRow(e.RowIndex);
+            //gvFormateurs.DeleteRow(e.RowIndex);
+            Response.Redirect(Request.RawUrl);
 
         }
 
@@ -117,6 +126,22 @@ namespace gestion_formation_web
             int idx = (int)e.Keys[0];
             gvFormateurs.DataBind();
             upFormateurs.Update();
+        }
+
+        protected void gvStagiaires_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            System.Collections.Specialized.IOrderedDictionary valeurs = e.Values;
+            //int idFormateur = Convert.ToInt32(valeurs["id_formateur"]);
+            int idStagiaire = (int) gvStagiaires.DataKeys[e.RowIndex].Value;
+            dto.DtoSessionFormation.RemoveStagiaireFromSession(idStagiaire, idSessionFormation);
+            //gvFormateurs.DeleteRow(e.RowIndex);
+            Response.Redirect(Request.RawUrl);
+        }
+
+        protected void gvStagiaires_RowDeleted(object sender, GridViewDeletedEventArgs e)
+        {
+            int idx = (int)e.Keys[0];
+            gvStagiaires.DataBind();
         }
 
         protected void btnModifier_Click(object sender, EventArgs e)

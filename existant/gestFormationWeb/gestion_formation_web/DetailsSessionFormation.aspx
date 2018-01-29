@@ -47,10 +47,10 @@
     <asp:UpdatePanel ID="upFormateurs" runat="server" class="PetitBloc" UpdateMode="Conditional">
         <ContentTemplate> 
             <asp:Label ID="lable1" Text="Formateurs"  runat="server"/>
-            <asp:GridView ID="gvFormateurs" runat="server" class="auto-style1" AutoGenerateColumns="False" DataSourceID="odsFormateurs" OnRowDeleted="gvFormateurs_RowDeleted" OnRowDeleting="gvFormateurs_RowDeleting" CellPadding="4" ForeColor="#333333" GridLines="None">
+            <asp:GridView ID="gvFormateurs" runat="server" class="auto-style1" AutoGenerateColumns="False" DataSourceID="odsFormateurs" OnRowDeleted="gvFormateurs_RowDeleted" OnRowDeleting="gvFormateurs_RowDeleting" CellPadding="4" ForeColor="#333333" GridLines="None" Width="90%" DataKeyNames="id_formateur">
                 <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                 <Columns>
-                    <asp:BoundField DataField="id_formateur" HeaderText="id_formateur" SortExpression="id_formateur" />
+                    <asp:BoundField DataField="id_formateur" HeaderText="id_formateur" SortExpression="id_formateur" Visible="false"/>
                     <asp:BoundField DataField="civilite" HeaderText="Civilite" SortExpression="civilite" />
                     <asp:BoundField DataField="nom" HeaderText="Nom" SortExpression="nom" />
                     <asp:BoundField DataField="prenom" HeaderText="Prenom" SortExpression="prenom" />
@@ -80,7 +80,52 @@
             <asp:Button ID="btnAjouterFormateur" runat="server" Text="Ajouter" OnClick="btnAjouterFormateur_Click"  />
 
 </div>
-            
+            <h1>
+            <asp:Label ID="Label1" runat="server" Text="Liste des stagiaires" CssClass="titre2"></asp:Label></h1>
+        <br />
+        <div class="TableView">
+            <asp:GridView ID="gvStagiaires" runat="server" AutoGenerateColumns="False" DataSourceID="odsStagiaires" OnRowDeleted="gvStagiaires_RowDeleted" OnRowDeleting="gvStagiaires_RowDeleting" CellPadding="4" ForeColor="#333333" GridLines="None"  DataKeyNames="id_stagiaire">
+                <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                <Columns>
+                    <asp:BoundField DataField="id_stagiaire" HeaderText="id_stagiaire" SortExpression="id_stagiaire" Visible="False" />
+                    <asp:BoundField DataField="civilite" HeaderText="civilite" SortExpression="civilite" />
+                    <asp:BoundField DataField="nom" HeaderText="nom" SortExpression="nom" />
+                    <asp:BoundField DataField="prenom" HeaderText="prenom" SortExpression="prenom" />
+                    <asp:BoundField DataField="date_naissance" HeaderText="date_naissance" SortExpression="date_naissance" />
+                    <asp:BoundField DataField="mail" HeaderText="mail" SortExpression="mail" />
+                    <asp:BoundField DataField="telephone" HeaderText="telephone" SortExpression="telephone" />
+                     <asp:CommandField ShowDeleteButton="True" />
+                </Columns>
+                <EditRowStyle BackColor="#999999" />
+                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+            </asp:GridView>
+        </div>
+        <br />
+        <div class="TableView">
+            <asp:DropDownList ID="ddlAjouterStagiaire" runat="server" DataSourceID="odsAutresStagiaires" DataTextField="nom" DataValueField="id_stagiaire"/>
+            <asp:Button ID="btnAjouterStagiaire" runat="server" Text="Inscrire un stagiaire à la session" OnClick="btnAjouterStagiaire_Click" />
+        </div>
+
+
+        <asp:ObjectDataSource ID="odsStagiaires" runat="server" SelectMethod="GetStagiaires" TypeName="gestion_formation_web.dto.DtoSessionFormation">
+            <SelectParameters>
+                <asp:QueryStringParameter Name="idSessionFormation" QueryStringField="idSessionFormation" Type="Int32" />
+            </SelectParameters>
+        </asp:ObjectDataSource>
+
+        <asp:ObjectDataSource ID="odsAutresStagiaires" runat="server" SelectMethod="GetAutresStagiaires" TypeName="gestion_formation_web.dto.DtoSessionFormation">
+            <SelectParameters>
+                <asp:QueryStringParameter Name="idSessionFormation" QueryStringField="idSessionFormation" Type="Int32" />
+            </SelectParameters>
+        </asp:ObjectDataSource>
     <script type="text/javascript" src="js/scriptFin.js">
 
     </script>

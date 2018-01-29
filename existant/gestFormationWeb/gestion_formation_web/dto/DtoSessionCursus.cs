@@ -20,6 +20,12 @@ namespace gestion_formation_web.dto
                 return dao.DaoSessionCursus.GetStagiaires(idSessionCursus);
             return null;
         }
+
+        public static IEnumerable<stagiaire> GetAutresStagiaires(int idSessionCursus)
+        {
+            return dao.DaoSessionCursus.GetAutresStagiaires(idSessionCursus);
+        }
+
         public static IEnumerable<session_formation> GetSessionsFormation(int idSessionCursus)
         {
             if (idSessionCursus >0)
@@ -46,6 +52,16 @@ namespace gestion_formation_web.dto
         {
             dao.DaoSessionCursus.Add(sessionCursus);
 
+        }
+
+        public static void AddStagiaire(int idSessionCursus, int idStagiaire)
+        {
+            dao.DaoSessionCursus.AddStagiaire(idSessionCursus, idStagiaire);
+        }
+
+        public static void RemoveStagiaireFromSession(int idStagiaire, int idSessionCursus)
+        {
+            dao.DaoSessionCursus.RemoveStagiaireFromSession(idStagiaire, idSessionCursus);
         }
     }
 }
