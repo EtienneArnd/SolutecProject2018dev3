@@ -160,7 +160,9 @@ namespace gestion_formation_web
 
             dto.DtoSessionCursus.Add(sessionCursus);
             DataBind();
-            pnlDetails.Visible = true;
+
+            sessionCursus.session_formation = dao.DaoSessionCursus.GetSessionsFormation(sessionCursus.id_session_cursus).ToList();
+            Response.Redirect(string.Format("DetailsSessionCursus.aspx?id_session_cursus={0}",sessionCursus.id_session_cursus));
         }
 
         protected void btnAjouterStagiaire_Click(object sender, EventArgs e)
