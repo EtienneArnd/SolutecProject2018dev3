@@ -126,7 +126,78 @@
 						</h:selectOneMenu>
 					</h6>
 				</h:panelGrid>
+				<h:commandButton value="Calculer les dates des Sessions" styleClass="btn btn-success"
+						type="submit"
+						action="#{beanSessionCursus.modifierSessionCursus()}" />
 			</p:panelGrid>
+			<h:dataTable value="#{beanSessionCursus.listSessionFormationsSessionCursus}" var="sessionFormationCursus"
+					styleClass="skill" rowClasses="btn-success,btn-light"
+					columnClasses=",level" >
+					
+					<f:facet name="header">
+						<h:outputText styleClass="btn-lg" value="Detail de la session de cursus :"  />
+					</f:facet>
+					<h:column>
+			<f:facet name="header">
+				<h:outputText styleClass="btn-lg" value="Session" />
+			</f:facet>
+			<p:commandLink
+				action="#{beanSessionCursus.fenetreModifierSessionFormation()}"
+				value="Session #{sessionFormationCursus.idSessionFormation} : #{sessionFormationCursus.formation.intitule}"
+				update=":dlg2, :dlg1, :dlg3">
+				<f:param name="idSessionFormation" value="#{sessionFormationCursus.idSessionFormation}" />
+			</p:commandLink>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText styleClass="btn-lg" value="Date de début" />
+				</f:facet>
+				<h:outputText value="#{sessionFormationCursus.dateDebut}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText styleClass="btn-lg" value="Date de fin" />
+				</f:facet>
+				<h:outputText value="#{sessionFormationCursus.dateFin}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText styleClass="btn-lg" value="Ordre" />
+				</f:facet>
+				<h:outputText value="#{sessionFormationCursus.ordre}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText styleClass="btn-lg" value="Tarif intra" />
+				</f:facet>
+				<h:outputText value="#{sessionFormationCursus.tarifIntra}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText styleClass="btn-lg" value="Type" />
+				</f:facet>
+				<h:outputText value="#{sessionFormationCursus.type}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText styleClass="btn-lg" value="Formation" />
+				</f:facet>
+				<h:outputText value="#{sessionFormationCursus.formation.intitule}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText styleClass="btn-lg" value="Session de cursus" />
+				</f:facet>
+				<h:outputText value="#{sessionFormationCursus.sessionCursus.nom}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText styleClass="btn-lg" value="Salle" />
+				</f:facet>
+				<h:outputText value="#{sessionFormationCursus.salle.nom}" />
+			</h:column>
+					
+			</h:dataTable>
 			<p>
 				<p:panelGrid columns="3">
 					<h:commandButton value="Modifier" styleClass="btn btn-success"
@@ -139,6 +210,99 @@
 						action="#{beanSessionCursus.annulerFenetreMofifier()}" />
 				</p:panelGrid>
 			</p>
+
+		</h:form>
+	</p:dialog>
+	<p:dialog id="dlg3" header="Menu modifier une session de formation"
+		resizable="false" widgetVar="dlg3" modal="true">
+		<h:form>
+			<p:panelGrid columns="3">
+				<h:panelGrid columns="2">
+					<h6>
+						Date de Début :
+						<p:calendar
+							value="#{beanSessionCursus.sessionFormation_modif.dateDebut}">
+							<p:ajax event="dateSelect"
+								listener="#{beanSessionFormation.calenderChangeListener}"
+								update="dateFin" />
+						</p:calendar>
+					</h6>
+				</h:panelGrid>
+				<h:panelGrid columns="2">
+					<h6>
+						Date de Fin :
+						<p:calendar id="dateFin"
+							value="#{beanSessionCursus.sessionFormation_modif.dateFin}"
+							mindate="#{beanSessionFormation.dateLimit}"
+							placeholder="#{beanSessionCursus.sessionFormation_modif.dateFin}" />
+					</h6>
+				</h:panelGrid>
+
+				<h:panelGrid columns="2">
+					<h6>
+						Tarif intra :
+						<h:inputText
+							value="#{beanSessionCursus.sessionFormation_modif.tarifIntra}"
+							onkeypress="if(event.which &lt; 46 || event.which &gt; 57) return false;" />
+					</h6>
+				</h:panelGrid>
+
+				<h:panelGrid columns="2">
+					<h6>
+						Formation :
+						<h:selectOneMenu
+							value="#{beanSessionCursus.sessionFormation_modif.formation}"
+							converter="formationConverter">
+							<f:selectItems value="#{beanFormation.listFormation}"
+								var="formation" itemValue="#{formation}"
+								itemLabel="#{formation.intitule}" />
+						</h:selectOneMenu>
+					</h6>
+				</h:panelGrid>
+
+				<h:panelGrid columns="2">
+					<h6>
+						Type :
+						<h:selectOneMenu
+							value="#{beanSessionCursus.sessionFormation_modif.type}">
+							<f:selectItems value="#{beanSessionFormation.listType}" />
+						</h:selectOneMenu>
+					</h6>
+				</h:panelGrid>
+
+				<h:panelGrid columns="2">
+					<h6>
+						Salle :
+						<h:selectOneMenu
+							value="#{beanSessionCursus.sessionFormation_modif.salle}"
+							converter="salleConverter">
+							<f:selectItems value="#{beanSalle.listSalle}" var="salle"
+								itemValue="#{salle}" itemLabel="#{salle.nom}" />
+						</h:selectOneMenu>
+					</h6>
+				</h:panelGrid>
+				<h:panelGrid columns="2">
+					<h6>
+						Ordre :
+						<h:inputText
+							value="#{beanSessionCursus.sessionFormation_modif.ordre}"
+							onkeypress="if(event.which &lt; 48 || event.which &gt; 57) return false;" />
+					</h6>
+				</h:panelGrid>
+			</p:panelGrid>
+			<p>
+				<p:panelGrid columns="3">
+					<h:commandButton value="Modifier" styleClass="btn btn-success"
+						type="submit"
+						action="#{beanSessionCursus.modifierSessionCursus()}" />
+					<h:commandButton value="Supprimer" styleClass="btn btn-warning"
+						type="submit"
+						action="#{beanSessionCursus.supprimerSessionCursus()}" />
+					<h:commandButton value="Annuler" styleClass="btn btn-danger"
+						action="#{beanSessionCursus.annulerFenetreMofifierSessionFormation()}" />
+				</p:panelGrid>
+			</p>
+
 
 		</h:form>
 	</p:dialog>

@@ -4,6 +4,7 @@ import java.util.List;
 
 import fr.esic.solutec.dao.DaoSessionCursus;
 import fr.esic.solutec.entities.SessionCursus;
+import fr.esic.solutec.entities.SessionFormation;
 
 public class DtoSessionCursus {
 
@@ -16,6 +17,11 @@ public class DtoSessionCursus {
 	public static List<SessionCursus> getListSessionCursus() {
 		
 		return DaoSessionCursus.getListSessionCursus();
+	}
+	
+	public static List<SessionFormation> getListSessionFormationSessionCursus(int IdSessionCursus){
+
+		return DaoSessionCursus.getListSessionFormationSessionCursus(IdSessionCursus);
 	}
 	
 	public static void AddSessionCursus(SessionCursus sessionCursus) {

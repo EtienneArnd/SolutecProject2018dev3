@@ -14,8 +14,11 @@ import javax.faces.context.FacesContext;
 import org.primefaces.context.RequestContext;
 import org.primefaces.event.SelectEvent;
 
+import fr.esic.solutec.dto.DtoFormationCursus;
 import fr.esic.solutec.dto.DtoSessionCursus;
+import fr.esic.solutec.dto.DtoSessionFormation;
 import fr.esic.solutec.entities.SessionCursus;
+import fr.esic.solutec.entities.SessionFormation;
 
 
 @ManagedBean(name = "beanSessionCursus")
@@ -27,8 +30,10 @@ public class BeanSessionCursus implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	private List<SessionCursus> listSessionCursus;
+	private List<SessionFormation> listSessionFormationsSessionCursus;
 	private int[] listDuree;
 	private String dateLimit = "";
+	
 
 	
 	public String getDateLimit() {
@@ -41,6 +46,7 @@ public class BeanSessionCursus implements Serializable{
 
 	private SessionCursus sessionCursus = new SessionCursus();
 	private SessionCursus sessionCursus_modif = new SessionCursus();
+	private SessionFormation sessionFormation_modif = new SessionFormation();
 			
 
 	public int[] getListDuree(){
@@ -63,6 +69,16 @@ public class BeanSessionCursus implements Serializable{
 	public void setSessionCursus(SessionCursus sessionCursus) {
 		this.sessionCursus = sessionCursus;
 	}
+	
+	
+
+	public SessionFormation getSessionFormation_modif() {
+		return sessionFormation_modif;
+	}
+
+	public void setSessionFormation_modif(SessionFormation sessionFormation_modif) {
+		this.sessionFormation_modif = sessionFormation_modif;
+	}
 
 	public String toPageSessionsCursus() {
 		return "sessionCursus"; //Pas besoin de / et de .xhtml
@@ -81,6 +97,7 @@ public class BeanSessionCursus implements Serializable{
 	private void init() {
 		sessionCursus = new SessionCursus();
 		sessionCursus_modif = new SessionCursus();
+		sessionFormation_modif = new SessionFormation();
 	}
 
 	
@@ -101,15 +118,33 @@ public class BeanSessionCursus implements Serializable{
 		dateLimit = dateFormat.format(date);
 	}
 	
-	
+	public List<SessionFormation> getListSessionFormationsSessionCursus() {
+		return listSessionFormationsSessionCursus;
+	}
+
+	public void setListSessionFormationsSessionCursus(List<SessionFormation> listSessionFormationsSessionCursus) {
+		this.listSessionFormationsSessionCursus = listSessionFormationsSessionCursus;
+	}
+
 	public void fenetreModifierSessionCursus() {
 		Map<String,String> par_map = new HashMap<String,String>();
 		par_map=FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
 		String id=par_map.get("id");
 		init();
+		listSessionFormationsSessionCursus = DtoSessionCursus.getListSessionFormationSessionCursus(Integer.parseInt(id));
 		sessionCursus_modif = DtoSessionCursus.getSessionCursus(Integer.parseInt(id));
 		RequestContext context = RequestContext.getCurrentInstance();
 		context.execute("PF('dlg2').show();");
+	}
+	
+	public void fenetreModifierSessionFormation() {
+		Map<String,String> par_map = new HashMap<String,String>();
+		par_map=FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+		String idSessionFormation=par_map.get("idSessionFormation");
+		//init();
+		sessionFormation_modif = DtoSessionFormation.getSessionFormation(Integer.parseInt(idSessionFormation));
+		RequestContext context = RequestContext.getCurrentInstance();
+		context.execute("PF('dlg3').show();");
 	}
 	
 //	public String[] getListType() {
@@ -122,6 +157,11 @@ public class BeanSessionCursus implements Serializable{
 	
 	public void supprimerSessionCursus(){
 		
+	}
+	
+	public void annulerFenetreMofifierSessionFormation() {
+		RequestContext context = RequestContext.getCurrentInstance();
+		context.execute("PF('dlg3').hide();");
 	}
 	
 	public void annulerFenetreMofifier() {

@@ -13,7 +13,8 @@ import java.util.List;
  */
 @Entity
 @Table(name="session_formation")
-@NamedQuery(name="SessionFormation.findAll", query="SELECT s FROM SessionFormation s")
+@NamedQueries({@NamedQuery(name="SessionFormation.findAll", query="SELECT s FROM SessionFormation s"),
+	@NamedQuery(name="SessionFormation.findByIdCursus", query="SELECT f FROM SessionFormation f WHERE f.sessionCursus.idSessionCursus = :idSessionCursus ORDER BY f.ordre")})
 public class SessionFormation implements Serializable {
 	private static final long serialVersionUID = 1L;
 

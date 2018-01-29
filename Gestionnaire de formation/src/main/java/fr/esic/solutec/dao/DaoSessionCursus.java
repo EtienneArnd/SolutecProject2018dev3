@@ -31,6 +31,17 @@ public class DaoSessionCursus extends Dao{
 		return query.getResultList();
 	}
 	
+	public static List<SessionFormation> getListSessionFormationSessionCursus(int IdSessionCursus)
+	{
+		Query query = null;
+		
+		query = entityManager.createNamedQuery("SessionFormation.findByIdCursus");
+		
+		query.setParameter("idSessionCursus",IdSessionCursus);
+		
+		return query.getResultList();
+	}
+	
 	public static void AddSessionCursus(SessionCursus sessionCursus)
 	{
 		entityManager.getTransaction().begin();
