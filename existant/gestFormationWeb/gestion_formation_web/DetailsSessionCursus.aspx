@@ -32,13 +32,9 @@
             <asp:GridView ID="gvSessionsFormation" runat="server" AutoGenerateColumns="False" DataSourceID="odsSessionsFormation" Style="float: left;" CellPadding="4" ForeColor="#333333" GridLines="None" Width="90%">
                 <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                 <Columns>
-                    <%--            <asp:BoundField DataField="date_debut" HeaderText="Date de début" SortExpression="date_debut" />--%>
-                    <%--<asp:ButtonField DataTextField="intitule" DataTextFormatString="Génerer la feuille d'éval pour {0}" HeaderText="Feuille d'éval" />--%>
-
                     <asp:BoundField DataField="id_session_formation" HeaderText="id_session_formation" SortExpression="id_session_formation" Visible="False" />
                     <asp:TemplateField HeaderText="Intitulé">
                         <ItemTemplate>
-                            <%--<asp:Label ID="intitule" runat="server" Text='<%# Eval("formation.intitule") %>'></asp:Label>--%>
                             <asp:HyperLink ID="intitule" runat="server" Text='<%# Eval("formation.intitule") %>' NavigateUrl='<%# String.Format("~/DetailsSessionFormation.aspx?idSessionFormation={0}", Eval("id_session_formation")) %>'></asp:HyperLink>
                         </ItemTemplate>
                     </asp:TemplateField>
