@@ -3,7 +3,8 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-        <asp:GridView ID="gvFormations" runat="server" AutoGenerateColumns="False" DataSourceID="odsFormation" style="float:left;" CellPadding="4" ForeColor="#333333" GridLines="None" Width="90%">
+    <asp:Button ID="btnCreerFormation" runat="server" Text="Créer une nouvelle formation" OnClick="btnCreerFormation_Click" />   
+    <asp:GridView ID="gvFormations" runat="server" AutoGenerateColumns="False" DataSourceID="odsFormation" style="float:left;" CellPadding="4" ForeColor="#333333" GridLines="None" Width="90%">
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         <Columns>
             <asp:BoundField DataField="id_formation" HeaderText="ID formation" SortExpression="id_formation" Visible="False"/>

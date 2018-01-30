@@ -13,6 +13,7 @@ namespace gestion_formation_web
         {
 
         }
+
         protected void ModifierFormation_Command(object sender, CommandEventArgs e)
         {
             String id = e.CommandArgument.ToString();
