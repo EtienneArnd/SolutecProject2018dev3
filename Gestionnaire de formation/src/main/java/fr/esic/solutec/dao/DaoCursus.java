@@ -30,13 +30,16 @@ public class DaoCursus extends Dao{
 		return query.getResultList();
 	}
 	
-	public static void AddCursus(Cursus cursus)
+	public static int AddCursus(Cursus cursus)
 	{
 		entityManager.getTransaction().begin();
 		
 		entityManager.persist(cursus);
+		entityManager.flush();
 		
 		entityManager.getTransaction().commit();
+		
+		return cursus.getIdCursus();
 	}
 	
 	public static void EditCursus(Cursus cursus)

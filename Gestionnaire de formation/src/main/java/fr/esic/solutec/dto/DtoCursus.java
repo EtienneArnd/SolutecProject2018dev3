@@ -19,10 +19,9 @@ public class DtoCursus {
 	}
 	
 	
-	public static void AddCursus(Cursus cursus) {
+	public static int AddCursus(Cursus cursus) {
 
-		DaoCursus.AddCursus(cursus);
-		
+		return DaoCursus.AddCursus(cursus);
 	}
 	
 	public static void EditCursus(Cursus cursus) {
