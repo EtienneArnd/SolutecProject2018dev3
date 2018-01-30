@@ -39,6 +39,7 @@ namespace gestion_formation_web
 
                 }
                 lblTitrePage.Text = "Formation " + sessionFormation.formation.intitule;
+                btnVoirCursus.Enabled = sessionFormation.id_session_cursus!=null;
                 DateTime dateDebut = DateTime.MinValue;
                 if (sessionFormation.date_debut != null)
                 {
@@ -155,6 +156,18 @@ namespace gestion_formation_web
             tbxDateFin.Text = "";
             tbxOrdre.Text = "";
             tbxTarifIntra.Text = "";
+        }
+
+        protected void BtnVoirListeFormation_Click(object sender, EventArgs e)
+        {
+            session_formation sessionFormation = DtoSessionFormation.Get(idSessionFormation);
+            Response.Redirect(string.Format("~/ListeSessionsFormation.aspx?idFormation={0}", sessionFormation.id_formation));
+        }
+
+        protected void btnVoirCursus_Click(object sender, EventArgs e)
+        {
+            session_formation sessionFormation = DtoSessionFormation.Get(idSessionFormation);
+            Response.Redirect(string.Format("~/DetailsSessionCursus.aspx?id_session_cursus={0}", sessionFormation.id_session_cursus));
         }
     }
 }

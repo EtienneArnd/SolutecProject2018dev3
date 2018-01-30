@@ -4,6 +4,8 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server" >
     <asp:Label ID="lblTitrePage" runat="server" Text="Formation ...." CssClass="titre1 auto-style1"></asp:Label>
+    <asp:Button ID="BtnVoirListeFormation" runat="server" Text="Liste des sessions similaires" OnClick="BtnVoirListeFormation_Click" />
+    <asp:Button ID="btnVoirCursus" runat="server" Text="Voir Cursus" OnClick="btnVoirCursus_Click" />
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
             <asp:ObjectDataSource ID="odsFormateurs" runat="server" SelectMethod="GetFormateurs" TypeName="gestion_formation_web.dto.DtoSessionFormation">
                 <SelectParameters>
