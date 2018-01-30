@@ -32,7 +32,12 @@
             <asp:GridView ID="gvSessionsFormation" runat="server" AutoGenerateColumns="False" DataSourceID="odsSessionsFormation" Style="float: left;" CellPadding="4" ForeColor="#333333" GridLines="None" Width="90%">
                 <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                 <Columns>
-                    <asp:BoundField DataField="id_session_formation" HeaderText="id_session_formation" SortExpression="id_session_formation" Visible="False" />
+                    <asp:TemplateField Visible="false">
+                        <ItemTemplate>
+                            <asp:Label ID="lblIdSessionFormation" runat="server" Text='<%#Eval("id_session_formation") %>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <%--<asp:BoundField DataField="id_session_formation" HeaderText="id_session_formation" SortExpression="id_session_formation" Visible="False" />--%>
                     <asp:TemplateField HeaderText="Intitulé">
                         <ItemTemplate>
                             <asp:HyperLink ID="intitule" runat="server" Text='<%# Eval("formation.intitule") %>' NavigateUrl='<%# String.Format("~/DetailsSessionFormation.aspx?idSessionFormation={0}", Eval("id_session_formation")) %>'></asp:HyperLink>
@@ -59,7 +64,12 @@
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:BoundField DataField="ordre" HeaderText="Ordre" SortExpression="ordre" />
-                    <asp:BoundField DataField="type" HeaderText="Type" SortExpression="type" />
+                    <asp:TemplateField HeaderText="Ordre">
+                        <ItemTemplate>
+                            <asp:DropDownList ID="ddlOrdre" runat="server" DataTextField="ordre" DataValueField="ordre" DataSourceID="odsSessionsFormation" SelectedValue='<%# Eval("ordre")%>' OnSelectedIndexChanged="ddlOrdre_SelectedIndexChanged" AutoPostBack="true">
+                            </asp:DropDownList>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:TemplateField HeaderText="Formateurs">
                         <ItemTemplate>
                             <asp:Label ID="formateurs" runat="server" Text='<%# gestion_formation_web.Globale.GetFormateursAsString((int)Eval("id_session_formation")) %>'></asp:Label>
@@ -90,6 +100,7 @@
                 <SortedDescendingCellStyle BackColor="#FFFDF8" />
                 <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
             </asp:GridView>
+            <asp:Label ID="lblMemeOrdre" runat="server" Text="La formation est déjà à l'ordre que vous demandez" Visible="False"></asp:Label>
         </div>
         <br />
         <div class="TableView">

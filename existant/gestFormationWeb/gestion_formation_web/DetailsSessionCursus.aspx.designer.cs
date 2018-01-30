@@ -112,6 +112,15 @@ namespace gestion_formation_web {
         protected global::System.Web.UI.WebControls.GridView gvSessionsFormation;
         
         /// <summary>
+        /// Contrôle lblMemeOrdre.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMemeOrdre;
+        
+        /// <summary>
         /// Contrôle btnCalculerDateSession.
         /// </summary>
         /// <remarks>

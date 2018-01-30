@@ -13,8 +13,6 @@
     <link href="css/nos_styles.css" rel="stylesheet" type="text/css" />
     <link href="css/jquery-ui.css" rel="stylesheet" type="text/css" />
     <link href="css/style-jquery.css" rel="stylesheet" type="text/css" />
-    <%-- <link href="Style.css" rel="stylesheet" type="text/css" /> 
-           Page du projet original, contenu dépacée dans css/nos_styles.css --%>
 
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>

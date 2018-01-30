@@ -1,4 +1,5 @@
-﻿using System;
+﻿using gestion_formation_web.dto;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -210,6 +211,55 @@ namespace gestion_formation_web
         {
             session_cursus sessionCursus = dto.DtoSessionCursus.Get(idSessionCursus);
             Response.Redirect(string.Format("~/ListeSessionsCursus.aspx?idCursus={0}", sessionCursus.id_cursus));
+        }
+
+                protected void ddlOrdre_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            //On récupère: la dropdownlist, la ligne du gridview qui la contient et l'id de la formation correspondante, puis la formation elle-même
+            DropDownList ddl = (DropDownList)sender;
+            GridViewRow row = (GridViewRow)ddl.NamingContainer;
+            Label lblIdSessionFormation = (Label)row.FindControl("lblIdSessionFormation");
+            int idSessionFormationADecaler = int.Parse(lblIdSessionFormation.Text);
+            session_formation sessionFormationADecaler = DtoSessionFormation.Get(idSessionFormationADecaler);
+
+            //On récupère l'ordre actuel de la formation à décaler ainsi que l'ordre souhaité
+            int ordreActuel = (int)sessionFormationADecaler.ordre;
+            int ordreSouhaite = int.Parse(ddl.Text);
+
+            //Le multiplicateurOrdre sert à distinguer les cas où on veut décaler l'ordre vers le haut ou vers le bas; il vaut +/-1
+            int multiplicateurOrdre = 0;
+            int compteur;
+
+            if (ordreSouhaite != ordreActuel)
+            {
+                if (ordreSouhaite > ordreActuel)
+                {
+                    multiplicateurOrdre = 1;
+                }
+                else if (ordreSouhaite < ordreActuel)
+                {
+                    multiplicateurOrdre = -1;
+                }
+                compteur = ordreActuel + multiplicateurOrdre;
+                //On décale toutes les formations dont l'ordre est compris entre l'ancien (exclus) et le nouvel ordre (inclus) de la formation à décaler
+                do
+                {
+                    session_formation sessionFormation = DtoSessionFormation.GetByOrder(idSessionCursus, compteur);
+                    sessionFormation.ordre = sessionFormation.ordre - multiplicateurOrdre;
+                    DtoSessionFormation.Modifier(sessionFormation);
+                    compteur = compteur + multiplicateurOrdre;
+                }
+                while (compteur != ordreSouhaite + multiplicateurOrdre);
+                //On affecte le nouvel ordre à la formation à décaler, on sauvegarde en BDD et on rafraichit la page
+                sessionFormationADecaler.ordre = ordreSouhaite;
+                DtoSessionFormation.Modifier(sessionFormationADecaler);
+                Response.Redirect(Request.RawUrl);
+            }
+            else if (ordreSouhaite == ordreActuel)
+            {
+                lblMemeOrdre.Visible = true;
+            }
         }
     }
 }

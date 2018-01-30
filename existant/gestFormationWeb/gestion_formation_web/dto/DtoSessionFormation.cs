@@ -11,6 +11,12 @@ namespace gestion_formation_web.dto
         {
             return dao.DaoSessionFormation.Get(idSessionFormation);
         }
+
+        public static session_formation GetByOrder(int idSessionCursus, int ordre)
+        {
+            return dao.DaoSessionFormation.GetByOrder(idSessionCursus, ordre);
+        }
+
         public static IEnumerable<session_formation> GetSessionFormation(int idFormation)
         {
             return dao.DaoSessionFormation.GetSessionFormation(idFormation);
@@ -19,6 +25,10 @@ namespace gestion_formation_web.dto
         public static IEnumerable<stagiaire> GetStagiaires(int idSessionFormation)
         {
             return dao.DaoSessionFormation.GetStagiaires(idSessionFormation);
+        }
+        public static IEnumerable<stagiaire> GetAutresStagiaires(int idSessionFormation)
+        {
+            return dao.DaoSessionFormation.GetAutresStagiaires(idSessionFormation);
         }
         public static IEnumerable<formateur> GetFormateurs(int idSessionFormation)
         {
@@ -42,11 +52,11 @@ namespace gestion_formation_web.dto
         {
             dao.Dao.Update();
         }
-       
+
 
         public static IEnumerable<CoupletNomValeur> getTypesFormation()
         {
-            string []valeurs = dao.Dao.getEnumValues("session_formation", "type");
+            string[] valeurs = dao.Dao.getEnumValues("session_formation", "type");
             List<CoupletNomValeur> listeValeurs = new List<CoupletNomValeur>();
 
             foreach (string val in valeurs)
@@ -56,7 +66,7 @@ namespace gestion_formation_web.dto
             return listeValeurs;
         }
 
-        public static void Add(session_formation sessionFormation,formateur leFormateur, DateTime date)
+        public static void Add(session_formation sessionFormation, formateur leFormateur, DateTime date)
         {
             dao.DaoSessionFormation.Add(sessionFormation, leFormateur, date);
         }
@@ -67,7 +77,23 @@ namespace gestion_formation_web.dto
         }
         public static void UpdateSessionFormation(int idSessionFormation, string dateDebut = "", string dateFin = "", string ordre = "", string type = "", string tarifIntra = "")
         {
-            dao.DaoSessionFormation.Update(idSessionFormation,dateDebut, dateFin, ordre, type, tarifIntra);
+            dao.DaoSessionFormation.Update(idSessionFormation, dateDebut, dateFin, ordre, type, tarifIntra);
+        }
+
+        public static void AddStagiaire(int idSessionCursus, int idStagiaire)
+        {
+            dao.DaoSessionFormation.AddStagiaire(idSessionCursus, idStagiaire);
+        }
+
+        public static void RemoveStagiaireFromSession(int idStagiaire, int idSessionFormation)
+        {
+            dao.DaoSessionFormation.RemoveStagiaireFromSession(idStagiaire, idSessionFormation);
+        }
+
+        public static void Modifier(session_formation sessionFormation)
+        {
+            dao.DaoSessionFormation.Modifier(sessionFormation);
         }
     }
+
 }

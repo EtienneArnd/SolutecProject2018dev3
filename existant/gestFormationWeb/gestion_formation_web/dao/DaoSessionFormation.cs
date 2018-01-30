@@ -9,9 +9,15 @@ namespace gestion_formation_web.dao
     public class DaoSessionFormation : Dao
     {
         public static session_formation Get(int idSessionFormation)
-        { 
-           return  ctxt.session_formation.SingleOrDefault(cs => cs.id_session_formation == idSessionFormation);
+        {
+            return ctxt.session_formation.SingleOrDefault(cs => cs.id_session_formation == idSessionFormation);
         }
+
+        public static session_formation GetByOrder(int idSessionCursus, int ordre)
+        {
+            return ctxt.session_formation.SingleOrDefault(cs => cs.id_session_cursus == idSessionCursus && cs.ordre == ordre);
+        }
+
 
         public static IEnumerable<session_formation> GetSessionFormation(int idFormation)
         {
@@ -19,9 +25,13 @@ namespace gestion_formation_web.dao
         }
         public static IEnumerable<stagiaire> GetStagiaires(int idSessionFormation)
         {
-            return  ctxt.stagiaire_session_formation.Where (ssf => ssf.id_session_formation == idSessionFormation).Select(ssf => ssf.stagiaire).ToList();
+            return ctxt.stagiaire_session_formation.Where(ssf => ssf.id_session_formation == idSessionFormation).Select(ssf => ssf.stagiaire).ToList();
         }
-        public static IEnumerable<stagiaire> GetStagiaires(int idSessionFormation, int idSociete )
+        public static IEnumerable<stagiaire> GetAutresStagiaires(int idSessionFormation)
+        {
+            return ctxt.stagiaire.Where(s => s.stagiaire_session_formation.All(ssf => ssf.id_session_formation != idSessionFormation)).ToList();
+        }
+        public static IEnumerable<stagiaire> GetStagiaires(int idSessionFormation, int idSociete)
         {
             return ctxt.stagiaire_session_formation.Where(ssf => ssf.id_session_formation == idSessionFormation).Select(ssf => ssf.stagiaire).Where(st => st.societe.id_societe == idSociete).ToList();
         }
@@ -53,7 +63,8 @@ namespace gestion_formation_web.dao
 
         public static void Add(session_formation sessionFormation, formateur leFormateur, DateTime date)
         {
-            formateur_session_formation fsf = new formateur_session_formation {
+            formateur_session_formation fsf = new formateur_session_formation
+            {
                 formateur = leFormateur,
                 session_formation = sessionFormation
             };
@@ -89,12 +100,36 @@ namespace gestion_formation_web.dao
             catch
             {
                 //Nothing to do
-                Console.WriteLine("Echec de la mise à jour de la SessionFormation #"+idSessionFormation);
+                Console.WriteLine("Echec de la mise à jour de la SessionFormation #" + idSessionFormation);
             }
-            
+
+        }
+        public static void AddStagiaire(int idSessionFormation, int idStagiaire)
+        {
+            stagiaire_session_formation stagiaireSessionFormation = new
+                stagiaire_session_formation
+            {
+                id_session_formation = idSessionFormation,
+                id_stagiaire = idStagiaire
+            };
+            ctxt.stagiaire_session_formation.Add(stagiaireSessionFormation);
+            Dao.Update();
         }
 
+        internal static void RemoveStagiaireFromSession(int idStagiaire, int idSessionFormation)
+        {
+            stagiaire_session_formation stagiaireSessionFormation = ctxt.stagiaire_session_formation.SingleOrDefault(ssf => ssf.id_session_formation == idSessionFormation && ssf.id_stagiaire == idStagiaire);
+            ctxt.stagiaire_session_formation.Remove(stagiaireSessionFormation);
+            Dao.Update();
+        }
+
+        public static void Modifier(session_formation sessionFormation)
+        {
+            Dao.Update();
+        }
     }
+
 }
+
 
 
