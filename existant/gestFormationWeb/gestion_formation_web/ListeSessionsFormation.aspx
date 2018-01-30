@@ -33,6 +33,11 @@
                     <asp:Label ID="salle" runat="server" Text='<%# Eval("salle.nom") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
+            <asp:TemplateField HeaderText="Detail">
+                <ItemTemplate>
+                    <asp:HyperLink ID="Detail" runat="server" Text="Detail" NavigateUrl='<%# String.Format("~/DetailsSessionFormation.aspx?idSessionFormation={0}", Eval("id_session_formation")) %>'></asp:HyperLink>
+                </ItemTemplate>
+            </asp:TemplateField>
         </Columns>
         <EditRowStyle BackColor="#999999" />
         <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />

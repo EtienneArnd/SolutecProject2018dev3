@@ -67,7 +67,9 @@ namespace gestion_formation_web.dao
             stagiaire stagiaire = ctxt.stagiaire.SingleOrDefault(s => s.id_stagiaire == idStagiaire);
             session_cursus sessionCursus = ctxt.session_cursus.SingleOrDefault(sc => sc.id_session_cursus == idSessionCursus);
             stagiaire.session_cursus.Add(sessionCursus);
-            Dao.Update();
+            sessionCursus.stagiaire.Add(stagiaire);
+            ctxt.SaveChanges();
+            //Dao.Update();
         }
 
         internal static void RemoveStagiaireFromSession(int idStagiaire, int idSessionCursus)
@@ -75,7 +77,9 @@ namespace gestion_formation_web.dao
             stagiaire stagiaire = ctxt.stagiaire.SingleOrDefault(s => s.id_stagiaire == idStagiaire);
             session_cursus sessionCursus = ctxt.session_cursus.SingleOrDefault(sc => sc.id_session_cursus == idSessionCursus);
             stagiaire.session_cursus.Remove(sessionCursus);
-            Dao.Update();
+            sessionCursus.stagiaire.Remove(stagiaire);
+            ctxt.SaveChanges();
+            //Dao.Update();
         }
     }
 }

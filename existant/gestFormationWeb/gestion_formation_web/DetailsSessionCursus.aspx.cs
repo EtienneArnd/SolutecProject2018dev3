@@ -169,9 +169,10 @@ namespace gestion_formation_web
         protected void btnAjouterStagiaire_Click(object sender, EventArgs e)
         {
             int idStagiaire = Convert.ToInt32(ddlAjouterStagiaire.SelectedValue);
-            dto.DtoSessionCursus.AddStagiaire(idSessionCursus, idStagiaire);
+            dto.DtoSessionCursus.AddStagiaire(idSessionCursus, idStagiaire);            
             gvStagiaires.DataBind();
             ddlAjouterStagiaire.DataBind();
+            Response.Redirect(Request.RawUrl);
         }
 
         protected void gvStagiaires_RowDeleting(object sender, GridViewDeleteEventArgs e)
