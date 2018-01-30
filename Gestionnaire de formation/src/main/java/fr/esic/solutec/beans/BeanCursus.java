@@ -13,6 +13,7 @@ import javax.faces.context.FacesContext;
 import org.primefaces.context.RequestContext;
 
 import fr.esic.solutec.dto.DtoCursus;
+import fr.esic.solutec.dto.DtoFormationCursus;
 import fr.esic.solutec.entities.Cursus;
 
 @ManagedBean(name = "beanCursus")
@@ -54,6 +55,8 @@ public class BeanCursus implements Serializable {
 	public String toPageCursus() {
 		return "cursus"; // Pas besoin de / et de .xhtml
 	}
+	
+	
 
 	public List<Cursus> getListCursus() {
 		listCursus = DtoCursus.getListCursus();
@@ -66,8 +69,9 @@ public class BeanCursus implements Serializable {
 	}
 
 	public void ValiderInfos() {
-
-		DtoCursus.AddCursus(cursus);
+		
+		//DtoCursus.AddCursus(cursus);
+		//DtoFormationCursus.AddFormationCursus(formationCursus);
 		init();
 	}
 

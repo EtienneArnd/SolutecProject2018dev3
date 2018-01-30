@@ -1,5 +1,6 @@
 package fr.esic.solutec.beans;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,6 +17,7 @@ import fr.esic.solutec.dto.DtoFormationCursus;
 import fr.esic.solutec.entities.Cursus;
 import fr.esic.solutec.entities.Formation;
 import fr.esic.solutec.entities.FormationCursus;
+import fr.esic.solutec.entities.SessionFormation;
 
 
 @ManagedBean(name = "beanFormationCursus")
@@ -29,12 +31,15 @@ public class BeanFormationCursus {
 	private List<FormationCursus> listFormationCursus;
 	private List<FormationCursus> listFormationByCursus;
 	
+	
 	private List<Integer> listOrdre;
 
 	private FormationCursus formationCursus = new FormationCursus();
 	private FormationCursus formationCursus_modif = new FormationCursus();
 	private Cursus cursus_modif = new Cursus();
+	private Cursus cursus = new Cursus();
 	private Formation formation_modif = new Formation();
+	private List<FormationCursus> listNewFormationCursus = new ArrayList<FormationCursus>();
 	
 	private int ordreInitial;
 			
@@ -62,7 +67,24 @@ public class BeanFormationCursus {
 		this.formationCursus = formationCursus;
 	}
 
+	
+	public Cursus getCursus() {
+		return cursus;
+	}
 
+	public void setCursus(Cursus cursus) {
+		this.cursus = cursus;
+	}
+
+	
+	
+	public List<FormationCursus> getListNewFormationCursus() {
+		return listNewFormationCursus;
+	}
+
+	public void setListNewFormationCursus(List<FormationCursus> listNewFormationCursus) {
+		this.listNewFormationCursus = listNewFormationCursus;
+	}
 
 	public List<FormationCursus> getListFormationCursus() {
 		listFormationCursus = DtoFormationCursus.getListFormationCursus();
@@ -71,8 +93,10 @@ public class BeanFormationCursus {
 	
 	
 	private void init() {
+		cursus = new Cursus();
 		formationCursus = new FormationCursus();
 		formationCursus_modif = new FormationCursus();
+		listNewFormationCursus = new ArrayList<FormationCursus>();
 	}
 
 	private void initBis() {
@@ -83,8 +107,18 @@ public class BeanFormationCursus {
 	
 	public void ValiderInfos() {
 
-		//DtoFormationCursus.AddFormationCursus(formationCursus);
+		int id = DtoCursus.AddCursus(cursus);
+		for(FormationCursus newFormationCursus : listNewFormationCursus) {
+			Cursus cursusBis = DtoCursus.getCursus(id);
+			newFormationCursus.setCursus(cursusBis);
+			DtoFormationCursus.AddFormationCursus(newFormationCursus);
+		}
 		init();
+	}
+	
+	public void AddtoListFormationCursus(){
+		listNewFormationCursus.add(formationCursus);
+		formationCursus = new FormationCursus();
 	}
 	
 	public void setListFormationCursus(List<FormationCursus> listFormationCursus) {
@@ -172,14 +206,7 @@ public class BeanFormationCursus {
 	
 	public void ValiderLeChangementOrdre() {
 		
-
-
-		
 		int newOrdre = formationCursus_modif.getOrdre();
-
-		
-		System.out.println(ordreInitial);
-		System.out.println(newOrdre);
 		
 		
 		if(ordreInitial == newOrdre) {
@@ -239,8 +266,6 @@ public class BeanFormationCursus {
 		System.out.println(formationCursus_modif.getOrdre());
 		
 		if(listFormationByCursus.size()+1 != formationCursus_local.getOrdre() ) {
-			
-		
 		
 		for(int i = listFormationByCursus.size(); i>=formationCursus_local.getOrdre(); i--) {
 			
@@ -255,6 +280,12 @@ public class BeanFormationCursus {
 		DtoFormationCursus.AjoutFormationFromCursus(formationCursus_local);
 		init();
 		
+	}
+	
+	public List<Integer> newOrdre() {
+		List<Integer> newOrdre = new ArrayList<Integer>();
+		newOrdre.add(listNewFormationCursus.size()+1);
+		return newOrdre;
 	}
 	
 	

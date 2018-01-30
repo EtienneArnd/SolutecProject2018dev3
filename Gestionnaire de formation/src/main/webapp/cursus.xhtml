@@ -25,31 +25,81 @@
 
 
 
-	<p:dialog id="dlg1" header="Menu ajouter une cursus" resizable="false"
+	<p:dialog id="dlg1" header="Menu ajouter une cursus" resizable="true"
 		widgetVar="dlg1" modal="true">
-		<h:form>
+		<h:form id="hform">
+			<p:outputPanel id="outputPanel">
 			<p:panelGrid columns="2">
 				<h:panelGrid columns="2">
 					<h6>
 						Nom :
-						<h:inputText value="#{beanCursus.cursus.nom}" />
+						<h:inputText value="#{beanFormationCursus.cursus.nom}" />
 					</h6>
 				</h:panelGrid>
 				<h:panelGrid columns="2">
 					<h6>
 						Tarif :
-						<h:inputText value="#{beanCursus.cursus.tarif}"
+						<h:inputText value="#{beanFormationCursus.cursus.tarif}"
 							onkeypress="if(event.which &lt; 46 || event.which &gt; 57) return false;" />
 					</h6>
 				</h:panelGrid>
-				<h:panelGrid columns="2">
-					<h6>Sélectionner Cursus :</h6>
-				</h:panelGrid>
-			</p:panelGrid>
+					<p:panelGrid columns="3">
+	
+						<h:panelGrid columns="3">
+							<h6>
+								Nom Formation :
+								<h:selectOneMenu
+									value="#{beanFormationCursus.formationCursus.formation}"
+									converter="formationConverter">
+									<f:selectItems value="#{beanFormation.listFormation}"
+										var="listformation" itemValue="#{listformation}"
+										itemLabel="#{listformation.intitule}" />
+								</h:selectOneMenu>
+							</h6>
+						</h:panelGrid>
+						<h:panelGrid columns="2">
+							<h6>
+								Ordre :
+								<h:selectOneMenu
+									value="#{beanFormationCursus.formationCursus.ordre}">
+									<f:selectItems value="#{beanFormationCursus.newOrdre()}"
+										var="ordre" itemValue="#{ordre}" itemLabel="#{ordre}" />
+								</h:selectOneMenu>
+							</h6>
+						</h:panelGrid>
+						<h:panelGrid columns="1">
+							<p:commandButton value="Valider" styleClass="btn btn-success" update=":hform:outputPanel"
+								action="#{beanFormationCursus.AddtoListFormationCursus()}"/>
+						</h:panelGrid>
+					</p:panelGrid>
+				</p:panelGrid>
+				<p:dataTable id="listFormation" value="#{beanFormationCursus.listNewFormationCursus}"
+					var="formationCursus" styleClass="skill"
+					rowClasses="btn-success,btn-light" columnClasses=",level">
+	
+					<f:facet name="header">
+						<h:outputText styleClass="btn-lg"
+							value="Detail du cursus :" />
+					</f:facet>
+					<p:column>
+						<f:facet name="header">
+							<h:outputText styleClass="btn-lg" value="Nom de formation" />
+						</f:facet>
+						<h:outputText value="#{formationCursus.formation.intitule}"/>
+					</p:column>
+					<p:column>
+						<f:facet name="header">
+							<h:outputText styleClass="btn-lg" value="Ordre de passage" />
+						</f:facet>
+						<h:outputText value="#{formationCursus.ordre}" />
+					</p:column>
+	
+				</p:dataTable>
+			</p:outputPanel>
 			<p>
 				<p:panelGrid columns="2">
 					<h:commandButton value="Valider" styleClass="btn btn-success"
-						type="submit" action="#{beanCursus.ValiderInfos()}" />
+						type="submit" action="#{beanFormationCursus.ValiderInfos()}" />
 					<h:commandButton value="Annuler" styleClass="btn btn-danger"
 						action="#{beanCursus.annulerFenetreAjouter()}" />
 				</p:panelGrid>
@@ -60,7 +110,6 @@
 
 	<p:dialog id="dlg2" header="Modifier un cursus" resizable="false"
 		widgetVar="dlg2" modal="true" height="400">
-
 		<h:form>
 
 			<p:panelGrid columns="2">
